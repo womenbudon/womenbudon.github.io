@@ -1,0 +1,583 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  
+  
+    
+    <entry>
+      <title><![CDATA[HTML面试题]]></title>
+      <url>http://yoursite.com/2016/10/08/HTML%E9%9D%A2%E8%AF%95%E9%A2%98/</url>
+      <content type="html"><![CDATA[<p>###doctype(文档类型) 的作用是什么？<br>声明文档的解析类型(document.compatMode)，避免浏览器的怪异模式。有以下两个值：</p>
+<pre><code>怪异模式，浏览器使用自己的怪异模式解析渲染页面。
+标准模式，浏览器使用W3C的标准解析渲染页面。
+</code></pre><p> 这个属性会被浏览器识别并使用，但是如果你的页面没有DOCTYPE的声明,浏览器按照自己的方式解析渲染页面（怪异模式），在不同的浏览器就会显示不同的样式。</p>
+<p><strong>注意以下几点：</strong>  </p>
+<ul>
+<li>&lt;!DOCTYPE&gt; 声明不是 HTML 标签；  </li>
+<li>&lt;!DOCTYPE&gt; 声明必须是 HTML 文档的第一行，位于 <html> 标签之前。  </html></li>
+<li>&lt;!DOCTYPE&gt; 不区分大小写  </li>
+<li>HTML 5的doctype声明是&lt;!DOCTYPE html&gt;<br>在 HTML 4.01 中，&lt;!DOCTYPE&gt; 声明引用 DTD，因为 HTML 4.01 基于 SGML。DTD 规定了标记语言的规则，这样浏览器才能正确地呈现内容。 HTML5 不基于 SGML，所以不需要引用 DTD。</li>
+</ul>
+<p>###浏览器标准模式和怪异模式有什么区别？</p>
+<p><strong>两者的区别：</strong></p>
+<ul>
+<li><p>盒模型的解析上： </p>
+<pre><code>在strict mode中 ：width是内容宽度
+在quirks mode中 ：width则是元素的实际宽度 ，而内容宽度 = width - (margin-left + margin-right + padding-left + padding-right + border-left-width + border-right-width)
+</code></pre></li>
+<li><p>图片元素垂直对齐方式</p>
+<pre><code>在strict mode中 ：vertical-align 属性默认取值为 baseline
+在quirks mode中 ：vertical align 属性默认为 bottom，因此，在图片底部会有几像素的空间。
+</code></pre></li>
+<li><p>&lt;table&gt;元素中的字体</p>
+<pre><code>Quirks Mode 下，对于 table 元素，字体的某些属性将不会从 body 或其他封闭元素继承到 table 中，特别是 font-size 属性。
+</code></pre></li>
+<li><p>内联元素的尺寸</p>
+<pre><code>在 Standards Mode 下，non-replaced inline 元素无法自定义大小，而在 Quirks Mode 下，定义这些元素的 width 和 height 属性，能够影响该元素显示的大小尺寸。
+</code></pre></li>
+<li><p>元素的百分比高度</p>
+<pre><code>当一个元素使用百分比高度时，在 Standards Mode 下，高度取决于内容的变化，而在 Quirks Mode 下，百分比高度则被正确应用。
+</code></pre></li>
+<li><p>元素溢出的处理</p>
+<pre><code>在 Standard Mode 下，overflow 取默认值 visible，即溢出可见，这种情况下，溢出内容不会被裁剪，呈现在元素框外。而在 Quirks Mode 下，该溢出被当做扩展 box 来对待，即元素的大小由其内容决定，溢出不会被裁剪，元素框自动调整，包含溢出内容。
+</code></pre></li>
+</ul>
+<p>###HTML和XHTML的区别是什么？<br><strong>主要的不同：</strong>  </p>
+<ul>
+<li>XHTML可以理解为html+xml，就是用xml的语法来规范html。  </li>
+<li>XHTML 元素必须被正确地嵌套。  </li>
+<li>XHTML 元素必须被关闭。  </li>
+<li>标签名必须用小写字母。  </li>
+<li>XHTML 文档必须拥有根元素。</li>
+</ul>
+<p>###如果网页内容需要支持多语言，你会怎么做？<br><strong>考虑:</strong></p>
+<ul>
+<li>应用字符集的选择 utf-8  </li>
+<li>语言书写习惯&amp;导航结构  </li>
+<li>数据库驱动型网站  </li>
+</ul>
+<p>具体做法：  </p>
+<ul>
+<li>静态：就是为每种语言分别准备一套页面文件，要么通过文件后缀名来区分不同语言，要么通过子目录来区分不同语言。   </li>
+<li>动态：站点内所有页面文件都是动态页面文件（PHP，ASP等）而不是静态页面文件，在需要输出语言文字的地方统一采用语言变量来表示，这些语言变量可以根据用户选择不同的语言赋予不同的值，从而能够实现在不同的语言环境下输出不同的文字</li>
+</ul>
+<p>###data-属性的作用是什么？<br>data-为前端开发者提供自定义的属性，这些属性集可以通过对象的dataset属性获取，不支持该属性的浏览器可以通过 getAttribute方法获取</p>
+<h3 id="如果把-HTML5-看作做一个开放平台，那它的构建模块有哪些？"><a href="#如果把-HTML5-看作做一个开放平台，那它的构建模块有哪些？" class="headerlink" title="如果把 HTML5 看作做一个开放平台，那它的构建模块有哪些？"></a>如果把 HTML5 看作做一个开放平台，那它的构建模块有哪些？</h3><p>开放网络平台（Open Web Platform）是一些开放的（免版权）技术的集合，这些技术激活了互联网。使用开放网络平台时，每个人都有权实现 Web 上的一个组件，而不用向任何人索取许可和证书。<br>构建模块，指的应该是开放网络平台这个技术集合中的技术：<br>HTML<br>DOM<br>CSS<br>SVG<br>MathML<br>Web APIs…<br>EcmaScript / JavaScript<br>HTTP<br>URI<br>Media Accessibility Checklist</p>
+<h3 id="请描述-cookies、sessionStorage-和-localStorage-的区别。"><a href="#请描述-cookies、sessionStorage-和-localStorage-的区别。" class="headerlink" title="请描述 cookies、sessionStorage 和 localStorage 的区别。"></a>请描述 cookies、sessionStorage 和 localStorage 的区别。</h3><p>共同点：都是保存在浏览器端，且同源的。 </p>
+<p>区别：</p>
+<ul>
+<li>大小<br>  cookie 最多只有 4kb，而 sessionStorage 和 localStorage 大小一般可以有 5M</li>
+<li>生命周期<br>  cookie 的生命周期由服务器控制，默认是关闭浏览器后删除；sessionStorage 仅在当前的窗口有效，localStorage 除非手动删除否则一直存在。</li>
+<li>http 通信<br>浏览器每次向服务器发送请求的时候都要带上该域的 cookie，而 sessionStorage 和 localStorage 仅存在于浏览器端。</li>
+<li>作用域<br>cookie 和 localStorage 在同个域名下的多个窗口都有效，sessionStorage 只在一个窗口有效，不能跨窗口共享。</li>
+<li>易用性<br>sessionStorage 和 localStorage 属于 HTML5 的 Web Storage 的 API，更加灵活易用。</li>
+</ul>
+<p>Web Storage带来的好处：</p>
+<p>减少网络流量：一旦数据保存在本地后，就可以避免再向服务器请求数据，因此减少不必要的数据请求，减少数据在浏览器和服务器间不必要地来回传递。<br>快速显示数据：性能好，从本地读数据比通过网络从服务器获得数据快得多，本地数据可以即时获得。再加上网页本身也可以有缓存，因此整个页面和数据都在本地的话，可以立即显示。<br>临时存储：很多时候数据只需要在用户浏览一组页面期间使用，关闭窗口后数据就可以丢弃了，这种情况使用sessionStorage非常方便。</p>
+<p>服务端存储</p>
+<p>服务器端也可以保存所有用户的所有数据，但需要的时候浏览器要向服务器请求数据。</p>
+<ul>
+<li>服务器端可以保存用户的持久数据，如数据库和云存储将用户的大量数据保存在服务器端。</li>
+<li>服务器端也可以保存用户的临时会话数据。服务器端的session机制，如jsp的 session 对象，数据保存在服务器上。 实现上，服务器和浏览器之间仅需传递session id即可，服务器根据session id找到对应用户的session对象。会话数据仅在一段时间内有效，这个时间就是server端设置的session有效期。 服务器端保存所有的用户的数据，所以服务器端的开销较大，而浏览器端保存则把不同用户需要的数据分布保存在用户各自的浏览器中。浏览器端一般只用来存储小数据，而服务器可以存储大数据或小数据。服务器存储数据安全一些，浏览器只适合存储一般数据。</li>
+</ul>
+<p>注：<br>H5本地存储 <a href="http://harttle.com/2015/08/16/localstorage-sessionstorage-cookie.html" target="_blank" rel="external">http://harttle.com/2015/08/16/localstorage-sessionstorage-cookie.html</a><br>session原理： <a href="https://www.pureweber.com/article/how-session-works/" target="_blank" rel="external">https://www.pureweber.com/article/how-session-works/</a></p>
+<p>###请解释 &lt;script&gt;、&lt;script async&gt; 和 &lt;script defer&gt; 的区别</p>
+<p>通过script标签加载js文件时，如果加载过慢，或者出错，有可能会阻塞整个页面的加载，这时就需要js的异步加载，以下两个属性可支持异步加载：<br>defer 和 async 的<strong>共同点</strong>:都是可以并行加载JS文件，不会阻塞页面的加载，<br>defer 和 async 的<strong>不同点</strong>:defer的加载完成之后， JS会等待整个页面全部加载完成了再执行， 而async是加载完成之后，会马上执行JS， 所以假如对JS的执行有严格顺序的话，那么建议用 defer加载。</p>
+<p>###为什么通常推荐将 CSS &lt;link&gt; 放置在 &lt;head&gt;&lt;/head&gt; 之间，而将 JS &lt;script&gt; 放置在 &lt;/body&gt; 之前？你知道有哪些例外吗？</p>
+<p>css放在head中： </p>
+<ul>
+<li>css放在head中， 是因为浏览器解析html文档是自上而下的，如果放底部的话，页面结构出来了，css还没开始渲染，可能会看到只有结构的页面。</li>
+<li>CSS 应当写在 head 中，以避免页面元素由于样式确实造成瞬间的白页或者给用户闪烁感。</li>
+</ul>
+<p>js放在/body之前：</p>
+<ul>
+<li>JS可能会改变DOM树，也可能依赖css样式。如果放在前面，那么DOM和css可能还未加载，这样容易报错。</li>
+<li>性能：js放前面，页面会先去加载他，拖慢了时间，使用户在一定时间内看不到网页内容。</li>
+</ul>
+<p>例外：js如果需要先加载后运行可以写在头里（当脚本使用 defer 方式加载的时候可以不用约束放置的位置。）；</p>
+<h3 id="如果页面使用-‘application-xhtml-xml’-会有什么问题吗？"><a href="#如果页面使用-‘application-xhtml-xml’-会有什么问题吗？" class="headerlink" title="如果页面使用 ‘application/xhtml+xml’ 会有什么问题吗？"></a>如果页面使用 ‘application/xhtml+xml’ 会有什么问题吗？</h3><p>首先这是个MIME类型，意思就是告诉浏览器，要用xhtml的格式来解析我发给你的页面；<br>xhtml 语法要求严格，必须有head、body 每个dom 必须要闭合。空标签也必须闭合。例如&lt;img /&gt;, &lt;br/&gt;, &lt;input /&gt;等。另外要在属性值上使用双引号。一旦遇到错误，立刻停止解析，并显示错误信息。<br>如果页面使用’application/xhtml+xml’,一些老的浏览器会不兼容。<br>IE6，7，8不支持，IE6，7，8支持text/html。</p>
+<h3 id="什么是渐进式渲染-progressive-rendering-？"><a href="#什么是渐进式渲染-progressive-rendering-？" class="headerlink" title="什么是渐进式渲染 (progressive rendering)？"></a>什么是渐进式渲染 (progressive rendering)？</h3><p>渐进式渲染是指浏览器不用等待所有页面资源都渲染好之后再呈现给用户看，而是边下载边渲染，所以用户打开一个网页的时候往往不能第一时间看到所有的内容，但是能够看到一个大概的样子，后续的内容浏览器会慢慢补上形成一个完整的页面。这个有点像 bigpipe。</p>
+<h3 id="请解释下什么事语义化的HTML？"><a href="#请解释下什么事语义化的HTML？" class="headerlink" title="请解释下什么事语义化的HTML？"></a>请解释下什么事语义化的HTML？</h3><p>语义化的好处：  </p>
+<pre><code>1：去掉或样式丢失的时候能让页面呈现清晰的结构：html本身是没有表现的，我们看到例如&amp;lt;h1&gt;是粗体，字体大小2em，加粗；&amp;lt;strong&gt;是加粗的，不要认为这是html的表现，这些其实html默认的css样式在起作用，所以去掉或样式丢失的时候能让页面呈现清晰的结构不是语义化的HTML结构的优点，但是浏览器都有有默认样式，默认样式的目的也是为了更好的表达html的语义，可以说浏览器的默认样式和语义化的HTML结构是不可分割的。
+2.屏幕阅读器（如果访客有视障）会完全根据你的标记来“读”你的网页.  
+3.PDA、手机等设备可能无法像普通电脑的浏览器一样来渲染网页（通常是因为这些设备对CSS的支持较弱）.  
+4.搜索引擎的爬虫也依赖于标记来确定上下文和各个关键字的权重.  
+5.你的页面是否对爬虫容易理解非常重要,因为爬虫很大程度上会忽略用于表现的标记,而只注重语义标记.  
+6.便于团队开发和维护
+</code></pre><p> 语义化的HTML就是：标题用h1-h6，文字段落用p，列表用ul li，大致如此</p>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[JS面试题]]></title>
+      <url>http://yoursite.com/2016/10/08/JS%E9%9D%A2%E8%AF%95%E9%A2%98/</url>
+      <content type="html"><![CDATA[<p>###请解释事件代理 (event delegation)。</p>
+<p>事件委托技术能让你避免对特定的每个节点添加事件监听器；相反，事件监听器是被添加到它们的父元素上。事件监听器会分析从子元素冒泡上来的事件，找到是哪个子元素的事件。</p>
+<p><strong>优点：</strong></p>
+<ul>
+<li>性能得到了优化（需要创建的以及驻留在内存中的事件处理器少了）</li>
+<li>动态添加的元素也能绑定事件了</li>
+</ul>
+<p>###请解释 JavaScript 中 this 是如何工作的。</p>
+<p>this 永远指向函数运行时所在的对象，而不是函数被创建时所在的对象。</p>
+<ul>
+<li>函数调用es3和非严格es5为全局对象，严格es5为undefined     </li>
+<li>方法调用this指向调用该方法的对象（调用上下文）   </li>
+<li>构造函数时，this指向新创建的对象    </li>
+<li>call() apply() 调用方法时，this指向调用方法的对象，而不是该方法拥有者对象   </li>
+</ul>
+<p>参考：<a href="http://blog.jobbole.com/67347/" target="_blank" rel="external">JavaScript中this的工作原理以及注意事项</a> </p>
+<p>###请解释原型继承 (prototypal inheritance) 的原理？<br>原型继承的基础是原型链查找。</p>
+<p>原型链查找基本概念：<br>每一个函数 F 都有一个原型对象（prototype）F.prototype<br>每一个函数都可以通过 new 关键字化身成为一个类构造函数，new F 会产生一个对象 O<br>在调用对象的某个属性或者方法，比如 <a href="http://O.xxx" target="_blank" rel="external">http://O.xxx</a> 的时候，会首先查找对象自身是否有这个方法或者属性，如果没找到就会去对象的构造函数的原型对象中查找（注意有两个定语），也就是查找 O 的构造函数 F 的原型对象 <a href="http://F.prototype.xxx" target="_blank" rel="external">http://F.prototype.xxx</a><br>F.prototype 也是一个对象，查找 <a href="http://F.prototype.xxx" target="_blank" rel="external">http://F.prototype.xxx</a> 的时候会重复第 3 步的过程</p>
+<p>###你怎么看 AMD vs. CommonJS？</p>
+<p>###请解释为什么接下来这段代码不是 IIFE (立即调用的函数表达式)：function foo(){ }();要做哪些改动使它变成 IIFE?</p>
+<p>　这里只是声明一个叫foo的function，直接用()执行这样是不成功的，想要变成IIFE就要把声明变成表达式，就可以立即执行了，可以这样(function foo(){})()或者(function foo(){}())，这就是用括号把定义强转成表达式，当然还有其他方法，关键就是声明不可以执行，表达式才可以执行。</p>
+<p>参考：<a href="http://gold.xitu.io/entry/5704e12771cfe4005dc85868" target="_blank" rel="external">揭秘IIFE语法</a></p>
+<p>###描述以下变量的区别：null，undefined 或 undeclared？ 该如何检测它们？</p>
+<p>‘undefined’是未定义，在变量没有赋值的时候的值即为undefined。“缺少值”，就是此处应该有一个值，但是还没有定义。</p>
+<p>‘underclared’即为被污染的命名，访问没有被声明的变量，会抛出异常，终止执行。尝试访问一个undeclared的变量，浏览器会报错，JS执行会中断。</p>
+<p>‘null’是一个空的对象引用。“没有对象”，即该处不应该有值</p>
+<p>undefined和null在if语句中，都会被自动转为false，相等运算符甚至直接报告两者相等。typeof undefined会返回undefined ，而typeof null 总返回 object(typeof有六种可能：“number”、“string”、“boolean”、“object”、“function”、“undefined”)</p>
+<p>false == undefined;//false<br>false == null;//false<br>null == undefined;//true</p>
+<p>1、该如何检测它们？<br>var obj;<br>obj ===undefined;  //检测undfined 方法一<br>typeof obj === ‘undefined’;//检测undefined方法2<br>obj = null;<br>obj === null;//来检测null<br>typeof null;//‘object’  </p>
+<p>###什么是闭包 (closure)，如何使用它，为什么要使用它？</p>
+<p><strong>定义：</strong>闭包就是可以读取到其他函数内部变量的函数。<br><strong>闭包的用途：</strong></p>
+<ul>
+<li>一个是前面提到的可以读取函数内部的变量。(外界无法访问函数的内部的私有方法和变量，只能通过提供的接口访问)</li>
+<li>另一个就是让这些变量的值始终保持在内存中。</li>
+<li>可以避免污染全局变量，实现私有方法或者变量等</li>
+</ul>
+<p><strong>注意：</strong>  </p>
+<ul>
+<li>由于闭包会使得函数中的变量都被保存在内存中，内存消耗很大，所以不能滥用闭包，否则会造成网页的性能问题，在IE中可能导致内存泄露。解决方法是，在退出函数之前，将不使用的局部变量全部删除。</li>
+<li>闭包会在父函数外部，改变父函数内部变量的值。所以，如果你把父函数当作对象（object）使用，把闭包当作它的公用方法（Public Method），把内部变量当作它的私有属性（private value），这时一定要小心，不要随便改变父函数内部变量的值。</li>
+</ul>
+<p>###请举出一个匿名函数的典型用例？</p>
+<ul>
+<li><p>匿名函数可以用作<strong>回调函数</strong>执行，可以防止全局变量污染。</p>
+</li>
+<li><p>在 JS <strong>框架中常使用</strong>匿名函数来避免全局变量的污染。<br>$.(“input”).each(function(e){this.val(‘OK’)});</p>
+</li>
+</ul>
+<p>###你是如何组织自己的代码？是使用模块模式，还是使用经典继承的方法？</p>
+<p>###请指出 JavaScript 宿主对象 (host objects) 和原生对象 (native objects) 的区别？<br><strong>原生对象</strong>，独立于宿主环境的 ECMAScript 实现提供的对象。为array obj regexp date function等可以new实例化的对象。</p>
+<p><strong>内置对象</strong>为gload Math 等，开发者不必明确实例化内置对象，它已被实例化了。类似于isNaN()、parseInt()和parseFloat()方法等，看起来都是函数，而实际上，它们都是Global对象的方法。具体可以参考 JavaScript 全局对象</p>
+<p><strong>宿主对象</strong>。即由 ECMAScript 实现的宿主环境（操作系统和浏览器）提供的对象。所有的BOM和DOM对象都是宿主对象。因为其对于不同的“宿主”环境所展示的内容不同（这就是兼容性和特性检测的缘由）。ECMAScript官方未定义的对象都属于宿主对象。</p>
+<p>###请指出以下代码的区别：function Person(){}、var person = Person()、var person = new Person()？<br>第一个为函数声明，第二个将函数person()返回值赋值给person,第三个通过Person()的构造器创建了一个对象让person变量引用该对象；</p>
+<p>###.call 和 .apply 的区别是什么？<br>call和apply都是调用一个对象的一个方法，以另一个对象替换当前对象。它们都属于Function.prototype的一个方法，所以每个function实例都有call和apply属性。这两个方法可以用来代替另一个对象调用一个方法，可将一个函数的对象上下文从初始的上下文改变为由 thisObj 指定的新对象。　　</p>
+<p>区别在于，两者传递的参数不同，虽然函数第一个参数都是要传入给当前对象的对象，但是，apply的第二个参数是一个参数数组，将多个参数组合成为一个数组传入；而call第二个参数则是直接的参数列表。</p>
+<p>###请解释 Function.prototype.bind？<br>Function.prototype.bind()其实就是函数绑定。函数的接收者取决于他是如何被调用，可以通过调用.bind()给函数绑定作用域上下文（this的值），即函数的接收者。</p>
+<pre><code>var foo = { x: 3} 
+var bar = function(){console.log(    this.x);}
+
+bar(); // undefinedvar
+boundFunc = bar.bind(foo);//隐式看作是在foo作用域里调用bar方法
+boundFunc(); // 3
+</code></pre><p> .bind()创建了一个函数，当这个函数在被调用的时候，它的 this 关键词会被设置成被传入的值（这里指调用bind()时传入的参数）也就是我们传入想要的上下文。 简单的用法： 关于 Function.prototype.bind() 内部，这里有个非常简单的例子：</p>
+<pre><code>Function.prototype.bind = function (scope) {
+    var fn = this;
+    return function () {
+        return fn.apply(scope);//使用call效果一样
+    };
+}
+</code></pre><p>###在什么时候你会使用 document.write()？<br>document.write()方法可以用在两个方面：页面载入过程中用实时脚本创建页面内容，以及用延时脚本创建本窗口或新窗口的内容。该方法需要一个字符串参数，它是写到窗口或框架中的HTML内容。</p>
+<p>记住，在载入页面后，浏览器输出流自动关闭。在此之后，任何一个对当前页面进行操作的document.write()方法将打开—个新的输出流，它将清除当前页面内容(包括源文档的任何变量或值)。因此，假如希望用脚本生成的HTML替换当前页面，就必须把HTML内容连接起来赋给一个变量，使用一个document.write()方法完成写操作。不必清除文档并打开一个新数据流，一个document.write()调用就可完成所有的操作。</p>
+<p>关于document.write()方法还有一点要说明的是它的相关方法document.close()。脚本向窗口(不管是本窗口或其他窗口)写完内容后，必须关闭输出流。在延时脚本的最后一个document.write()方法后面，必须确保含有document.close()方法，不这样做就不能显示图像和表单。并且，任何后面调用的document.write()方法只会把内容追加到页面后，而不会清除现有内容来写入新值。为了演示document.write()方法，我们提供了同一个应用程序的两个版本。</p>
+<p>大多数生成的广告代码依旧使用 document.write()，虽然这种用法会让人很不爽。</p>
+<p>###请指出浏览器特性检测，特性推断和浏览器 UA 字符串嗅探的区别？<br>检测浏览器的特殊名称和版本（用户代理检测）即浏览器UA字符串嗅探。浏览器嗅探技术可以快捷的将代码进行分支，以便针对不同的浏览器应用不同的指令；针对特定浏览器的特定版本，超出范围之外都是不可靠的</p>
+<p>###请尽可能详尽的解释 Ajax 的工作原理？</p>
+<p>###使用 Ajax 都有哪些优劣？<br>优势：可以刷新局部页面，而不用整体页面都刷新<br>缺点：用户禁用javascript的情况</p>
+<p>###请解释 JSONP 的工作原理，以及它为什么不是真正的 Ajax。<br>JSONP动态创建script标签，回调函数。Ajax是页面无刷新请求数据操作，动态添加一个&amp;ltscript&gt;标签，而script标签的src属性是没有<strong>跨域</strong>的限制的。这样说来，这种跨域方式其实与ajax XmlHttpRequest协议无关了。</p>
+<p>当GET请求从被调用页面返回时，可以返回一段JavaScript代码，这段代码会自动调用主页面中的一个callback函数。</p>
+<p><strong>JSONP优点：</strong><br><strong>不受同源策略的影响，它的兼容性更好</strong>，在更加古老的浏览器中都可以运行，不需要XMLHttpRequest或ActiveX的支持；并且在请求完毕后可以通过调用callback的方式回传结果 　　</p>
+<p><strong>Jsonp缺点：</strong><br><strong>只支持GET请求而不支持POST</strong>等其它类型的HTTP请求；它只支持跨域HTTP请求这种情况，不能解决不同域的两个页面之间如何进行JavaScript调用的问题。</p>
+<p>###请解释变量声明提升 (hoisting)。、<br>在JavaScript代码运行之前其实是有一个编译阶段的。编译之后才是从上到下，一行一行解释执行。变量提升就发生在编译阶段，它把变量和函数的声明提升至作用域的顶端。（编译阶段的工作之一就是将变量与其作用域进行关联）。</p>
+<p>变量提升需要<strong>注意两点</strong>：</p>
+<ul>
+<li>提升的部分只是变量声明，赋值语句和可执行的代码逻辑还保持在原地不动</li>
+<li>提升只是将变量声明提升到变量所在的变量范围的顶端，并不是提升到全局范围、</li>
+</ul>
+<p>函数声明：</p>
+<ul>
+<li>变量声明和函数声明都会得到变量提升，但函数声明会最先得到提升，然后是变量声明（函数时一等公民）</li>
+<li>对于函数声明来说，如果定义了相同的函数变量声明，后定义的声明会覆盖掉先前的声明</li>
+</ul>
+<p>参考： <a href="https://segmentfault.com/a/1190000003913151" target="_blank" rel="external">Javascript变量提升</a></p>
+<p>###请描述事件冒泡机制 (event bubbling)。<br>从目标元素开始，往顶层元素传播。途中如果有节点绑定了相应的事件处理函数，这些函数都会被一次触发。如果想阻止事件起泡，可以使用e.stopPropagation()（Firefox）或者e.cancelBubble=true（IE）来组织事件的冒泡传播</p>
+<p>参考： <a href="https://segmentfault.com/a/1190000000470398" target="_blank" rel="external">事件委托和冒泡机制有关系吗？</a></p>
+<p>###”attribute” 和 “property” 的区别是什么？<br>DOM元素的attribute和property两者是不同的东西。attribute翻译为“特性”，property翻译为“属性”。</p>
+<p>attribute是一个特性节点，每个DOM元素都有一个对应的attributes属性来存放所有的attribute节点，attributes是一个类数组的容器，说得准确点就是NameNodeMap，不继承于Array.prototype，不能直接调用Array的方法。attributes的每个数字索引以名值对(name=”value”)的形式存放了一个attribute节点。</p>
+<p>property就是一个属性，如果把DOM元素看成是一个普通的Object对象，那么property就是一个以名值对(name=”value”)的形式存放在Object中的属性。要添加和删除property和普通的对象类似。</p>
+<p>很多attribute节点还有一个相对应的property属性，比如上面的div元素的id和class既是attribute，也有对应的property，不管使用哪种方法都可以访问和修改。</p>
+<p>总之，attribute节点都是在HTML代码中可见的，而property只是一个普通的名值对属性</p>
+<p>###为什么扩展 JavaScript 内置对象不是好的做法？<br>因为你不知道哪一天浏览器或javascript本身就会实现这个方法，而且和你扩展的实现有不一致的表现。到时候你的javascript代码可能已经在无数个页面中执行了数年，而浏览器的实现导致所有使用扩展原型的代码都崩溃了。</p>
+<p>需要给Array原型添加一个distinct的方法，最好检查是否存在同名的方法，避免自定义方法覆盖原生方法：</p>
+<p>Arrray.prototype.distinct = Arrray.prototype.distinct || function(){/…../}</p>
+<p>###请指出 document load 和 document DOMContentLoaded 两个事件的区别。<br>ready 表示文档的 DOM 已经加载完成（不包含图片、视频等资源）；load 表示整个网页加载完成。可以看出，ready 事件发生在 load 事件之前。</p>
+<p>###== 和 === 有什么不同？<br>如果两边的操作数具有一致的类型且拥有相同的值时，=== 返回 true，!== 返回 false。</p>
+<p>###请解释 JavaScript 的同源策略 (same-origin policy)。<br>同源策略限制了一个源（origin）中加载文本或脚本与来自其它源（origin）中资源的交互方式。</p>
+<p>同源策略出于安全，不允许源 A 的脚本读取（read）源 B 的资源的内容，但却允许执行（execute）源 B 的资源。这个概念也有些拗口。简单说，有一个页面调用了 Google CDN 提供的 jQuery，以及其它 CDN 上的 Bootstrap JS、CSS 代码，虽然它们与我的博客不同源，但我可以用它们来操作这个页面，并应用样式，这是执行的概念。</p>
+<p>参考：<a href="https://developer.mozilla.org/zh-CN/docs/Web/Security/Same-origin_policy" target="_blank" rel="external">浏览器的同源策略</a></p>
+<p>###如何实现下列代码：[1,2,3,4,5].duplicator(); // [1,2,3,4,5,1,2,3,4,5]<br>将此方法添加至 Array.prototype 实现，代码如下：  </p>
+<pre><code>Array.prototype.duplicator = function(){
+　　var l = this.length,i;
+　　for(i=0;i&lt;l;i++){
+　　　this.push(this[i])　
+   }
+}
+</code></pre><p>###什么是三元表达式 (Ternary expression)？“三元 (Ternary)” 表示什么意思？<br>一个运算符如果有一个操作数，为一元运算符，两个为二元，三个为三元运算符，三元表达式则为一个三元运算表达式！</p>
+<p>###什么是 “use strict”; ? 使用它的好处和坏处分别是什么？<br>ECMAScript5中引入的严格模式,通过让JavaScript运行环境对一些开发过程中最常见和不易发现的错误做出和当前不同的处理,来让开发者拥有一个”更好”的JavaScript语言。</p>
+<p>使用它的<strong>好处</strong>：</p>
+<pre><code>消除Javascript语法的一些不合理、不严谨之处，减少一些怪异行为;
+    　　消除代码运行的一些不安全之处，保证代码运行的安全； 
+    　　提高编译器效率，增加运行速度； 
+    　　为未来新版本的Javascript做好铺垫。 
+</code></pre><ul>
+<li><p>具体</p>
+<pre><code>去除WITH关键词
+防止意外为全局变量赋值
+函数中的THIS不再默认指向全局
+防止重名
+安全的 EVAL()
+对只读属性修改时抛出异常
+</code></pre></li>
+<li><p>坏处  </p>
+<pre><code>同样的代码，在“严格模式”中，可能会有不一样的运行结果；一些在“正常模式”下可以运行的语句，在“严格模式”下将不能运行
+</code></pre></li>
+</ul>
+<p>总结：启用JavaScript严格模式,它能帮你发现代码中未曾注意到的错误。不要在全局环境中启用,但你能尽量多的使用IIFE(立即执行函数表达式)来把严格模式作用到多个函数范围内。一开始,你会遇到之前未曾碰到过的错误提示,这是正常的。当启用严格模式后,请确保在支持的浏览器中做了测试,以发现新的潜在问题。一定不要仅仅在代码中添加一行”use strict”就假定余下的代码能正常工作。<br>参考： <a href="http://flandycheng.blog.51cto.com/855176/982719" target="_blank" rel="external">JavaScript严谨模式(Strict Mode)提升开发效率和质量</a></p>
+<p>###请实现一个遍历至 100 的 for loop 循环，在能被 3 整除时输出 “fizz”，在能被 5 整除时输出 “buzz”，在能同时被 3 和 5 整除时输出 “fizzbuzz”。<br>        for (var i = 1; i &lt;= 30; i++) {</p>
+<pre><code>    if (i % 3 === 0) {
+        if (i % 5 === 0) {
+            alert(&apos;fizzbuzz&apos; + i);
+            continue;
+        }
+        alert(&apos;fizz&apos; + i);
+        continue;
+    } else if (i % 5 === 0) {
+        if (i % 3 === 0) {
+            alert(&apos;fizzbuzz&apos; + i);
+            continue;
+        }
+        alert(&apos;buzz&apos; + i);
+        continue;
+    }
+}
+</code></pre><p>###为何通常会认为保留网站现有的全局作用域 (global scope) 不去改变它，是较好的选择？<br>它的意思是: 尽量少在全局作用域定义变量。</p>
+<p>目的:</p>
+<p>减少名称冲突 利于模块化</p>
+<p>###为何你会使用 load 之类的事件 (event)？此事件有缺点吗？你是否知道其他替代品，以及为何使用它们？<br>要等到等页面完全加载后(所有图像、javascript文件、CSS等外部文件)。替代：把script标签放到最后面。</p>
+<p>###请解释什么是单页应用 (single page app), 以及如何使其对搜索引擎友好 (SEO-friendly)。<br>单页应用是一种特殊的web应用，它将所有的活动局限于一个web页面中，仅在该Web页面初始化时加载相应的HTML、JavaScript 和 CSS。</p>
+<p><strong>优点：</strong></p>
+<pre><code>用户体验：对于内容的改动不需要加载整个页面
+高效：服务器压力很小，消耗更少的带宽，能够与面向服务的架构更好地结合。
+经典MVC开发模式，前后端各负其责。
+一套Server API，多端使用（web、移动APP等）
+重前端，业务逻辑全部在本地操作，数据都需要通过AJAX同步、提交
+</code></pre><p><strong>缺点：</strong></p>
+<pre><code>1、不利于SEO：解决方案也有一些：H5pushState,通过浏览器历史记录让搜索引擎抓取；url中#！
+        复杂的单页架构页面，对Google来说抓取比较困难，于是给开发者制定一个规范：
+            1）、网站提交sitemap给Google；
+            2）、Google发现URL里有#!符号，例如example.com/#!/detail/1，于是Google开始抓取example.com/?_escaped_fragment_=/detail/1；_escaped_fragment_这个参数是Google指定的命名，如果开发者希望把网站内容提交给Google，就必须通过这个参数生成静态页面。
+
+2、首屏渲染速度慢
+</code></pre><p>###使用 Promises 而非回调 (callbacks) 优缺点是什么？<br>易读性改善</p>
+<p>###使用一种可以编译成 JavaScript 的语言来写 JavaScript 代码有哪些优缺点？<br>以Typescript为例子：<br>typescript是javascript的强类型版本，在编译期去掉类型和特有语法，生成纯粹的javascript代码。TypeScript 是 JavaScript 的超集，这意味着他支持所有的 JavaScript 语法。并在此之上对 JavaScript 添加了一些扩展，如 class / interface / module 等。这样会大大提升代码的可阅读性。</p>
+<p>优点： </p>
+<pre><code>1. 静态类型检查 
+2. IDE 智能提示 （编译阶段即可发现类型不匹配的错误）
+3. 代码重构 
+4. 可读性
+</code></pre><p>缺点：</p>
+<pre><code>1、不指定类型就写不了程序，类型只是辅助信息，并不是程序的本之后
+2、灵活性问题
+</code></pre><p>###你使用哪些工具和技术来调试 JavaScript 代码？</p>
+<ul>
+<li>alert</li>
+<li>console.log</li>
+<li><p>断点调试（这三种调试方式都是打断点）</p>
+<pre><code>js断点调试
+source断点调试
+Debugger断点（具体的说就是通过在代码中添加”debugger;”语句，当代码执行到该语句的时候就会自动断点。）
+</code></pre></li>
+<li>DOM断点调试<pre><code>当节点内部子节点变化时断点
+当节点属性发生变化时断点        
+当节点被移除时断点
+</code></pre></li>
+</ul>
+<p>参考： <a href="http://www.css88.com/archives/6137" target="_blank" rel="external">前端开发中的JS调试技巧</a></p>
+<p>###请解释可变 (mutable) 和不变 (immutable) 对象的区别？<br>javascript中的原始值（undefined、null、布尔值、数字和字符串）与对象（包括数组和函数）有着根本区别。原始值是不可更改的：任何方法都无法更改（或“突变”）一个原始值。对数字和布尔值来说显然如此—-改变数字的值本身就说不通，而对字符串来说就不那么明显了，因为字符串看起来像由字符组成的数组，我们期望可以通过指定索引来假改字符串中的字符。实际上，javascript是禁止这样做的。字符串中所有的方法看上去返回了一个修改后的字符串，实际上返回的是一个新的字符串值。</p>
+<p><strong>区别：</strong></p>
+<ul>
+<li>可变性：对象和原始值不同，首先，它们是可变的–它们的值是可修改的</li>
+<li>值的比较：对象的比较并非值的比较：即使两个对象包含同样的属性及相同的值，它们也是不相等的。各个索引元素相等的两个数组也不相等。</li>
+</ul>
+<p>1、<strong>不变性 (immutability) 有哪些优缺点</strong>？<br>优点：</p>
+<ul>
+<li>因为不能修改一个不变对象的状态，所以可以避免由此引起的不必要的程序错误；一个不变的对象要比一个可变的对象更加容易维护。</li>
+<li>因为没有任何一个线程能够修改不变对象的内部状态，一个不变对象自动就是线程安全的，这样可以省掉处理同步化的开销。一个不变对象可以自由地被不同的客户端共享。</li>
+</ul>
+<p>缺点：</p>
+<ul>
+<li>一旦需要修改一个不变对象的状态，就只好创建一个新的同类对象。在需要频繁修改不变对象的环境里，会有大量的不变对象作为中间结果被创建出来，这是一种资源上的浪费。</li>
+</ul>
+<p>2、如何用你自己的代码来实现不变性 (immutability)？<br>可以使用<strong>const 修饰变量不可变</strong></p>
+<p>参考： <a href="http://stylechen.com/immutable-in-javascript.html" target="_blank" rel="external">Immutable 在 JavaScript 中的应用</a></p>
+<p>###你会使用怎样的语言结构来遍历对象属性 (object properties) 和数组内容？</p>
+<p>###请解释同步 (synchronous) 和异步 (asynchronous) 函数的区别。<br><strong>同步式</strong>： 当计算机调度线程进行I/O操作命令后，由于文件的读写或者网络通信需要较长的操作时间，操作系统为了充分利用cpu，此时会暂停到当前的I/O线程对CPU的控制（故又称同步式为阻塞式I/O），把cup资源然给其他的线程资源，当I/O线程完成了操作时，此时操作系统会恢复此时的I/O线程，从而当前I/O线程重新获得了cup的的控制权，继续完成其他操作。<br><strong>异步式</strong> ：异步式IO又称非阻塞式I/O，异步式与同步式不同的是，当线程进行IO操作时，操作系统并不是暂停当前的线程操作，而是执行完I/O指令后，操作系统继续让当前线程执行下一条指令，当I/O操作完成后，会通过事件（event)通知I/O线程，而线程在接收到通知后，会处理响应事件。</p>
+<p>###什么是事件循环 (event loop)？<br>主线程从“任务队列”中读取事件，这个过程是循环不断的，所以整个的这种运行机制又称为Event Loop（事件循环）。</p>
+<p>###请问调用栈 (call stack) 和任务队列 (task queue) 的区别是什么？<br>所谓“回调函数”（callback），就是那些会被主线程挂起来的代码。异步任务必须指定回调函数，当异步任务从“任务队列”回到执行栈，回调函数就会执行。</p>
+<p>“任务队列”是一个先进先出的数据结构，排在前面的事件，优先返回主线程。主线程的读取过程基本上是自动的，只要执行栈一清空，“任务队列”上第一位的事件就自动返回主线程。但是，由于存在后文提到的“定时器”功能，主线程要检查一下执行时间，某些事件必须要在规定的时间返回主线程。</p>
+<p>###解释 function foo() {} 与 var foo = function() {} 用法的区别？<br>第一个未函数声明，第二个为函数定义表达式（函数定义表达式foo，变量声明提前单赋值并未提前）</p>
+<p>##JS面试题<br>准备的清粥小菜：</p>
+<ul>
+<li><a href="https://my.oschina.net/Jsiwa/blog/272761" target="_blank" rel="external">面试题一</a></li>
+<li><a href="http://www.cnblogs.com/coco1s/p/4029708.html" target="_blank" rel="external">面试题二</a></li>
+<li><a href="https://github.com/infp/Front-end-Interview/blob/master/source/javascript.md" target="_blank" rel="external">面试题三</a></li>
+<li><a href="http://www.cnblogs.com/laiqun/p/5479393.html" target="_blank" rel="external">js答案（本套题）</a></li>
+</ul>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[CSS面试题]]></title>
+      <url>http://yoursite.com/2016/09/28/CSS%E9%9D%A2%E8%AF%95%E9%A2%98-1/</url>
+      <content type="html"><![CDATA[<h1 id="CSS"><a href="#CSS" class="headerlink" title="CSS"></a>CSS</h1><h3 id="CSS-中类-classes-和-ID-的区别。"><a href="#CSS-中类-classes-和-ID-的区别。" class="headerlink" title="CSS 中类 (classes) 和 ID 的区别。"></a>CSS 中类 (classes) 和 ID 的区别。</h3><ul>
+<li>书写上的差别：class名用“.”号开头来定义，id名用“#”号开头来定义；   </li>
+<li>优先级不同（权重不同）  </li>
+<li>调用上的区别：在同一个html网页页面中class是可以被多次调用的（在不同的地方）。而id名作为标签的身份则是唯一的，id在页面中只能出现一次。在js脚本中经常会用到id来修改一个标签的属性         </li>
+<li>id作为元素的标签，用于区分不同结构和内容，而class作为一个样式，它可以应用到任何结构和内容上。   </li>
+<li>在布局思路上，一般坚持这样的原则：id是先确定页面的结构和内容，然后再为它定义样式：而class相反，它先定义好一类样式，然后再页面中根据需要把类样式应用到不同的元素和内容上面。   </li>
+<li>在实际应用时，class更多的被应用到文字版块以及页面修饰等方面，而id更多地被用来实现宏伟布局和设计包含块，或包含框的样式。</li>
+</ul>
+<p><strong>一般原则：</strong> 类应该应用于概念上相似的元素，这些元素可以出现在同一页面上的多个位置，而ID 应该应用于不同的唯一的元素</p>
+<h3 id="请问-“resetting”-和-“normalizing”-CSS-之间的区别？你会如何选择，为什么？"><a href="#请问-“resetting”-和-“normalizing”-CSS-之间的区别？你会如何选择，为什么？" class="headerlink" title="请问 “resetting” 和 “normalizing” CSS 之间的区别？你会如何选择，为什么？"></a>请问 “resetting” 和 “normalizing” CSS 之间的区别？你会如何选择，为什么？</h3><p>Normalize 相对「平和」，注重通用的方案，重置掉该重置的样式，保留有用的 user agent 样式，同时进行一些 bug 的修复，这点是 reset 所缺乏的。<br>Reset 相对「暴力」，不管你有没有用，统统重置成一样的效果，且影响的范围很大，讲求跨浏览器的一致性。【摘自知乎】   </p>
+<p><a href="http://jerryzou.com/posts/aboutNormalizeCss/" target="_blank" rel="external">http://jerryzou.com/posts/aboutNormalizeCss/</a><br>Normalize.css是一种CSS reset的替代方案。它们的区别有： </p>
+<ul>
+<li>Normalize.css 保护了有价值的默认值，Reset通过为几乎所有的元素施加默认样式，强行使得元素有相同的视觉效果。相比之下，Normalize.css保持了许多默认的浏览器样式。这就意味着你不用再为所有公共的排版元素重新设置样式。当一个元素在不同的浏览器中有不同的默认值时，Normalize.css会力求让这些样式保持一致并尽可能与现代标准相符合。   </li>
+<li>Normalize.css 修复了浏览器的bug，它修复了常见的桌面端和移动端浏览器的bug。这往往超出了Reset所能做到的范畴。关于这一点，Normalize.css修复的问题包含了HTML5元素的显示设置、预格式化文字的font-size问题、在IE9中SVG的溢出、许多出现在各浏览器和操作系统中的与表单相关的bug。   </li>
+<li>Normalize.css 不会让你的调试工具变的杂乱 </li>
+<li>Normalize.css 是模块化的 </li>
+<li>Normalize.css 拥有详细的文档<br>选择Normalize.css ，主要是reset.css为几乎所有的元素施加默认样式，所以需要对所有公共的排版元素重新设置样式，这是一件很麻烦的工作。</li>
+</ul>
+<h3 id="请解释浮动-Floats-及其工作原理"><a href="#请解释浮动-Floats-及其工作原理" class="headerlink" title="请解释浮动 (Floats) 及其工作原理"></a>请解释浮动 (Floats) 及其工作原理</h3><p>浮动出现的最开始出现的意义是用来让文字环绕图片而已。float可以自动包裹元素。float会导致高度塌陷。float为什么会导致高度塌陷：元素含有浮动属性 –&gt; 破坏inline box –&gt; 破坏line box高度 –&gt; 没有高度 –&gt; 塌陷。什么时候会塌陷：当标签里面的元素只要样子没有实际高度时会塌陷。浮动会脱离文档流。产生自己的块级格式化上下文。</p>
+<p>###描述z-index和叠加上下文是如何形成的。</p>
+<p>首先来看在CSS中叠加上下文形成的原因：</p>
+<ul>
+<li>负边距<br>margin为负值时元素会依参考线向外偏移。margin-left/margin-top的参考线为左边的元素/上面的元素（如无兄弟元素则为父元素的左内侧/上内侧）,margin-right和margin-bottom的参考线为元素本身的border右侧/border下侧。一般可以利用负边距来就行布局，但没有计算好的话就可能造成元素重叠。堆叠顺序由元素在文档中的先后位置决定，后出现的会在上面。   </li>
+<li>position的relative/absolute/fixed定位<br>当为元素设置position值为relative/absolute/fixed后，元素发生的偏移可能产生重叠，且z-index属性被激活。z-index值可以控制定位元素在垂直于显示屏方向（Z 轴）上的堆叠顺序（stack order），值大的元素发生重叠时会在值小的元素上面。 </li>
+</ul>
+<p><strong>z-index属性 ：</strong>z-index只能在position属性值为relative或absolute或fixed的元素上有效。<br><strong>基本原理</strong>：z-index值可以控制定位元素在垂直于显示屏方向（Z 轴）上的堆叠顺序（stack order），值大的元素发生重叠时会在值小的元素上面。<br><strong>使用相对性：</strong>z-index值只决定同一父元素中的同级子元素的堆叠顺序。父元素的z-index值（如果有）为子元素定义了堆叠顺序（css版堆叠“拼爹”）。向上追溯找不到含有z-index值的父元素的情况下，则可以视为自由的z-index元素，它可以与父元素的同级兄弟定位元素或其他自由的定位元素来比较z-index的值，决定其堆叠顺序。同级元素的z-index值如果相同，则堆叠顺序由元素在文档中的先后位置决定，后出现的会在上面。所以如果当你发现一个z-index值较大的元素被值较小的元素遮挡了，请先检查它们之间的dom结点关系，多半是因为其父结点含有激活并设置了z-index值的position定位元素</p>
+<p>###　请描述 BFC(Block Formatting Context) 及其如何工作？</p>
+<p>BFC:块级格式上下文。定义：<br>浮动元素和绝对定位元素，非块级盒子的块级容器（例如 inline-blocks, table-cells, 和 table-captions），以及overflow值不为“visiable”的块级盒子，都会为他们的内容创建新的块级格式化上下文。<br>在一个块级格式化上下文里，盒子从包含块的顶端开始垂直地一个接一个地排列，两个盒子之间的垂直的间隙是由他们的margin 值所决定的。两个相邻的块级盒子的垂直外边距会发生叠加。<br>在块级格式化上下文中，每一个盒子的左外边缘（margin-left）会触碰到容器的左边缘(border-left)（对于从右到左的格式来说，则触碰到右边缘），即使存在浮动也是如此，除非这个盒子创建一个新的块级格式化上下文。</p>
+<p>BFC详解： <a href="http://www.cnblogs.com/lhb25/p/inside-block-formatting-ontext.html" target="_blank" rel="external">http://www.cnblogs.com/lhb25/p/inside-block-formatting-ontext.html</a></p>
+<h3 id="block，inline和inline-block的概念以及区别"><a href="#block，inline和inline-block的概念以及区别" class="headerlink" title="block，inline和inline-block的概念以及区别"></a>block，inline和inline-block的概念以及区别</h3><ul>
+<li><p>display:block </p>
+<pre><code>block元素会独占一行，多个block元素会各自新起一行。默认情况下，block元素宽度自动填满其父元素宽度。 
+block元素可以设置width,height属性。块级元素即使设置了宽度,仍然是独占一行。 
+block元素可以设置margin和padding属性。 
+</code></pre></li>
+<li><p>display:inline </p>
+<pre><code>inline元素不会独占一行，多个相邻的行内元素会排列在同一行里，直到一行排列不下，才会新换一行，其宽度随元素的内容而变化。 
+inline元素设置width,height属性无效。 
+inline元素的margin和padding属性，水平方向的padding-left, padding-right, margin-left, margin-right都产生边距效果；但竖直方向的padding-top, padding-bottom, margin-top, margin-bottom不会产生边距效果。 
+</code></pre></li>
+<li><p>display:inline-block</p>
+<pre><code>就是将对象呈现为inline对象，但是对象的内容作为block对象呈现。之后的内联对象会被排列在同一行内。
+</code></pre></li>
+</ul>
+<p>备注：属性为inline-block元素之间的空格或者换行在浏览器上会是一个空白的间隙。且IE6和7是不支持这个属性的，需要通过<em>display:inline;</em>zoom:1做hack处理。</p>
+<h3 id="列举不同的清除浮动的技巧，并指出它们各自适用的使用场景。"><a href="#列举不同的清除浮动的技巧，并指出它们各自适用的使用场景。" class="headerlink" title="列举不同的清除浮动的技巧，并指出它们各自适用的使用场景。"></a>列举不同的清除浮动的技巧，并指出它们各自适用的使用场景。</h3><ul>
+<li><p>添加新的元素、应用 clear：both；</p>
+<pre><code>&lt;div class=&quot;outer&quot;&gt; 
+&lt;div class=&quot;div1&quot;&gt;1&lt;/div&gt; 
+&lt;div class=&quot;div2&quot;&gt;2&lt;/div&gt; 
+&lt;div class=&quot;div3&quot;&gt;3&lt;/div&gt; 
+&lt;div class=&quot;clear&quot;&gt;&lt;/div&gt; 
+&lt;/div&gt; 
+.clear{clear:both; height: 0; line-height: 0; font-size: 0} 
+</code></pre><p>  优点：简单，代码少，浏览器支持好，不容易出现怪问题<br>  缺点是要增加很多无效布局，但这是清除浮动用的比较多的一种方法。</p>
+</li>
+<li><p>父级div定义overflow：auto或者hidden </p>
+<pre><code>&lt;div class=&quot;outer over-flow&quot;&gt; //这里添加了一个class 
+&lt;div class=&quot;div1&quot;&gt;1&lt;/div&gt; 
+&lt;div class=&quot;div2&quot;&gt;2&lt;/div&gt; 
+&lt;div class=&quot;div3&quot;&gt;3&lt;/div&gt; 
+&lt;/div&gt; 
+.over-flow{ 
+    overflow: auto; zoom: 1; //zoom: 1; 是在处理兼容性问题 
+} 
+</code></pre><p>  原理：必须定义width或zoom:1，同时不能定义height，使用overflow属性来清除浮动有一点需要注意，overflow属性共有三个属性值：hidden,auto,visible。我们可以使用hiddent和auto值来清除浮动，但切记不能使用visible值，如果使用这个值将无法达到清除浮动效果。<br>  优点：简单，代码少，浏览器支持好<br>  缺点：使用auto时内部宽高超过父级div时，会出现滚动条，使用hidden时会被隐藏</p>
+</li>
+</ul>
+<ul>
+<li><p>after 方法 </p>
+<pre><code>&lt;div class=&quot;outer&quot;&gt; 
+&lt;div class=&quot;div1&quot;&gt;1&lt;/div&gt; 
+&lt;div class=&quot;div2&quot;&gt;2&lt;/div&gt; 
+&lt;div class=&quot;div3&quot;&gt;3&lt;/div&gt; 
+&lt;/div&gt; 
+.outer {zoom:1;} /==for IE6/7 Maxthon2==/ 
+.outer :after {clear:both;content:’.’;display:block;width: 0;height: 0;visibility:hidden;} 
+</code></pre><p>  其中clear:both;指清除所有浮动；content: ‘.’; display:block;对于FF/chrome/opera/IE8不能缺少，其中content（）可以取值也可以为空。visibility:hidden;的作用是允许浏览器渲染它，但是不显示出来，这样才能实现清除浮动。<br>  所以总的来说，<strong>推荐使用伪类的办法</strong>。</p>
+</li>
+</ul>
+<h3 id="请解释-CSS-sprites，以及你要如何在页面或网站中实现它。"><a href="#请解释-CSS-sprites，以及你要如何在页面或网站中实现它。" class="headerlink" title="请解释 CSS sprites，以及你要如何在页面或网站中实现它。"></a>请解释 CSS sprites，以及你要如何在页面或网站中实现它。</h3><p>CSS Sprites就是把网页中一些背景图片整合到一张图片文件中，再利用CSS的“background-image”，“background- repeat”，“background-position”的组合进行背景定位，background-position可以用数字能精确的定位出背景图片的位置。<br><strong>优点</strong>：当页面加载时，不是加载每个单独图片，而是一次加载整个组合图片。这是一个了不起的改进，它大大减少了HTTP请求的次数，减轻服务器压力，同时缩短了悬停加载图片所需要的时间延迟，使效果更流畅，不会停顿。<br><strong>缺点</strong>：做图像拼合的时候很麻烦。</p>
+<h3 id="你最喜欢的图片替换方法是什么，你如何选择使用。"><a href="#你最喜欢的图片替换方法是什么，你如何选择使用。" class="headerlink" title="你最喜欢的图片替换方法是什么，你如何选择使用。"></a>你最喜欢的图片替换方法是什么，你如何选择使用。</h3><h3 id="你会如何解决特定浏览器的样式问题？"><a href="#你会如何解决特定浏览器的样式问题？" class="headerlink" title="你会如何解决特定浏览器的样式问题？"></a>你会如何解决特定浏览器的样式问题？</h3><p>浏览器的兼容性：</p>
+<p>解决方案：</p>
+<ul>
+<li>主张向前兼容，不考虑向后兼容，</li>
+<li>根据产品的用户群中各大浏览器，来考虑需要兼容的浏览器</li>
+<li>把浏览器分两类，一类历史遗留浏览器，一类是现代浏览器，然后根据这个分类开发两个版本的网站，然后自己定义哪些浏览器是历史遗留版本，历史遗留版本浏览器，是用历史遗留界面，通过通告栏告知用户使用现代浏览器，功能更全面，提供好的用户体验</li>
+<li>直接在用户的浏览器不能兼容的时候，提示用户至少什么版本的IE和火狐谷歌浏览器才能支持（以上方案都失效）</li>
+<li>项目开始前就得需要确认兼容支持的最低按本是什么，设计一个对应的兼容方案</li>
+</ul>
+<h3 id="如何为有功能限制的浏览器提供网页？"><a href="#如何为有功能限制的浏览器提供网页？" class="headerlink" title="如何为有功能限制的浏览器提供网页？"></a>如何为有功能限制的浏览器提供网页？</h3><h3 id="有哪些的隐藏内容的方法-如果同时还要保证屏幕阅读器可用呢-？"><a href="#有哪些的隐藏内容的方法-如果同时还要保证屏幕阅读器可用呢-？" class="headerlink" title="有哪些的隐藏内容的方法 (如果同时还要保证屏幕阅读器可用呢)？"></a>有哪些的隐藏内容的方法 (如果同时还要保证屏幕阅读器可用呢)？</h3><ul>
+<li><p>display:none 文本图片的隐藏</p>
+<pre><code>缺陷：搜索引擎可能认为被隐藏的文字属于垃圾信息而被忽略
+
+屏幕阅读器（是为视觉上有障碍的人设计的读取屏幕内容的程序）会忽略被隐藏的文字，同时不利于搜索引擎。
+</code></pre></li>
+<li><p>visibility: hidden</p>
+<pre><code>缺陷：隐藏的内容会占据他所应该占据物理空间
+</code></pre></li>
+<li><p>overflow: hidden 隐藏内容或图片</p>
+</li>
+</ul>
+<h3 id="你用过栅格系统-grid-system-吗？如果使用过，你最喜欢哪种？"><a href="#你用过栅格系统-grid-system-吗？如果使用过，你最喜欢哪种？" class="headerlink" title="你用过栅格系统 (grid system) 吗？如果使用过，你最喜欢哪种？"></a>你用过栅格系统 (grid system) 吗？如果使用过，你最喜欢哪种？</h3><p>Bootstrap中的流式布局；Bootstrap提供了两种布局方式，<strong>固定式布局</strong>和<strong>流式布局</strong>（用em表示的叫做弹性布局，用百分比表示的叫做流体布局）方式，Bootstrap的布局实际上是在栅格外加个容器 (Container)<br>因此两种布局方式的唯一区别是：<br><strong>固定布局</strong>加的是固定宽度(width)的容器，<br><strong>流式布局</strong>加的是自适应(或叫可变)宽度的容器。</p>
+<h3 id="你用过媒体查询，或针对移动端的布局-CSS-吗？"><a href="#你用过媒体查询，或针对移动端的布局-CSS-吗？" class="headerlink" title="你用过媒体查询，或针对移动端的布局/CSS 吗？"></a>你用过媒体查询，或针对移动端的布局/CSS 吗？</h3><p>媒体查询规则是开发者能够在相同的样式中，针对不同的媒介来使用不同的样式规则。在CSS2的时候有media Type的规则，通过不同的媒介来切换不同的CSS样式。通过媒体查询的技术可以实现响应式布局，适应不同终端的开发。媒体查询的具体知识请见 CSS3新属性应用文档。</p>
+<h3 id="你熟悉-SVG-样式的书写吗？"><a href="#你熟悉-SVG-样式的书写吗？" class="headerlink" title="你熟悉 SVG 样式的书写吗？"></a>你熟悉 SVG 样式的书写吗？</h3><h3 id="如何优化网页的打印样式？"><a href="#如何优化网页的打印样式？" class="headerlink" title="如何优化网页的打印样式？"></a>如何优化网页的打印样式？</h3><ul>
+<li><p>添加打印样式</p>
+<pre><code>1、为屏幕显示和打印分别准备一个css文件，如下所示：
+用于屏幕显示的css： &lt;link rel=&quot;stylesheet&quot; href=&quot;css/mainstylesheet.css&quot; media=&quot;screen&quot; /&gt;
+  用于打印的css：&lt;link rel=&quot;stylesheet&quot; href=&quot;css/printstylesheet.css&quot; media=&quot;print&quot; /&gt;
+2、import方式：
+  &lt;style type=&quot;text/css&quot;&gt;
+      @import url(&quot;css/printstylesheet.css&quot;) print;
+  &lt;/style&gt;
+3、直接把屏幕显示样式和打印样式写在一个css文件中：
+ @media print {}{
+    h1 {
+      color: black;
+    }
+    h2 {}{
+      color: gray;
+    }
+  }
+      @media print里面的内容只对打印出来的内容有效，之外的内容就是屏幕显示的样式。
+
+其他：
+创建一个不指定媒体类型的样式表通常很有用（或者利用media=&quot;all&quot;）。当你准备好定义一些特别用
+于打印的规则时，可以只创建一个单独的样式表，使任何在打印时看起来不好的样式都失效。使用这种方法的一个问题是必须确保打印机样式实际上确实覆盖了主样式表。可以使用！important.
+</code></pre></li>
+</ul>
+<p>但打印样式表也应有些注意事项：<br> 1、打印样式表中最好不要用背景图片，因为打印机不能打印CSS中的背景。如要显示图片，请使用html插入到页面中。<br> 2、最好不要使用像素作为单位，因为打印样式表要打印出来的会是实物，所以建议使用pt和cm。<br> 3、隐藏掉不必要的内容。（@print div{display:none;}）<br> 4、打印样式表中最好少用浮动属性，因为它们会消失。<br> 如果想要知道打印样式表的效果如何，直接在浏览器上选择打印预览就可以了。  </p>
+<p>备注： 参考： <a href="http://blog.csdn.net/pangni/article/details/6224533" target="_blank" rel="external">http://blog.csdn.net/pangni/article/details/6224533</a></p>
+<h3 id="在书写高效-CSS-时会有哪些问题需要考虑？"><a href="#在书写高效-CSS-时会有哪些问题需要考虑？" class="headerlink" title="在书写高效 CSS 时会有哪些问题需要考虑？"></a>在书写高效 CSS 时会有哪些问题需要考虑？</h3><ul>
+<li>样式是：从右向左的解析一个选择器</li>
+<li>ID最快，Universal最慢 有四种类型的key selector，解析速度由快到慢依次是：ID、class、tag和universal</li>
+<li>不要tag-qualify （永远不要这样做 ul#main-navigation { } ID已经是唯一的，不需要Tag来标识，这样做会让选择器变慢。）</li>
+<li>后代选择器最糟糕（换句话说，下面这个选择器是很低效的： html body ul li a { }）</li>
+<li>想清楚你为什么这样写</li>
+<li>CSS3的效率问题（CSS3选择器（比如 :nth-child）能够漂亮的定位我们想要的元素，又能保证我们的CSS整洁易读。但是这些神奇的选择器会浪费很多的浏览器资源。）</li>
+<li>我们知道#ID速度是最快的，那么我们都用ID，是不是很快。但是我们不应该为了效率而牺牲可读性和可维护性</li>
+</ul>
+<h3 id="使用-CSS-预处理器的优缺点有哪些？"><a href="#使用-CSS-预处理器的优缺点有哪些？" class="headerlink" title="使用 CSS 预处理器的优缺点有哪些？"></a>使用 CSS 预处理器的优缺点有哪些？</h3><p><strong>缺点</strong>：简单来说CSS预处理器语言较CSS玩法变得更高级了，但同时降低了自己对最终代码的控制力。更致命的是提高了门槛，首先是上手门槛，其次是维护门槛，再来是团队整体水平和规范的门槛。这也造成了初学学习成本的昂贵。</p>
+<p><strong>优点</strong>：用一种专门的编程语言，为CSS增加了一些编程的特性，将CSS作为目标生成文件，然后开发者就只要使用这种语言进行编码工作。通俗的说，CSS预处理器用一种专门的编程语言，进行Web页面样式设计，然后再编译成正常的CSS文件，以供项目使用。CSS预处理器为CSS增加一些编程的特性，无需考虑浏览器的兼容性问题，例如你可以在CSS中使用变量、简单的逻辑程序、函数等等在编程语言中的一些基本特性，可以让你的CSS更加简洁、适应性更强、可读性更佳，更易于代码的维护等诸多好处。</p>
+<h3 id="如果设计中使用了非标准的字体，你该如何去实现？"><a href="#如果设计中使用了非标准的字体，你该如何去实现？" class="headerlink" title="如果设计中使用了非标准的字体，你该如何去实现？"></a>如果设计中使用了非标准的字体，你该如何去实现？</h3><p>Webfonts (字体服务例如：Google Webfonts，Typekit 等等。)</p>
+<p>###请解释浏览器是如何判断元素是否匹配某个 CSS 选择器？</p>
+<p>浏览器先产生一个元素集合，这个集合往往由最后一个部分的索引产生（如果没有索引就是所有元素的集合）。然后向上匹配，如果不符合上一个部分，就把元素从集合中删除，直到真个选择器都匹配完，还在集合中的元素就匹配这个选择器了。</p>
+<p>###请描述伪元素 (pseudo-elements) 及其用途。</p>
+<p>伪类用于当已有元素处于的某个状态时，为其添加对应的样式，这个状态是根据用户行为而动态变化的。<br>伪元素用于创建一些不在文档树中的元素，并为其添加样式。</p>
+<p><strong>区别：</strong>伪类的操作对象是文档树中已有的元素，而伪元素则创建了一个文档数外的元素。因此，伪类与伪元素的区别在于：有没有创建一个文档树之外的元素</p>
+<p>参考： <a href="http://www.alloyteam.com/2016/05/summary-of-pseudo-classes-and-pseudo-elements/" target="_blank" rel="external">http://www.alloyteam.com/2016/05/summary-of-pseudo-classes-and-pseudo-elements/</a></p>
+<p>###请解释你对盒模型的理解，以及如何在 CSS 中告诉浏览器使用不同的盒模型来渲染你的布局？</p>
+<p>盒子模型<strong>分为两类</strong>：W3C标准盒子模型和IE盒子模型<br>这两者的关键<strong>区别</strong>就在于：<br>W3C盒子模型——属性高（height）和属性宽（width）这两个值不包含 填充（padding）和边框（border）<br>IE盒子模型——属性高（height）和属性宽（width）这两个值包含 填充（padding）和边框（border）  </p>
+<p>各浏览器盒模型的组成结构是一致的，区别只是在”怪异模式”下宽度和高度的计算方式，而“标准模式”下则没有区别。</p>
+<p>组成结构以宽度为例：总宽度=marginLeft+borderLeft+paddingLeft+contentWidth+paddingRight+borderRight+marginRight（W3C标准盒子模型）。页面在“怪异模式”下，css中为元素的width和height设置的值在标准浏览器和ie系列(ie9除外)里的代表的含义是不同的（IE盒子模型）。 </p>
+<p> 因而解决兼容型为题最简洁和<strong>值得推荐的方式是：下述的第一条。   </strong></p>
+<ul>
+<li>将页面设为“标准模式”。 <pre><code>添加对应的dtd标识，如： &lt;!DOCTYPE html&gt;  
+</code></pre></li>
+<li><p>使用hack或者在外面套上一层wrapper。 前提是页面处于“怪异模式”，“标准模式”不存在兼容性问题。 </p>
+<pre><code>1、hack的方式
+#box {  
+width:100px !important; // ie9,ff,chrome,opera这样的标准浏览器
+width:160px; //所有的浏览器；它的本意是只对不认识!important的设置。可是ie7、ie8也认识
++width:160px!important;//ie7
+width:160px/0!important;//ie8
+padding:0 10px;border:20px solid blue;margin:70px;  
+}  
+
+2、wrapper 
+#box {  
+width:100px;  
+margin:70px;  
+float:left;  
+}  
+.wrapper {  
+padding:0 10px;border:20px solid blue;  
+}  
+</code></pre></li>
+</ul>
+<p>总结：  总结：使用“标准模式”即可实现兼容，不兼容只发生在“怪异模式”下。而且正常的页面基本上都选择前者，如果选择后者，麻烦不止于此，一些css技巧也将失灵，如将div居中：div {margin:0 auto;} </p>
+<p>###请解释 * { box-sizing: border-box; } 的作用, 并且说明使用它有什么好处？</p>
+<p>设置他以后，相当于以怪异模式解析，border和padding全会在你设置的宽度内部，比如手机端设置两行并且的布局，宽度各为50%,如果不用这个属性，设置border后右边的div会下来错位，设置这个属性，宽度还是50%而不是50%+*px,两行可以并列显示</p>
+<p>说到 IE 的 bug，在 IE6以前的版本中，IE对盒模型的解析出现一些问题，跟其它浏览器不同，将 border 与 padding 都包含在 width 之内。而另外一些浏览器则与它相反，是不包括border和padding的。对于IE浏览器，当我们设置 box-sizing: content-box; 时，浏览器对盒模型的解释遵从我们之前认识到的 W3C 标准，当它定义width和height时，它的宽度不包括border和padding；对于非IE浏览器，当我们设置box-sizing: border-box; 时，浏览器对盒模型的解释与 IE6之前的版本相同，当它定义width和height时，border和padding则是被包含在宽高之内的。内容的宽和高可以通过定义的“width”和 “height”减去相应方向的“padding”和“border”的宽度得到。内容的宽和高必须保证不能为负，必要时将自动增大该元素border box的尺寸以使其内容的宽或高最小为0。</p>
+<p>好处：　</p>
+<ul>
+<li>　使用 * { box-sizing: border-box; }能够统一IE和非IE浏览器之间的差异。</li>
+<li>　解决排版的问题，每个盒子之间排版时不用考虑padding和border的宽度计算</li>
+</ul>
+<p>###请罗列出你所知道的 display 属性的全部值?<br>display 属性规定元素应该生成的框的类型。<br><img src="./display.png" alt="Alt display"></p>
+<p>###请解释 inline 和 inline-block 的区别？<br>都是display 属性规定元素应该生成的框的类型。但是block代表块级元素，元素前后都有换行符；inline是默认的样式，表示该元素被显示为内联元素，元素前后没有换行符号。也就是说，block元素通常被现实为独立的一块，会单独换一行；inline元素则前后不会产生换行，一系列inline元素都在一行内显示，直到该行排满。而inline-block代表行内块元素（css2.0新增）。</p>
+<ul>
+<li><p>display:block</p>
+<pre><code>1）block元素会独占一行，多个block元素会各自新起一行。默认情况下，block元素宽度自动填满其父元素宽度。
+
+2）block元素可以设置width,height属性。块级元素即使设置了宽度,仍然是独占一行。
+
+3）block元素可以设置margin和padding属性。
+</code></pre></li>
+<li><p>display:inline</p>
+<pre><code>1）inline元素不会独占一行，多个相邻的行内元素会排列在同一行里，直到一行排列不下，才会新换一行，其宽度随元素的内容而变化。
+
+2）inline元素设置width,height属性无效。
+
+3）inline元素的margin和padding属性，水平方向的padding-left, padding-right, margin-left, margin-right都产生边距效果；但竖直方向的padding-top, padding-bottom, margin-top, margin-bottom不会产生边距效果。
+</code></pre></li>
+</ul>
+<ul>
+<li><p>display:inline-block</p>
+<p>  简单来说就是将对象呈现为inline对象，但是对象的内容作为block对象呈现。之后的内联对象会被排列在同一行内。比如我们可以给一个link（a元素）inline-block属性值，使其既具有block的宽度高度特性又具有inline的同行特性。</p>
+</li>
+</ul>
+<h3 id="请解释-relative、fixed、absolute-和-static-元素的区别"><a href="#请解释-relative、fixed、absolute-和-static-元素的区别" class="headerlink" title="请解释 relative、fixed、absolute 和 static 元素的区别?"></a>请解释 relative、fixed、absolute 和 static 元素的区别?</h3><p>各个属性的值：</p>
+<pre><code>static：默认值。没有定位，元素出现在正常的流中（忽略 top, bottom, left, right 或者 z-index 声明）。
+
+relative：生成相对定位的元素，通过top,bottom,left,right的设置相对于其正常位置进行定位。可通过z-index进行层次分级。
+
+absolute：生成绝对定位的元素，相对于 static 定位以外的第一个父元素进行定位。元素的位置通过 &quot;left&quot;, &quot;top&quot;, &quot;right&quot; 以及 &quot;bottom&quot; 属性进行规定。可通过z-index进行层次分级。
+
+fixed：生成绝对定位的元素，相对于浏览器窗口进行定位。元素的位置通过 &quot;left&quot;, &quot;top&quot;, &quot;right&quot; 以及 &quot;bottom&quot; 属性进行规定。可通过z-index进行层次分级。
+</code></pre><p><strong>relative和absolute进行对比分析：</strong></p>
+<ul>
+<li><p>relative。定位为relative的元素脱离正常的文本流中，但其在文本流中的位置依然存在。</p>
+</li>
+<li><p>absolute。定位为absolute的层脱离正常文本流，但与relative的区别是其在正常流中的位置不在存在。</p>
+</li>
+<li><p>fixed:定位为绝对定位，脱离正常文本流，相对于浏览器窗口进行定位</p>
+</li>
+</ul>
+<p><strong>relative和absolute与fixed进行对比分析：</strong></p>
+<ul>
+<li>relative定位的层总是相对于其最近的父元素，无论其父元素是何种定位方式。</li>
+<li>absolute定位的层总是相对于其最近的定义为absolute或relative的父层，而这个父层并不一定是其直接父层。如果其父层中都未定义absolute或relative，则其将相对body进行定位，</li>
+<li>fixed：生成绝对定位的元素，相对于浏览器窗口进行定位。</li>
+</ul>
+<p>###CSS 中字母 ‘C’ 的意思是叠层 (Cascading)。请问在确定样式的过程中优先级是如何决定的 (请举例)？如何有效使用此系统？</p>
+]]></content>
+    </entry>
+    
+  
+  
+</search>
