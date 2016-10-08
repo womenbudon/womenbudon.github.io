@@ -1157,11 +1157,13 @@ function showTime(Counter) {
 					$(document.getElementById(url)).text(content);
 					return;
 				}
+				console.log(results);
 				for (var i = 0; i < results.length; i++) {
 					var object = results[i];
 					var content = $(document.getElementById(url)).text() + ': ' + object.get('time');
 					console.log('-------------------showTime-------');
 					console.log(object.get('time'));
+					console.log(content);
 					$(document.getElementById(url)).text(content);
 				}
 			},
