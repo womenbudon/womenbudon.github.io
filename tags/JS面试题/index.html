@@ -768,6 +768,8 @@ function showTime(Counter) {
 				for (var i = 0; i < results.length; i++) {
 					var object = results[i];
 					var content = $(document.getElementById(url)).text() + ': ' + object.get('time');
+					console.log('-------------------showTime-------');
+					console.log(object.get('time'));
 					$(document.getElementById(url)).text(content);
 				}
 			},
@@ -794,6 +796,8 @@ function addCount(Counter) {
 				counter.save(null, {
 					success: function(counter) {
 						var content = $(document.getElementById(url)).text() + ': ' + counter.get('time');
+						console.log('-------------------addCount-------');
+					console.log(object.get('time'));
 						$(document.getElementById(url)).text(content);
 					},
 					error: function(counter, error) {
