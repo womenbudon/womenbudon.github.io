@@ -346,12 +346,16 @@ thi">
           
 
           
-         <span id="/2016/10/08/JS面试题/"class="leancloud_visitors"  data-flag-title="JS面试题">
-            &nbsp; | &nbsp; 阅读次数
-            </span>
-        
-
-
+          
+             <span id="/2016/10/08/JS面试题/" class="leancloud_visitors" data-flag-title="JS面试题">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
 
           
         </div>
@@ -1189,7 +1193,7 @@ function addCount(Counter) {
 					success: function(counter) {
 						var content = $(document.getElementById(url)).text() + ': ' + counter.get('time');
 						console.log('-------------------addCount-------');
-					console.log(object.get('time'));
+						console.log(counter.get('time'));
 						$(document.getElementById(url)).text(content);
 					},
 					error: function(counter, error) {
@@ -1205,6 +1209,8 @@ function addCount(Counter) {
 					success: function(newcounter) {
 					    console.log("newcounter.get('time')="+newcounter.get('time'));
 						var content = $(document.getElementById(url)).text() + ': ' + newcounter.get('time');
+							console.log('-------------------addCount newcounter-------');
+						console.log(newcounter.get('time'));
 						$(document.getElementById(url)).text(content);
 					},
 					error: function(newcounter, error) {

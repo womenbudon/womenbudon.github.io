@@ -897,7 +897,7 @@ function addCount(Counter) {
 					success: function(counter) {
 						var content = $(document.getElementById(url)).text() + ': ' + counter.get('time');
 						console.log('-------------------addCount-------');
-					console.log(object.get('time'));
+						console.log(counter.get('time'));
 						$(document.getElementById(url)).text(content);
 					},
 					error: function(counter, error) {
@@ -913,6 +913,8 @@ function addCount(Counter) {
 					success: function(newcounter) {
 					    console.log("newcounter.get('time')="+newcounter.get('time'));
 						var content = $(document.getElementById(url)).text() + ': ' + newcounter.get('time');
+							console.log('-------------------addCount newcounter-------');
+						console.log(newcounter.get('time'));
 						$(document.getElementById(url)).text(content);
 					},
 					error: function(newcounter, error) {
