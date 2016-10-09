@@ -18,8 +18,7 @@
 <li>&lt;!DOCTYPE&gt; 不区分大小写  </li>
 <li>HTML 5的doctype声明是&lt;!DOCTYPE html&gt;<br>在 HTML 4.01 中，&lt;!DOCTYPE&gt; 声明引用 DTD，因为 HTML 4.01 基于 SGML。DTD 规定了标记语言的规则，这样浏览器才能正确地呈现内容。 HTML5 不基于 SGML，所以不需要引用 DTD。</li>
 </ul>
-<p>###浏览器标准模式和怪异模式有什么区别？</p>
-<p><strong>两者的区别：</strong></p>
+<h3 id="浏览器标准模式和怪异模式有什么区别？"><a href="#浏览器标准模式和怪异模式有什么区别？" class="headerlink" title="浏览器标准模式和怪异模式有什么区别？"></a>浏览器标准模式和怪异模式有什么区别？</h3><p><strong>两者的区别：</strong></p>
 <ul>
 <li>盒模型的解析上： </li>
 </ul>
