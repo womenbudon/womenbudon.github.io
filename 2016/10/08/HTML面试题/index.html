@@ -84,25 +84,31 @@
 
 
 
-<meta name="description" content="###doctype(文档类型) 的作用是什么？声明文档的解析类型(document.compatMode)，避免浏览器的怪异模式。有以下两个值：
+<meta name="description" content="doctype(文档类型) 的作用是什么？声明文档的解析类型(document.compatMode)，避免浏览器的怪异模式。有以下两个值：
+
 怪异模式，浏览器使用自己的怪异模式解析渲染页面。
-标准模式，浏览器使用W3C的标准解析渲染页面。
- 这个属性会被浏览器识别并使用，但是如果你的页面没有DOCTYPE的声明,浏览器按照自己的方式解析渲染页面（怪异模式），在不同的浏览器就会显示不同的样式。">
+标准模式，浏览器使用W3C的标准解析渲染页面。这个属性会被浏览器识别并使用，但是如果你的页面没有DOCTYPE的声明,浏览器按照自己的方式解析渲染页面（怪异模式），在不同的浏览器就会显示不同的样式。
+
+注意">
 <meta property="og:type" content="article">
 <meta property="og:title" content="HTML面试题">
 <meta property="og:url" content="http://yoursite.com/2016/10/08/HTML面试题/index.html">
 <meta property="og:site_name" content="谜砂的博客">
-<meta property="og:description" content="###doctype(文档类型) 的作用是什么？声明文档的解析类型(document.compatMode)，避免浏览器的怪异模式。有以下两个值：
+<meta property="og:description" content="doctype(文档类型) 的作用是什么？声明文档的解析类型(document.compatMode)，避免浏览器的怪异模式。有以下两个值：
+
 怪异模式，浏览器使用自己的怪异模式解析渲染页面。
-标准模式，浏览器使用W3C的标准解析渲染页面。
- 这个属性会被浏览器识别并使用，但是如果你的页面没有DOCTYPE的声明,浏览器按照自己的方式解析渲染页面（怪异模式），在不同的浏览器就会显示不同的样式。">
-<meta property="og:updated_time" content="2016-10-08T15:25:07.965Z">
+标准模式，浏览器使用W3C的标准解析渲染页面。这个属性会被浏览器识别并使用，但是如果你的页面没有DOCTYPE的声明,浏览器按照自己的方式解析渲染页面（怪异模式），在不同的浏览器就会显示不同的样式。
+
+注意">
+<meta property="og:updated_time" content="2016-10-09T14:48:58.136Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="HTML面试题">
-<meta name="twitter:description" content="###doctype(文档类型) 的作用是什么？声明文档的解析类型(document.compatMode)，避免浏览器的怪异模式。有以下两个值：
+<meta name="twitter:description" content="doctype(文档类型) 的作用是什么？声明文档的解析类型(document.compatMode)，避免浏览器的怪异模式。有以下两个值：
+
 怪异模式，浏览器使用自己的怪异模式解析渲染页面。
-标准模式，浏览器使用W3C的标准解析渲染页面。
- 这个属性会被浏览器识别并使用，但是如果你的页面没有DOCTYPE的声明,浏览器按照自己的方式解析渲染页面（怪异模式），在不同的浏览器就会显示不同的样式。">
+标准模式，浏览器使用W3C的标准解析渲染页面。这个属性会被浏览器识别并使用，但是如果你的页面没有DOCTYPE的声明,浏览器按照自己的方式解析渲染页面（怪异模式），在不同的浏览器就会显示不同的样式。
+
+注意">
 
 
 
@@ -354,10 +360,11 @@
       
 
       
-        <p>###doctype(文档类型) 的作用是什么？<br>声明文档的解析类型(document.compatMode)，避免浏览器的怪异模式。有以下两个值：</p>
-<pre><code>怪异模式，浏览器使用自己的怪异模式解析渲染页面。
-标准模式，浏览器使用W3C的标准解析渲染页面。
-</code></pre><p> 这个属性会被浏览器识别并使用，但是如果你的页面没有DOCTYPE的声明,浏览器按照自己的方式解析渲染页面（怪异模式），在不同的浏览器就会显示不同的样式。</p>
+        <h3 id="doctype-文档类型-的作用是什么？"><a href="#doctype-文档类型-的作用是什么？" class="headerlink" title="doctype(文档类型) 的作用是什么？"></a>doctype(文档类型) 的作用是什么？</h3><p>声明文档的解析类型(document.compatMode)，避免浏览器的怪异模式。有以下两个值：</p>
+<ul>
+<li>怪异模式，浏览器使用自己的怪异模式解析渲染页面。</li>
+<li>标准模式，浏览器使用W3C的标准解析渲染页面。<br>这个属性会被浏览器识别并使用，但是如果你的页面没有DOCTYPE的声明,浏览器按照自己的方式解析渲染页面（怪异模式），在不同的浏览器就会显示不同的样式。</li>
+</ul>
 <p><strong>注意以下几点：</strong>  </p>
 <ul>
 <li>&lt;!DOCTYPE&gt; 声明不是 HTML 标签；  </li>
@@ -368,28 +375,30 @@
 <p>###浏览器标准模式和怪异模式有什么区别？</p>
 <p><strong>两者的区别：</strong></p>
 <ul>
-<li><p>盒模型的解析上： </p>
-<pre><code>在strict mode中 ：width是内容宽度
-在quirks mode中 ：width则是元素的实际宽度 ，而内容宽度 = width - (margin-left + margin-right + padding-left + padding-right + border-left-width + border-right-width)
-</code></pre></li>
-<li><p>图片元素垂直对齐方式</p>
-<pre><code>在strict mode中 ：vertical-align 属性默认取值为 baseline
-在quirks mode中 ：vertical align 属性默认为 bottom，因此，在图片底部会有几像素的空间。
-</code></pre></li>
-<li><p>&lt;table&gt;元素中的字体</p>
-<pre><code>Quirks Mode 下，对于 table 元素，字体的某些属性将不会从 body 或其他封闭元素继承到 table 中，特别是 font-size 属性。
-</code></pre></li>
-<li><p>内联元素的尺寸</p>
-<pre><code>在 Standards Mode 下，non-replaced inline 元素无法自定义大小，而在 Quirks Mode 下，定义这些元素的 width 和 height 属性，能够影响该元素显示的大小尺寸。
-</code></pre></li>
-<li><p>元素的百分比高度</p>
-<pre><code>当一个元素使用百分比高度时，在 Standards Mode 下，高度取决于内容的变化，而在 Quirks Mode 下，百分比高度则被正确应用。
-</code></pre></li>
-<li><p>元素溢出的处理</p>
-<pre><code>在 Standard Mode 下，overflow 取默认值 visible，即溢出可见，这种情况下，溢出内容不会被裁剪，呈现在元素框外。而在 Quirks Mode 下，该溢出被当做扩展 box 来对待，即元素的大小由其内容决定，溢出不会被裁剪，元素框自动调整，包含溢出内容。
-</code></pre></li>
+<li>盒模型的解析上： </li>
 </ul>
-<p>###HTML和XHTML的区别是什么？<br><strong>主要的不同：</strong>  </p>
+<p>在strict mode中 ：width是内容宽度<br>在quirks mode中 ：width则是元素的实际宽度 ，而内容宽度 = width - (margin-left + margin-right + padding-left + padding-right + border-left-width + border-right-width)</p>
+<ul>
+<li>图片元素垂直对齐方式</li>
+</ul>
+<p>在strict mode中 ：vertical-align 属性默认取值为 baseline<br>在quirks mode中 ：vertical align 属性默认为 bottom，因此，在图片底部会有几像素的空间。</p>
+<ul>
+<li>&lt;table&gt;元素中的字体</li>
+</ul>
+<p>Quirks Mode 下，对于 table 元素，字体的某些属性将不会从 body 或其他封闭元素继承到 table 中，特别是 font-size 属性。</p>
+<ul>
+<li>内联元素的尺寸</li>
+</ul>
+<p>在 Standards Mode 下，non-replaced inline 元素无法自定义大小，而在 Quirks Mode 下，定义这些元素的 width 和 height 属性，能够影响该元素显示的大小尺寸。</p>
+<ul>
+<li>元素的百分比高度</li>
+</ul>
+<p>当一个元素使用百分比高度时，在 Standards Mode 下，高度取决于内容的变化，而在 Quirks Mode 下，百分比高度则被正确应用。</p>
+<ul>
+<li>元素溢出的处理</li>
+</ul>
+<p>在 Standard Mode 下，overflow 取默认值 visible，即溢出可见，这种情况下，溢出内容不会被裁剪，呈现在元素框外。而在 Quirks Mode 下，该溢出被当做扩展 box 来对待，即元素的大小由其内容决定，溢出不会被裁剪，元素框自动调整，包含溢出内容。</p>
+<h3 id="HTML和XHTML的区别是什么？"><a href="#HTML和XHTML的区别是什么？" class="headerlink" title="HTML和XHTML的区别是什么？"></a>HTML和XHTML的区别是什么？</h3><p><strong>主要的不同：</strong>  </p>
 <ul>
 <li>XHTML可以理解为html+xml，就是用xml的语法来规范html。  </li>
 <li>XHTML 元素必须被正确地嵌套。  </li>
@@ -397,7 +406,7 @@
 <li>标签名必须用小写字母。  </li>
 <li>XHTML 文档必须拥有根元素。</li>
 </ul>
-<p>###如果网页内容需要支持多语言，你会怎么做？<br><strong>考虑:</strong></p>
+<h3 id="如果网页内容需要支持多语言，你会怎么做？"><a href="#如果网页内容需要支持多语言，你会怎么做？" class="headerlink" title="如果网页内容需要支持多语言，你会怎么做？"></a>如果网页内容需要支持多语言，你会怎么做？</h3><p><strong>考虑:</strong></p>
 <ul>
 <li>应用字符集的选择 utf-8  </li>
 <li>语言书写习惯&amp;导航结构  </li>
@@ -408,50 +417,49 @@
 <li>静态：就是为每种语言分别准备一套页面文件，要么通过文件后缀名来区分不同语言，要么通过子目录来区分不同语言。   </li>
 <li>动态：站点内所有页面文件都是动态页面文件（PHP，ASP等）而不是静态页面文件，在需要输出语言文字的地方统一采用语言变量来表示，这些语言变量可以根据用户选择不同的语言赋予不同的值，从而能够实现在不同的语言环境下输出不同的文字</li>
 </ul>
-<p>###data-属性的作用是什么？<br>data-为前端开发者提供自定义的属性，这些属性集可以通过对象的dataset属性获取，不支持该属性的浏览器可以通过 getAttribute方法获取</p>
+<h3 id="data-属性的作用是什么？"><a href="#data-属性的作用是什么？" class="headerlink" title="data-属性的作用是什么？"></a>data-属性的作用是什么？</h3><p>data-为前端开发者提供自定义的属性，这些属性集可以通过对象的dataset属性获取，不支持该属性的浏览器可以通过 getAttribute方法获取</p>
 <h3 id="如果把-HTML5-看作做一个开放平台，那它的构建模块有哪些？"><a href="#如果把-HTML5-看作做一个开放平台，那它的构建模块有哪些？" class="headerlink" title="如果把 HTML5 看作做一个开放平台，那它的构建模块有哪些？"></a>如果把 HTML5 看作做一个开放平台，那它的构建模块有哪些？</h3><p>开放网络平台（Open Web Platform）是一些开放的（免版权）技术的集合，这些技术激活了互联网。使用开放网络平台时，每个人都有权实现 Web 上的一个组件，而不用向任何人索取许可和证书。<br>构建模块，指的应该是开放网络平台这个技术集合中的技术：<br>HTML<br>DOM<br>CSS<br>SVG<br>MathML<br>Web APIs…<br>EcmaScript / JavaScript<br>HTTP<br>URI<br>Media Accessibility Checklist</p>
-<h3 id="请描述-cookies、sessionStorage-和-localStorage-的区别。"><a href="#请描述-cookies、sessionStorage-和-localStorage-的区别。" class="headerlink" title="请描述 cookies、sessionStorage 和 localStorage 的区别。"></a>请描述 cookies、sessionStorage 和 localStorage 的区别。</h3><p>共同点：都是保存在浏览器端，且同源的。 </p>
-<p>区别：</p>
-<ul>
-<li>大小<br>  cookie 最多只有 4kb，而 sessionStorage 和 localStorage 大小一般可以有 5M</li>
-<li>生命周期<br>  cookie 的生命周期由服务器控制，默认是关闭浏览器后删除；sessionStorage 仅在当前的窗口有效，localStorage 除非手动删除否则一直存在。</li>
+<h3 id="请描述-cookies、sessionStorage-和-localStorage-的区别。"><a href="#请描述-cookies、sessionStorage-和-localStorage-的区别。" class="headerlink" title="请描述 cookies、sessionStorage 和 localStorage 的区别。"></a>请描述 cookies、sessionStorage 和 localStorage 的区别。</h3><h4 id="共同点：都是保存在浏览器端，且同源的。"><a href="#共同点：都是保存在浏览器端，且同源的。" class="headerlink" title="共同点：都是保存在浏览器端，且同源的。"></a>共同点：都是保存在浏览器端，且同源的。</h4><h4 id="区别："><a href="#区别：" class="headerlink" title="区别："></a>区别：</h4><ul>
+<li>大小<br>cookie 最多只有 4kb，而 sessionStorage 和 localStorage 大小一般可以有 5M</li>
+<li>生命周期<br>cookie 的生命周期由服务器控制，默认是关闭浏览器后删除；sessionStorage 仅在当前的窗口有效，localStorage 除非手动删除否则一直存在。</li>
 <li>http 通信<br>浏览器每次向服务器发送请求的时候都要带上该域的 cookie，而 sessionStorage 和 localStorage 仅存在于浏览器端。</li>
 <li>作用域<br>cookie 和 localStorage 在同个域名下的多个窗口都有效，sessionStorage 只在一个窗口有效，不能跨窗口共享。</li>
 <li>易用性<br>sessionStorage 和 localStorage 属于 HTML5 的 Web Storage 的 API，更加灵活易用。</li>
 </ul>
-<p>Web Storage带来的好处：</p>
-<p>减少网络流量：一旦数据保存在本地后，就可以避免再向服务器请求数据，因此减少不必要的数据请求，减少数据在浏览器和服务器间不必要地来回传递。<br>快速显示数据：性能好，从本地读数据比通过网络从服务器获得数据快得多，本地数据可以即时获得。再加上网页本身也可以有缓存，因此整个页面和数据都在本地的话，可以立即显示。<br>临时存储：很多时候数据只需要在用户浏览一组页面期间使用，关闭窗口后数据就可以丢弃了，这种情况使用sessionStorage非常方便。</p>
-<p>服务端存储</p>
-<p>服务器端也可以保存所有用户的所有数据，但需要的时候浏览器要向服务器请求数据。</p>
+<h4 id="Web-Storage带来的好处："><a href="#Web-Storage带来的好处：" class="headerlink" title="Web Storage带来的好处："></a>Web Storage带来的好处：</h4><ul>
+<li>减少网络流量：一旦数据保存在本地后，就可以避免再向服务器请求数据，因此减少不必要的数据请求，减少数据在浏览器和服务器间不必要地来回传递。  </li>
+<li>快速显示数据：性能好，从本地读数据比通过网络从服务器获得数据快得多，本地数据可以即时获得。再加上网页本身也可以有缓存，因此整个页面和数据都在本地的话，可以立即显示。      </li>
+<li>临时存储：很多时候数据只需要在用户浏览一组页面期间使用，关闭窗口后数据就可以丢弃了，这种情况使用sessionStorage非常方便。  </li>
+</ul>
+<h4 id="服务端存储"><a href="#服务端存储" class="headerlink" title="服务端存储"></a>服务端存储</h4><p>服务器端也可以保存所有用户的所有数据，但需要的时候浏览器要向服务器请求数据。</p>
 <ul>
 <li>服务器端可以保存用户的持久数据，如数据库和云存储将用户的大量数据保存在服务器端。</li>
 <li>服务器端也可以保存用户的临时会话数据。服务器端的session机制，如jsp的 session 对象，数据保存在服务器上。 实现上，服务器和浏览器之间仅需传递session id即可，服务器根据session id找到对应用户的session对象。会话数据仅在一段时间内有效，这个时间就是server端设置的session有效期。 服务器端保存所有的用户的数据，所以服务器端的开销较大，而浏览器端保存则把不同用户需要的数据分布保存在用户各自的浏览器中。浏览器端一般只用来存储小数据，而服务器可以存储大数据或小数据。服务器存储数据安全一些，浏览器只适合存储一般数据。</li>
 </ul>
-<p>注：<br>H5本地存储 <a href="http://harttle.com/2015/08/16/localstorage-sessionstorage-cookie.html" target="_blank" rel="external">http://harttle.com/2015/08/16/localstorage-sessionstorage-cookie.html</a><br>session原理： <a href="https://www.pureweber.com/article/how-session-works/" target="_blank" rel="external">https://www.pureweber.com/article/how-session-works/</a></p>
-<p>###请解释 &lt;script&gt;、&lt;script async&gt; 和 &lt;script defer&gt; 的区别</p>
-<p>通过script标签加载js文件时，如果加载过慢，或者出错，有可能会阻塞整个页面的加载，这时就需要js的异步加载，以下两个属性可支持异步加载：<br>defer 和 async 的<strong>共同点</strong>:都是可以并行加载JS文件，不会阻塞页面的加载，<br>defer 和 async 的<strong>不同点</strong>:defer的加载完成之后， JS会等待整个页面全部加载完成了再执行， 而async是加载完成之后，会马上执行JS， 所以假如对JS的执行有严格顺序的话，那么建议用 defer加载。</p>
-<p>###为什么通常推荐将 CSS &lt;link&gt; 放置在 &lt;head&gt;&lt;/head&gt; 之间，而将 JS &lt;script&gt; 放置在 &lt;/body&gt; 之前？你知道有哪些例外吗？</p>
-<p>css放在head中： </p>
-<ul>
+<h4 id="参考："><a href="#参考：" class="headerlink" title="参考："></a>参考：</h4><p><a href="http://harttle.com/2015/08/16/localstorage-sessionstorage-cookie.html" target="_blank" rel="external">H5本地存储</a><br><a href="https://www.pureweber.com/article/how-session-works/" target="_blank" rel="external">session原理</a></p>
+<h3 id="请解释-lt-script-gt-、-lt-script-async-gt-和-lt-script-defer-gt-的区别"><a href="#请解释-lt-script-gt-、-lt-script-async-gt-和-lt-script-defer-gt-的区别" class="headerlink" title="请解释 &lt;script&gt;、&lt;script async&gt; 和 &lt;script defer&gt; 的区别"></a>请解释 &lt;script&gt;、&lt;script async&gt; 和 &lt;script defer&gt; 的区别</h3><p>通过script标签加载js文件时，如果加载过慢，或者出错，有可能会阻塞整个页面的加载，这时就需要js的异步加载，以下两个属性可支持异步加载：<br>defer 和 async 的<strong>共同点</strong>:都是可以并行加载JS文件，不会阻塞页面的加载，<br>defer 和 async 的<strong>不同点</strong>:defer的加载完成之后， JS会等待整个页面全部加载完成了再执行， 而async是加载完成之后，会马上执行JS， 所以假如对JS的执行有严格顺序的话，那么建议用 defer加载。</p>
+<h3 id="为什么通常推荐将-CSS-lt-link-gt-放置在-lt-head-gt-lt-head-gt-之间，而将-JS-lt-script-gt-放置在-lt-body-gt-之前？你知道有哪些例外吗？"><a href="#为什么通常推荐将-CSS-lt-link-gt-放置在-lt-head-gt-lt-head-gt-之间，而将-JS-lt-script-gt-放置在-lt-body-gt-之前？你知道有哪些例外吗？" class="headerlink" title="为什么通常推荐将 CSS &lt;link&gt; 放置在 &lt;head&gt;&lt;/head&gt; 之间，而将 JS &lt;script&gt; 放置在 &lt;/body&gt; 之前？你知道有哪些例外吗？"></a>为什么通常推荐将 CSS &lt;link&gt; 放置在 &lt;head&gt;&lt;/head&gt; 之间，而将 JS &lt;script&gt; 放置在 &lt;/body&gt; 之前？你知道有哪些例外吗？</h3><h4 id="css放在head中："><a href="#css放在head中：" class="headerlink" title="css放在head中："></a>css放在head中：</h4><ul>
 <li>css放在head中， 是因为浏览器解析html文档是自上而下的，如果放底部的话，页面结构出来了，css还没开始渲染，可能会看到只有结构的页面。</li>
 <li>CSS 应当写在 head 中，以避免页面元素由于样式确实造成瞬间的白页或者给用户闪烁感。</li>
 </ul>
-<p>js放在/body之前：</p>
-<ul>
+<h4 id="js放在-body之前："><a href="#js放在-body之前：" class="headerlink" title="js放在/body之前："></a>js放在/body之前：</h4><ul>
 <li>JS可能会改变DOM树，也可能依赖css样式。如果放在前面，那么DOM和css可能还未加载，这样容易报错。</li>
 <li>性能：js放前面，页面会先去加载他，拖慢了时间，使用户在一定时间内看不到网页内容。</li>
 </ul>
-<p>例外：js如果需要先加载后运行可以写在头里（当脚本使用 defer 方式加载的时候可以不用约束放置的位置。）；</p>
+<p><strong>例外</strong>：js如果需要先加载后运行可以写在头里（当脚本使用 defer 方式加载的时候可以不用约束放置的位置。）；</p>
 <h3 id="如果页面使用-‘application-xhtml-xml’-会有什么问题吗？"><a href="#如果页面使用-‘application-xhtml-xml’-会有什么问题吗？" class="headerlink" title="如果页面使用 ‘application/xhtml+xml’ 会有什么问题吗？"></a>如果页面使用 ‘application/xhtml+xml’ 会有什么问题吗？</h3><p>首先这是个MIME类型，意思就是告诉浏览器，要用xhtml的格式来解析我发给你的页面；<br>xhtml 语法要求严格，必须有head、body 每个dom 必须要闭合。空标签也必须闭合。例如&lt;img /&gt;, &lt;br/&gt;, &lt;input /&gt;等。另外要在属性值上使用双引号。一旦遇到错误，立刻停止解析，并显示错误信息。<br>如果页面使用’application/xhtml+xml’,一些老的浏览器会不兼容。<br>IE6，7，8不支持，IE6，7，8支持text/html。</p>
 <h3 id="什么是渐进式渲染-progressive-rendering-？"><a href="#什么是渐进式渲染-progressive-rendering-？" class="headerlink" title="什么是渐进式渲染 (progressive rendering)？"></a>什么是渐进式渲染 (progressive rendering)？</h3><p>渐进式渲染是指浏览器不用等待所有页面资源都渲染好之后再呈现给用户看，而是边下载边渲染，所以用户打开一个网页的时候往往不能第一时间看到所有的内容，但是能够看到一个大概的样子，后续的内容浏览器会慢慢补上形成一个完整的页面。这个有点像 bigpipe。</p>
 <h3 id="请解释下什么事语义化的HTML？"><a href="#请解释下什么事语义化的HTML？" class="headerlink" title="请解释下什么事语义化的HTML？"></a>请解释下什么事语义化的HTML？</h3><p>语义化的好处：  </p>
-<pre><code>1：去掉或样式丢失的时候能让页面呈现清晰的结构：html本身是没有表现的，我们看到例如&amp;lt;h1&gt;是粗体，字体大小2em，加粗；&amp;lt;strong&gt;是加粗的，不要认为这是html的表现，这些其实html默认的css样式在起作用，所以去掉或样式丢失的时候能让页面呈现清晰的结构不是语义化的HTML结构的优点，但是浏览器都有有默认样式，默认样式的目的也是为了更好的表达html的语义，可以说浏览器的默认样式和语义化的HTML结构是不可分割的。
-2.屏幕阅读器（如果访客有视障）会完全根据你的标记来“读”你的网页.  
-3.PDA、手机等设备可能无法像普通电脑的浏览器一样来渲染网页（通常是因为这些设备对CSS的支持较弱）.  
-4.搜索引擎的爬虫也依赖于标记来确定上下文和各个关键字的权重.  
-5.你的页面是否对爬虫容易理解非常重要,因为爬虫很大程度上会忽略用于表现的标记,而只注重语义标记.  
-6.便于团队开发和维护
-</code></pre><p> 语义化的HTML就是：标题用h1-h6，文字段落用p，列表用ul li，大致如此</p>
+<ul>
+<li>去掉或样式丢失的时候能让页面呈现清晰的结构：html本身是没有表现的，我们看到例如&lt;h1&gt;是粗体，字体大小2em，加粗；&lt;strong&gt;是加粗的，不要认为这是html的表现，这些其实html默认的css样式在起作用，所以去掉或样式丢失的时候能让页面呈现清晰的结构不是语义化的HTML结构的优点，但是浏览器都有有默认样式，默认样式的目的也是为了更好的表达html的语义，可以说浏览器的默认样式和语义化的HTML结构是不可分割的。</li>
+<li>屏幕阅读器（如果访客有视障）会完全根据你的标记来“读”你的网页.  </li>
+<li>PDA、手机等设备可能无法像普通电脑的浏览器一样来渲染网页（通常是因为这些设备对CSS的支持较弱）.  </li>
+<li>搜索引擎的爬虫也依赖于标记来确定上下文和各个关键字的权重.  </li>
+<li>你的页面是否对爬虫容易理解非常重要,因为爬虫很大程度上会忽略用于表现的标记,而只注重语义标记.  </li>
+<li><p>便于团队开发和维护</p>
+<p>语义化的HTML就是：标题用h1-h6，文字段落用p，列表用ul li，大致如此</p>
+</li>
+</ul>
 
       
     </div>
@@ -607,7 +615,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#如果把-HTML5-看作做一个开放平台，那它的构建模块有哪些？"><span class="nav-number">1.</span> <span class="nav-text">如果把 HTML5 看作做一个开放平台，那它的构建模块有哪些？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#请描述-cookies、sessionStorage-和-localStorage-的区别。"><span class="nav-number">2.</span> <span class="nav-text">请描述 cookies、sessionStorage 和 localStorage 的区别。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如果页面使用-‘application-xhtml-xml’-会有什么问题吗？"><span class="nav-number">3.</span> <span class="nav-text">如果页面使用 ‘application/xhtml+xml’ 会有什么问题吗？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是渐进式渲染-progressive-rendering-？"><span class="nav-number">4.</span> <span class="nav-text">什么是渐进式渲染 (progressive rendering)？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#请解释下什么事语义化的HTML？"><span class="nav-number">5.</span> <span class="nav-text">请解释下什么事语义化的HTML？</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#doctype-文档类型-的作用是什么？"><span class="nav-number">1.</span> <span class="nav-text">doctype(文档类型) 的作用是什么？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HTML和XHTML的区别是什么？"><span class="nav-number">2.</span> <span class="nav-text">HTML和XHTML的区别是什么？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如果网页内容需要支持多语言，你会怎么做？"><span class="nav-number">3.</span> <span class="nav-text">如果网页内容需要支持多语言，你会怎么做？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#data-属性的作用是什么？"><span class="nav-number">4.</span> <span class="nav-text">data-属性的作用是什么？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如果把-HTML5-看作做一个开放平台，那它的构建模块有哪些？"><span class="nav-number">5.</span> <span class="nav-text">如果把 HTML5 看作做一个开放平台，那它的构建模块有哪些？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#请描述-cookies、sessionStorage-和-localStorage-的区别。"><span class="nav-number">6.</span> <span class="nav-text">请描述 cookies、sessionStorage 和 localStorage 的区别。</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#共同点：都是保存在浏览器端，且同源的。"><span class="nav-number">6.1.</span> <span class="nav-text">共同点：都是保存在浏览器端，且同源的。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#区别："><span class="nav-number">6.2.</span> <span class="nav-text">区别：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Web-Storage带来的好处："><span class="nav-number">6.3.</span> <span class="nav-text">Web Storage带来的好处：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#服务端存储"><span class="nav-number">6.4.</span> <span class="nav-text">服务端存储</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#参考："><span class="nav-number">6.5.</span> <span class="nav-text">参考：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#请解释-lt-script-gt-、-lt-script-async-gt-和-lt-script-defer-gt-的区别"><span class="nav-number">7.</span> <span class="nav-text">请解释 <script>、<script async> 和 <script defer> 的区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#为什么通常推荐将-CSS-lt-link-gt-放置在-lt-head-gt-lt-head-gt-之间，而将-JS-lt-script-gt-放置在-lt-body-gt-之前？你知道有哪些例外吗？"><span class="nav-number">8.</span> <span class="nav-text">为什么通常推荐将 CSS <link> 放置在 <head></head> 之间，而将 JS <script> 放置在 </body> 之前？你知道有哪些例外吗？</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#css放在head中："><span class="nav-number">8.1.</span> <span class="nav-text">css放在head中：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#js放在-body之前："><span class="nav-number">8.2.</span> <span class="nav-text">js放在/body之前：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如果页面使用-‘application-xhtml-xml’-会有什么问题吗？"><span class="nav-number">9.</span> <span class="nav-text">如果页面使用 ‘application/xhtml+xml’ 会有什么问题吗？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是渐进式渲染-progressive-rendering-？"><span class="nav-number">10.</span> <span class="nav-text">什么是渐进式渲染 (progressive rendering)？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#请解释下什么事语义化的HTML？"><span class="nav-number">11.</span> <span class="nav-text">请解释下什么事语义化的HTML？</span></a></li></ol></div>
             
           </div>
         </section>
