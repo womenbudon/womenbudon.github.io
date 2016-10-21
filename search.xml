@@ -4,6 +4,54 @@
   
     
     <entry>
+      <title><![CDATA[性能优化之二使用内容分发网络]]></title>
+      <url>http://yoursite.com/2016/10/21/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%E4%B9%8B%E4%BA%8C%E4%BD%BF%E7%94%A8%E5%86%85%E5%AE%B9%E5%88%86%E5%8F%91%E7%BD%91%E7%BB%9C/</url>
+      <content type="html"><![CDATA[<p>如果应用程序Web服务器离用户更近，则一个HTTP请求的响应时间将缩短。另一方面，如果组件Web服务器离用户更近，则多个HTTP请求的响应时间将缩短。重新设计应用程序以便将应用程序Web服务器分散开，这样做的难度大。不如将组件Web服务器分散开，这不仅能达到响应时间大幅减少的目的，而且还很容易实现。</p>
+<h2 id="内容分布网络"><a href="#内容分布网络" class="headerlink" title="内容分布网络"></a>内容分布网络</h2><p>内容发布网络（CDN）是一组分布在多个不同地理位置的Web服务器，用于更加有效地向用户发布内容。<br>CDN用于发布静态内容，如图片、脚本、样式表和Flash</p>
+<h3 id="CDN优点"><a href="#CDN优点" class="headerlink" title="CDN优点"></a>CDN优点</h3><ul>
+<li>缩短响应时间</li>
+<li>备份、扩展存储能力、进行缓存</li>
+<li>缓和Web流量峰值</li>
+</ul>
+<h3 id="CDN缺点"><a href="#CDN缺点" class="headerlink" title="CDN缺点"></a>CDN缺点</h3><ul>
+<li>响应时间可能会受到其他网站的流量的影响（CDN服务提供商在其所有客户之间共享其Web服务器组）<br>  解决： 使用两个CDN服务提供商就行了</li>
+</ul>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[性能优化之一减少HTTP请求]]></title>
+      <url>http://yoursite.com/2016/10/21/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%E4%B9%8B%E4%B8%80%E5%87%8F%E5%B0%91HTTP%E8%AF%B7%E6%B1%82/</url>
+      <content type="html"><![CDATA[<p><strong>性能优化黄金法则</strong>： 只有10%~20%的最终用户响应时间花在了下载HTML文档上，其余的80%~90%时间花在了下载页面中的所有组件上（脚本、CSS样式表、图片、Flash）。换我自己的化说，就是改动前端的收益大</p>
+<p>关注前端可以很好的提高性能： 后端响应时间缩短一半，整体响应时间只能减少5%~10%。而如果关注前端性能，同样是将其响应时间减少一半，则整体响应时间减少40%~45%。</p>
+<p>改进前端通常只需要较少的时间和资源： 减少后端延迟会带来很大的改动，例如：重新设计应用程序的架构和代码、查找和优化临界代码路径、添加或改动硬件、对数据库进行分布化等。</p>
+<p>前端性能调整实践证明可行</p>
+<h2 id="图片地图"><a href="#图片地图" class="headerlink" title="图片地图"></a>图片地图</h2><p>允许你在一个图片上关联多个URL，目标URL的选择取决于用户点击了图片上的哪个位置。</p>
+<h3 id="图片地图两种类型"><a href="#图片地图两种类型" class="headerlink" title="图片地图两种类型"></a>图片地图两种类型</h3><p>服务器端图片地图： 将所有点击提交到同一个目标URL，向其传递用户点击的x、y坐标。Web应用程序将该x、y坐标映射为适当的操作<br>客户端图片地图： 它可以将用户的点击映射到一个操作，而无需向后端应用程序发送请求。映射通过HTML的MAP标签实现。</p>
+<h3 id="图片地图的缺点"><a href="#图片地图的缺点" class="headerlink" title="图片地图的缺点"></a>图片地图的缺点</h3><ul>
+<li>在定义图片地图的区域坐标时，如果采取手工的方式则很难完成且容易出错</li>
+<li>除了矩形之外几乎无法定义其他形状</li>
+<li>通过DHTML创建的图片地图在Internet Exploer中无法工作</li>
+</ul>
+<h3 id="图片地图使用场景"><a href="#图片地图使用场景" class="headerlink" title="图片地图使用场景"></a>图片地图使用场景</h3><p>若导航栏和超链接中使用多个图片，则使用图片地图是加速页面的最简单的方式</p>
+<h2 id="CSS-Sprites"><a href="#CSS-Sprites" class="headerlink" title="CSS Sprites"></a>CSS Sprites</h2><p>又称为CSS 雪碧图，我用自己的话来总结什么是雪碧图吧，简单来说就是将在页面中需要用到的大量图片合并成一张图片，在一个图标或背景或导航或链接的class样式需要背景图片时，通过CSS样式background-position属性来定位偏移量来得到需要的图片。</p>
+<h3 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h3><ul>
+<li>通过合并图片减少了HTTP请求，并且比图片地图更灵活</li>
+<li>降低了下载量（合并后的图片比分离的图片小，因为降低了图片吱声的开销（颜色表、格式信息，等等））</li>
+</ul>
+<h2 id="内联图片"><a href="#内联图片" class="headerlink" title="内联图片"></a>内联图片</h2><p>data: URL 允许将小块数据内联为‘立即数’，数据就在其URL自身之中，其格式如下：<br>data: [&lt; mediatype&gt;][;base64],&lt; data&gt;<br>例如：<br><img src="./rule1.1.png" alt="Alt text"><br>通过使用data: URL模式可以在Web页面中包含图片但无需任何额外的HTTP请求。</p>
+<h2 id="内联图片的缺点"><a href="#内联图片的缺点" class="headerlink" title="内联图片的缺点"></a>内联图片的缺点</h2><ul>
+<li>data: URL模式的主要缺陷在于不受IE得支持（直到版本7后续版本自己查吧）</li>
+<li>可能存在数据大小上的限制</li>
+<li>由于data: URL是内联在页面中，在跨越不同页面时不会被缓存<br>  解决： 使用CSS并将内联图片作为背景，将该CSS规则放在外部样式表中，虽然增加了一个额外的HTTP请求，但被缓存后可以得到额外的收获。</li>
+</ul>
+<h2 id="合并脚本和样式表"><a href="#合并脚本和样式表" class="headerlink" title="合并脚本和样式表"></a>合并脚本和样式表</h2><p>模块化的原则是好，便于开发，但是每个文件都会导致一个单独HTTP请求，将这些文件合并到一个文件中，即可减少HTTP请求的数量并缩短最终用户响应时间。在理想的情况下，一个页面应该使用不多于一个的脚本和样式表。</p>
+<h3 id="模块化和性能优化的共存"><a href="#模块化和性能优化的共存" class="headerlink" title="模块化和性能优化的共存"></a>模块化和性能优化的共存</h3><p> 对于习惯了编写模块化代码的开发者来说，将所有东西合并到一个单独的文件中像是一种倒退，而将所有的Javascript合并为一个单独的文件在开发环境中很难(一个页面可能需要的脚本的组合很多)。<br><strong>解决的方法:</strong> 遵守编译型语言的模式，保持javascript的模块化，而在生成过程中从一组特定的模块生产一个目标文件。<br><strong>难点:</strong>合并脚本和样式表文件很容易，难得是组合的数量的增长，如果有大量需要不同模块的页面，组合的数量就会非常的大。所以多花一些时间去分析页面，确保组合的数量是可管理的。</p>
+<h2 id="最后再附上本人的丑作"><a href="#最后再附上本人的丑作" class="headerlink" title="最后再附上本人的丑作"></a>最后再附上本人的丑作</h2><p><img src="./rule1.2.png" alt="Alt text"></p>
+]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[HTML面试题]]></title>
       <url>http://yoursite.com/2016/10/08/HTML%E9%9D%A2%E8%AF%95%E9%A2%98/</url>
       <content type="html"><![CDATA[<h3 id="doctype-文档类型-的作用是什么？"><a href="#doctype-文档类型-的作用是什么？" class="headerlink" title="doctype(文档类型) 的作用是什么？"></a>doctype(文档类型) 的作用是什么？</h3><p>声明文档的解析类型(document.compatMode)，避免浏览器的怪异模式。有以下两个值：</p>
