@@ -272,6 +272,147 @@
             
               
                 
+                <a class="post-title-link" href="/2016/10/25/性能优化之三添加Expires头/" itemprop="url">
+                  性能优化之三添加Expires头
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-10-25T19:53:47+08:00" content="2016-10-25">
+              2016-10-25
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/性能优化/" itemprop="url" rel="index">
+                    <span itemprop="name">性能优化</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/10/25/性能优化之三添加Expires头/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/25/性能优化之三添加Expires头/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/10/25/性能优化之三添加Expires头/" class="leancloud_visitors" data-flag-title="性能优化之三添加Expires头">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          页面往往包含了大量的组件（脚本、样式表、flash），通过expires头可以使这些组件被缓存,这在后续的页面浏览中避免不必要的HTTP请求。
+Expires头Web服务器使用Expires头来告诉Web客户端它可以使用一个组件的当前副本，直到指定的时间为止。
+Expires: Fri, 30 Oct 2017 14:19:41 GMT
+Expires头的缺陷
+Expires头使用一个特定的时间，他要求服务器和客户端的时钟严格同步
+过期日期需要经常检查，并且一旦未来这一天到来了，还需要在服务器配置中提供一个新的日期
+
+Max-Age 和mod_expiresMax-AgeHTTP1.1引入了 
+          ...
+
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/10/25/性能优化之三添加Expires头/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/10/21/性能优化之二使用内容分发网络/" itemprop="url">
                   性能优化之二使用内容分发网络
                 </a>
@@ -493,11 +634,12 @@ CDN缺点
       
         
           
-          性能优化黄金法则： 只有10%~20%的最终用户响应时间花在了下载HTML文档上，其余的80%~90%时间花在了下载页面中的所有组件上（脚本、CSS样式表、图片、Flash）。换我自己的化说，就是改动前端的收益大
+          性能优化黄金法则： 只有10%~20%的最终用户响应时间花在了下载HTML文档上，其余的80%~90%时间花在了下载页面中的所有组件上（脚本、CSS样式表、图片、Flash）。换我自己的话说，就是改动前端的收益大
+关注前端的相对优势:
+
 关注前端可以很好的提高性能： 后端响应时间缩短一半，整体响应时间只能减少5%~10%。而如果关注前端性能，同样是将其响应时间减少一半，则整体响应时间减少40%~45%。
 改进前端通常只需要较少的时间和资源： 减少后端延迟会带来很大的改动，例如：重新设计应用程序的架构和代码、查找和优化临界代码路径、添加或改动硬件、对数据库进行分布化等。
 前端性能调整实践证明可行
-图片地图允许你在一个图
           ...
 
           <div class="post-more-link text-center">
@@ -818,148 +960,13 @@ CDN缺点
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/09/28/CSS面试题-1/" itemprop="url">
-                  CSS面试题
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-09-28T22:59:16+08:00" content="2016-09-28">
-              2016-09-28
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/CSS/" itemprop="url" rel="index">
-                    <span itemprop="name">CSS</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/09/28/CSS面试题-1/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/28/CSS面试题-1/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-             <span id="/2016/09/28/CSS面试题-1/" class="leancloud_visitors" data-flag-title="CSS面试题">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          CSS 中类 (classes) 和 ID 的区别。
-书写上的差别：class名用“.”号开头来定义，id名用“#”号开头来定义；   
-优先级不同（权重不同）  
-调用上的区别：在同一个html网页页面中class是可以被多次调用的（在不同的地方）。而id名作为标签的身份则是唯一的，id在页面中只能出现一次。在js脚本中经常会用到id来修改一个标签的属性         
-id作为元素的标签，用于区分不同结构和内容，而class作为一个样式，它可以应用到任何结构和内容上。   
-在布局思路上，一般坚持这样的原则：id是先确定页面的结构和内容，然后再为它定义样式：而class相反，它先定义好一
-          ...
-
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/09/28/CSS面试题-1/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+  </nav>
+
 
 
           </div>
@@ -998,7 +1005,7 @@ id作为元素的标签，用于区分不同结构和内容，而class作为一�
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">5</span>
+              <span class="site-state-item-count">6</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>

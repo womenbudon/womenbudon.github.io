@@ -4,6 +4,32 @@
   
     
     <entry>
+      <title><![CDATA[性能优化之三添加Expires头]]></title>
+      <url>http://yoursite.com/2016/10/25/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%E4%B9%8B%E4%B8%89%E6%B7%BB%E5%8A%A0Expires%E5%A4%B4/</url>
+      <content type="html"><![CDATA[<p>页面往往包含了大量的组件（脚本、样式表、flash），通过expires头可以使这些组件被缓存,这在后续的页面浏览中避免不必要的HTTP请求。</p>
+<h2 id="Expires头"><a href="#Expires头" class="headerlink" title="Expires头"></a>Expires头</h2><p>Web服务器使用Expires头来告诉Web客户端它可以使用一个组件的当前副本，直到指定的时间为止。</p>
+<pre><code>Expires: Fri, 30 Oct 2017 14:19:41 GMT
+</code></pre><h3 id="Expires头的缺陷"><a href="#Expires头的缺陷" class="headerlink" title="Expires头的缺陷"></a>Expires头的缺陷</h3><ul>
+<li>Expires头使用一个特定的时间，他要求服务器和客户端的时钟严格同步</li>
+<li>过期日期需要经常检查，并且一旦未来这一天到来了，还需要在服务器配置中提供一个新的日期</li>
+</ul>
+<h2 id="Max-Age-和mod-expires"><a href="#Max-Age-和mod-expires" class="headerlink" title="Max-Age 和mod_expires"></a>Max-Age 和mod_expires</h2><h3 id="Max-Age"><a href="#Max-Age" class="headerlink" title="Max-Age"></a>Max-Age</h3><p>HTTP1.1引入了 Cache-Control 头来克服 Expires 头的限制，Cache-Control 使用 max-age 指令指定组件被缓存多久。</p>
+<pre><code>Cache-Control: max-age=315360000
+</code></pre><p>对于不支持HTTP1.1的浏览器可同时指定这两个响应头- Expires 和 Cache-Control max-age，若两者同时出现HTTP规范 max-age 指令重写 Expires 头。</p>
+<h3 id="mod-expires"><a href="#mod-expires" class="headerlink" title="mod_expires"></a>mod_expires</h3><p>对于不支持HTTP1.1的浏览器，Expries 带来的时钟同步和配置维护问题可以使用 mod_expires Apache 模块，使你在使用Expires头时能够像 max-age 那样相对的方式设置日期。这通过 Expires-Default 指令来完成<br>例如： 在下面的例子中，图片、脚本和样式表的过期时间被设计为自请求开始的10年之后，它同时向响应中发送Expires头和Cache-Control max-age头 </p>
+<pre><code>&lt;FilesMatch &quot;\.(gif|jpg|js|css)$&quot;&gt;
+ExpiresDefault &quot;access plus 10 years&quot;
+&lt;/FilesMatch&gt;
+</code></pre><p>跨浏览器改善缓存的<strong>最佳解决方案</strong>就是使用由 ExpiresDefault 设置的 Expires 头</p>
+<h2 id="空缓存-VS-完整缓存"><a href="#空缓存-VS-完整缓存" class="headerlink" title="空缓存 VS 完整缓存"></a>空缓存 VS 完整缓存</h2><p>只有在用户已经访问过你的网站之后，长久的 Expires 头才会对页面浏览产生影响，使你的组件可缓存能够改善这些用户的响应时间。<br>空缓存或完整缓存页面浏览的数量取决于Web应用程序的本质。（例如：京东、天猫，商品的图片不可能相同空缓存较好，相比旅游网站或E-mail网站中可能每个用户会话能产生多次页面浏览，完整缓存较好）</p>
+<h2 id="不仅仅是图片"><a href="#不仅仅是图片" class="headerlink" title="不仅仅是图片"></a>不仅仅是图片</h2><p>长久的 Expires 头应该包含任何不经常变化的组件，包括脚本、样式表和 Flash 组件，HTML 文档不应该使用长久的 Expires 头，因为它包含动态内容，这些内容在每次用户请求时都将更新。</p>
+<h2 id="修订文件名"><a href="#修订文件名" class="headerlink" title="修订文件名"></a>修订文件名</h2><p>为了确保用户能获取组件的最新版本，需要在所有HTML页面中修改组件的文件名。<br>实现方式： 将版本号嵌入在组件的文件名中，嵌入版本号不仅可以改变文件名，还能在调试时更容易找到准确的源代码文件</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>使用 Expires 头能够避免额外的 HTTP 请求，可以减少一半的响应时间。<br>相反的情况： 如果一个组件没有长久的 Expires 头，它仍然会存储在浏览器的缓存中。在后续请求中，浏览器会检查缓存并发现组件已经过期。为了提高效率，浏览器会向原始服务器发送一个 GET 请求，如果组件没有改变，原始服务器可以免于发送整个组件，而是发送一个很小的头， 告诉浏览器可以使用其缓存的组件。</p>
+<h2 id="大作"><a href="#大作" class="headerlink" title="大作"></a>大作</h2><p><img src="./rule3.1.png" alt="Alt text"></p>
+]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[性能优化之二使用内容分发网络]]></title>
       <url>http://yoursite.com/2016/10/21/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%E4%B9%8B%E4%BA%8C%E4%BD%BF%E7%94%A8%E5%86%85%E5%AE%B9%E5%88%86%E5%8F%91%E7%BD%91%E7%BB%9C/</url>
       <content type="html"><![CDATA[<p>如果应用程序Web服务器离用户更近，则一个HTTP请求的响应时间将缩短。另一方面，如果组件Web服务器离用户更近，则多个HTTP请求的响应时间将缩短。重新设计应用程序以便将应用程序Web服务器分散开，这样做的难度大。不如将组件Web服务器分散开，这不仅能达到响应时间大幅减少的目的，而且还很容易实现。</p>
@@ -22,10 +48,13 @@
     <entry>
       <title><![CDATA[性能优化之一减少HTTP请求]]></title>
       <url>http://yoursite.com/2016/10/21/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%E4%B9%8B%E4%B8%80%E5%87%8F%E5%B0%91HTTP%E8%AF%B7%E6%B1%82/</url>
-      <content type="html"><![CDATA[<p><strong>性能优化黄金法则</strong>： 只有10%~20%的最终用户响应时间花在了下载HTML文档上，其余的80%~90%时间花在了下载页面中的所有组件上（脚本、CSS样式表、图片、Flash）。换我自己的化说，就是改动前端的收益大</p>
-<p>关注前端可以很好的提高性能： 后端响应时间缩短一半，整体响应时间只能减少5%~10%。而如果关注前端性能，同样是将其响应时间减少一半，则整体响应时间减少40%~45%。</p>
-<p>改进前端通常只需要较少的时间和资源： 减少后端延迟会带来很大的改动，例如：重新设计应用程序的架构和代码、查找和优化临界代码路径、添加或改动硬件、对数据库进行分布化等。</p>
-<p>前端性能调整实践证明可行</p>
+      <content type="html"><![CDATA[<p><strong>性能优化黄金法则</strong>： 只有10%~20%的最终用户响应时间花在了下载HTML文档上，其余的80%~90%时间花在了下载页面中的所有组件上（脚本、CSS样式表、图片、Flash）。换我自己的话说，就是改动前端的收益大</p>
+<p>关注前端的相对优势:</p>
+<ul>
+<li>关注前端可以很好的提高性能： 后端响应时间缩短一半，整体响应时间只能减少5%~10%。而如果关注前端性能，同样是将其响应时间减少一半，则整体响应时间减少40%~45%。</li>
+<li>改进前端通常只需要较少的时间和资源： 减少后端延迟会带来很大的改动，例如：重新设计应用程序的架构和代码、查找和优化临界代码路径、添加或改动硬件、对数据库进行分布化等。</li>
+<li>前端性能调整实践证明可行</li>
+</ul>
 <h2 id="图片地图"><a href="#图片地图" class="headerlink" title="图片地图"></a>图片地图</h2><p>允许你在一个图片上关联多个URL，目标URL的选择取决于用户点击了图片上的哪个位置。</p>
 <h3 id="图片地图两种类型"><a href="#图片地图两种类型" class="headerlink" title="图片地图两种类型"></a>图片地图两种类型</h3><p>服务器端图片地图： 将所有点击提交到同一个目标URL，向其传递用户点击的x、y坐标。Web应用程序将该x、y坐标映射为适当的操作<br>客户端图片地图： 它可以将用户的点击映射到一个操作，而无需向后端应用程序发送请求。映射通过HTML的MAP标签实现。</p>
 <h3 id="图片地图的缺点"><a href="#图片地图的缺点" class="headerlink" title="图片地图的缺点"></a>图片地图的缺点</h3><ul>
