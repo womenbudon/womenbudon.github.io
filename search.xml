@@ -4,6 +4,205 @@
   
     
     <entry>
+      <title><![CDATA[性能优化之十四使Ajax可缓存]]></title>
+      <url>http://yoursite.com/2016/11/02/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%E4%B9%8B%E5%8D%81%E5%9B%9B%E4%BD%BFAjax%E5%8F%AF%E7%BC%93%E5%AD%98/</url>
+      <content type="html"><![CDATA[<p>Ajax 是 DHTML 中使用的一项技术，客户端可以获取和显示用户请求的新信息而无需重新加载页面。</p>
+<h2 id="Ajax"><a href="#Ajax" class="headerlink" title="Ajax"></a>Ajax</h2><p>Ajax 不是一个单独的、需要许可证的技术，而是一组技术，包括 Javascript、 CSS、 DOM 和异步数据获取。 Ajax 的目的是为了突破 Web 本质的开始-停止交互方式。它将 Web 体验从 “浏览页面” 转变为 “与应用程序进行交互”。</p>
+<h2 id="异步与即时"><a href="#异步与即时" class="headerlink" title="异步与即时"></a>异步与即时</h2><p>用户是否需要等待的关键因素在于 Ajax 请求时被动的还是主动的。<br>被动请求： 是为了将来使用而预先发起的。<br>主动请求： 是基于用户当前的操作而发起的。<br>Ajax优点： </p>
+<ul>
+<li>用户不必忍受整个页面的重新加载了</li>
+<li>当用户等待时， UI 仍然是可响应的</li>
+</ul>
+<p>注意： 用户在进行进一步操作之前仍可能需要坐在那里，等待搜索结果显示出来，”异步” 并没有暗示”即时”。</p>
+<h2 id="优化-Ajax-请求"><a href="#优化-Ajax-请求" class="headerlink" title="优化 Ajax 请求"></a>优化 Ajax 请求</h2><p>当发起主动 Ajax 请求时，用户可能仍须等待。优化主动 Ajax 请求的技术同样适用于被动 Ajax 请求，但主动请求对用户体验的影响更大。<br>改善这些主动 Ajax 请求最重要的方式就是使响应可缓存（最重要的改进方法），如下这些规则也适用于优化 Ajax 请求：</p>
+<ul>
+<li>规则4——压缩组件</li>
+<li>规则9——减少 DNS 查找</li>
+<li>规则10——精简 Javascript</li>
+<li>规则11——避免重定向</li>
+<li>规则13—— ETag——用还是不用</li>
+</ul>
+<h2 id="实践"><a href="#实践" class="headerlink" title="实践"></a>实践</h2><p>使 Ajax 请求可缓存，除了改变 HTTP 头之外还需要进行更多的工作。响应的<strong>个性化和动态本质</strong>必须被反映到缓存中。可供采用的最好的方式是使用<strong>查询字符串参数</strong>。<br>例如：</p>
+<pre><code>/ws/mail/vl/formrpc?m=GetMessage&amp;yid=steve_souders
+</code></pre><p>确保产生变化后不会再使用缓存的请求，简单的解决方法还是使用查询字符串。例如可以用时间戳来代表资源末次修改发生的时间，并将其嵌入到 Ajax 请求查询的字符串中欧： </p>
+<pre><code>/ar?id=[snip...]&amp;srow=0&amp;erow=100&amp;t=1177458941
+</code></pre>]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[性能优化之十三配置ETag]]></title>
+      <url>http://yoursite.com/2016/11/02/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%E4%B9%8B%E5%8D%81%E4%B8%89%E9%85%8D%E7%BD%AEETag/</url>
+      <content type="html"><![CDATA[<p>减少呈现页面时所必需的 HTTP 请求数量是加速用户体验的最佳方式。 可以通过最大化浏览器缓存组件的能力来实现这一目标，但当网站被宿主存在多于一台服务器上时， ETag 头可能会阻碍缓存。</p>
+<h2 id="ETag-是什么？"><a href="#ETag-是什么？" class="headerlink" title="ETag 是什么？"></a>ETag 是什么？</h2><p>实体标签是 Web 服务器和浏览器用于确认缓存组件有效性的一种机制。</p>
+<h3 id="Expires-头"><a href="#Expires-头" class="headerlink" title="Expires 头"></a>Expires 头</h3><p>Web 服务器使用 Expires 头来告诉 Web 客户端它可以使用一个组件的当前副本，直到指定的时间为止。<br>注意： Expires 头指定缓存是否有效，用的是时间标识的。</p>
+<h3 id="条件-GET-请求"><a href="#条件-GET-请求" class="headerlink" title="条件 GET 请求"></a>条件 GET 请求</h3><p>如果缓存的组件过期了（或者用户明确地重新加载了页面），浏览器在重用它之前必须首先检查它是否仍然有效。<br>服务器在检测缓存的组件是否和原始服务器上的组件匹配时有两种方式： </p>
+<ul>
+<li>比较最新修改日期</li>
+<li>比较实体标签</li>
+</ul>
+<h3 id="最新修改日期"><a href="#最新修改日期" class="headerlink" title="最新修改日期"></a>最新修改日期</h3><p>原始服务器通过 Last-Modified 响应头来返回组件的最新修改日期。<br>第一次请求，浏览器缓存了组件以及他的最新修改日期（Last-Modified）。下一次请求，浏览器会使用 If-Modified-Since 头将最新修改日期传回到原始服务器进行比较，如果原始服务器上组件的最新修改日期与浏览器传回的值匹配，会返回以个304响应。</p>
+<h3 id="实体标签"><a href="#实体标签" class="headerlink" title="实体标签"></a>实体标签</h3><p>ETag 提供除 Expires 头之外的一种检测浏览器缓存中的组件与原始服务器上的组件是否匹配的方式。<br>ETag 是唯一标识了一个组件的一个特定版本的字符串。唯一的格式约束是该字符串必须用引号引起来。<br>原始服务器使用 ETag 响应头来指定组件的 ETag。<br><strong>注意</strong>： ETag 头的优先级比 Expires 头的优先级高（我理解的是： 因为 ETag　标识的信息比　Expires头多）！！！意味着设置长时间的 Expires 头还是需要看 Etag 脸色行事的。</p>
+<h2 id="ETag-带来的问题"><a href="#ETag-带来的问题" class="headerlink" title="ETag 带来的问题"></a>ETag 带来的问题</h2><p>ETag 的问题在于，通常使用组件的某些属性（大小、时间戳）来构造它，这些属性对于特定的、寄宿了网站的服务器来说是唯一的。但对于拥有多台服务器（服务器集群）的网站，Apache 和 IIS 向 ETag 中嵌入的数据都会大大地降低有效性验证的成功率（用户就不会受到 304 响应，相反会受到普通的 200 响应以及组件的所有数据）。<br>原因： Apache 1.3 和 2.x 的 ETag 格式是 inode-size-timestamp; IIS 5.0 和 6.0 的 ETag 的格式是 Filetimestamp: ChangeNumber。<br>文件系统使用 inode 来存储诸如文件类型、所有者、组合访问模式等信息。多台服务器之间的 inode 是不同的。 ChangeNumber 适用于跟踪 IIS 配置变化的计数器，对于多台 IIS 服务器来说， ChangeNumber 是不同的</p>
+<h2 id="ETag-——用还是不用"><a href="#ETag-——用还是不用" class="headerlink" title="ETag ——用还是不用"></a>ETag ——用还是不用</h2><p>如果在多台服务器上寄宿你的网站，而且使用的是默认 ETag 配置的 Apache 或 IIS，则会由于 ETag 不匹配带来的诸多问题（用户面对缓慢的页面、服务器负载高、消耗大量的带宽且代理也不能有效的缓存内容）， 就算你配置了长久的 Expires 头，还是无法避免条件 GET 请求， 因为我们的 ETag 是大佬，Expires头是小弟，如果 ETag 不匹配获得的是缓慢的 200 响应，匹配那么获得的就是 304。</p>
+<p>解决方案： </p>
+<ul>
+<li>对 ETag 进行配置，以利用其灵活的验证能力（如果你的组件必须通过最新修改日期之外的一些东西来进行验证，则 ETag 是一种强大的方法）</li>
+<li>如果无须自定义 ETag，最好简单地将其移除， Apache 和 IIS 都将 ETag 视为一个性能问题，并建议修改 ETag 的内容。</li>
+</ul>
+<p>总结： 要么配置 ETag 要么移除 ETag</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p><img src="./rule13.1.png" alt="alt txt"></p>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[性能优化十二之删除重复脚本]]></title>
+      <url>http://yoursite.com/2016/11/02/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%E5%8D%81%E4%BA%8C%E4%B9%8B%E5%88%A0%E9%99%A4%E9%87%8D%E5%A4%8D%E8%84%9A%E6%9C%AC/</url>
+      <content type="html"><![CDATA[<p>在一个页面中两次包含同一个 Javascript 文件会损伤性能。</p>
+<h2 id="重复脚本"><a href="#重复脚本" class="headerlink" title="重复脚本"></a>重复脚本</h2><p>导致一个脚本重复又两个主要因素——团队大小和脚本数量。</p>
+<h2 id="重复脚本损伤性能"><a href="#重复脚本损伤性能" class="headerlink" title="重复脚本损伤性能"></a>重复脚本损伤性能</h2><p>重复脚本损伤性能的方式有两种： </p>
+<ul>
+<li>不必要的 HTTP 请求</li>
+<li>执行 Javascript 所浪费的时间</li>
+</ul>
+<p>总体来说： </p>
+<ul>
+<li>在页面中多次包含相同的脚本会使页面变慢</li>
+<li>在 IE 中，如果脚本没有被缓存，或在重新加载页面时，会产生额外的 HTTP 请求。</li>
+<li>在 Firefox 和 IE 中，脚本会被多次求值。</li>
+</ul>
+<h2 id="避免重复脚本"><a href="#避免重复脚本" class="headerlink" title="避免重复脚本"></a>避免重复脚本</h2><p>避免意外包含同一个脚本两次的一种方法是，在你的模板系统中实现一个脚本管理模块。</p>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[性能优化之十一避免重定向]]></title>
+      <url>http://yoursite.com/2016/11/02/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%E4%B9%8B%E5%8D%81%E4%B8%80%E9%81%BF%E5%85%8D%E9%87%8D%E5%AE%9A%E5%90%91/</url>
+      <content type="html"><![CDATA[<p>重定向: 用于将用户从一个 URL 重新路由到另一个 URL。<br>实现重定向有很多原因：</p>
+<ul>
+<li>网站重新设计</li>
+<li>跟踪流量</li>
+<li>记录广告点击</li>
+<li>建立易于记忆的 URL</li>
+</ul>
+<p>重定向缺陷： 会使页面变慢</p>
+<h2 id="重定向类型"><a href="#重定向类型" class="headerlink" title="重定向类型"></a>重定向类型</h2><p>重定向有很多种，最常见的是：</p>
+<ul>
+<li>301 Moved Permancently</li>
+<li>302 Moved Temporarily (亦称 Found)</li>
+</ul>
+<p>301 和 302 响应头中（Response Headers）会返回一个 Location 字段，浏览器会自动将用户带到 Location 字段给出的 URL。重定向所必需的所有信息都出现在这个头中了。301 和 302 响应在实际中都不会被缓存，除非有附加的头—— 如 Expores 或 Cache-Control 等 ——要求它这么做。  </p>
+<h3 id="其他重定向方法"><a href="#其他重定向方法" class="headerlink" title="其他重定向方法"></a>其他重定向方法</h3><p>HTML 文档的头中包含的 meta refresh 标签可以在其 contnet 属性所指定的秒数之后重定向用户。  </p>
+<pre><code>&lt;meta http-equiv=&quot;refresh&quot; content=&quot;0; url=http://stevesouders.com/newuri&quot;&gt;
+</code></pre><p>Javascript 也可以用于执行重定向，将document.location 设置为期望的 URL 即可。<br>注意： 如果你必须进行重定向，最好的技术是使用标准的 3xx HTTP 状态码，这主要是为了确保后退按钮能够正确工作。</p>
+<h2 id="重定向是如何损伤性能的"><a href="#重定向是如何损伤性能的" class="headerlink" title="重定向是如何损伤性能的"></a>重定向是如何损伤性能的</h2><p>重定向带来额外的 HTTP 请求，用户等待响应时间变长。</p>
+<h2 id="重定向之外的其他选择"><a href="#重定向之外的其他选择" class="headerlink" title="重定向之外的其他选择"></a>重定向之外的其他选择</h2><p>重定向是解决很多问题的简单方式，但最好使用其他不会减慢页面加载速度的解决方案。</p>
+<h3 id="缺少结尾的斜线"><a href="#缺少结尾的斜线" class="headerlink" title="缺少结尾的斜线"></a>缺少结尾的斜线</h3><p>有一种重定向最为浪费，发生的也很频繁，但 Web 开发人员通常都没有意识到它。它发生在 URL 的结尾必须出现斜线 （/） 而没有出现时。<br>当缺少结尾的斜线时发送重定向有着很充分的理由——它允许自动索引（autoindexing, 自动转到默认的 index.html上）并且能够获得与当前目录相关的 URL。<br>解决方案： 可通过配置 apache mod_rewrite 模块与 Alias 指令来处理，apache 2.0中，可用 DirectorySlash 指令。<br>注意： 当主机名后缺少结尾斜线时不会发生重定向。因为浏览器在进行 GET 请求时必需指定路径。如果没有路径，它会简单地使用文档根（/），也就是自动添加结尾斜线。<br>参考： <a href="http://www.cnphp6.com/archives/60839" target="_blank" rel="external">配置apache之目录的索引</a><br>总结： 如果你的网站包含目录并使用了自动索引，用户就必须忍受一个到达预期页面的重定向。</p>
+<h3 id="连接网站"><a href="#连接网站" class="headerlink" title="连接网站"></a>连接网站</h3><p>将用户从旧 URL 转移到新 URL 最简单的方式就是重定向。重定向是使用定义良好的 API —— URL 来整合两个代码库的一种方式。<br>重定向的常见应用： </p>
+<ul>
+<li>将旧网站连接到新网站</li>
+<li>将一个网站的不同部分连接起来</li>
+<li>基于一些条件（浏览器类型、用户账户类型）来引导用户</li>
+<li>使用重定向来连接两个网站很简单而且只需要很少的额外代码</li>
+</ul>
+<p>重定向优点： 降低开发的复杂性，但也损害了用户体验。<br>整合后端还有其他的选择，但比起简单的重定向需要更多的开发工作，不过这样非但不会损害用户体验，还能使之改善： </p>
+<ul>
+<li>alias、 mod_rewrite 和 DirectorySlash 要求除 URL 之外还要提交到一个接口 (处理器或文件名)，但易于实现</li>
+<li>如果两个后端位于同一台服务器上，则它们的代码很可能自己就能够连接。</li>
+<li>如果域名变了，可以使用一个 CNAME(一条 DNS 记录，用于创建从一个域名指向另一个域名的别名)让两个主机名指向相同的服务器。如果能够做到这一点，这里提到的技术（alias、 mod_rewrite、 DirectorySlash 和直接连接代码）就是可行的。</li>
+</ul>
+<h3 id="跟踪内部流量"><a href="#跟踪内部流量" class="headerlink" title="跟踪内部流量"></a>跟踪内部流量</h3><p>跟踪流量去向的两种方式： </p>
+<ul>
+<li>重定向（只需分析一个站点的 Web 服务器日志）</li>
+<li>使用 Referer 日志来跟踪流量去向。每个 HTTP 请求都包含一个 URL，表明从哪个页面发起的请求，也就是引用方（必须分析所有的目标网站）</li>
+</ul>
+<h3 id="跟踪出站流量"><a href="#跟踪出站流量" class="headerlink" title="跟踪出站流量"></a>跟踪出站流量</h3><p>当你尝试跟踪用户流量时，你会发现连接可能将用户带离你的网站（搜索引擎的搜索结果）。跟踪出站流量的两种方式： </p>
+<ul>
+<li>重定向（yahoo 通过将每个搜索结果链接包装到一个重定向中来解决跟踪的问题）<br>缺陷： 重定向使得获取目标页面变慢了，对用户体验有负面影响</li>
+<li>信标： 一个 HTTP 请求，其 URL 中包含有跟踪信息。跟踪信息可以从信标 Web 服务器的访问日志中提取出来。信标通常是一个 1px X 1px 的透明图片。不过 204 响应更为优秀，因为它更小、从来不会被缓存，而且绝对不会改变浏览器的状态。</li>
+<li>上述两种技巧都必须一个额外的 HTTP 请求。另一种方式是使用 XMLHttpRequest 来发送信标</li>
+</ul>
+<h3 id="美化-URL"><a href="#美化-URL" class="headerlink" title="美化 URL"></a>美化 URL</h3><p>使用重定向的另一种动机是使 URL 更加美观并且易于记忆。<br>关键是要找出一种方式，无需重定向就能拥有如此简洁的 URL。与其让用户忍受额外的 HTTP 请求，最好还是使用alias、 mod_rewrite、 DirectorySlash 和直接链接代码来避免重定向。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p><img src="./rule11.1.png" alt="alt txt"></p>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[性能优化之十精简Javascript]]></title>
+      <url>http://yoursite.com/2016/11/02/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%E4%B9%8B%E5%8D%81%E7%B2%BE%E7%AE%80Javascript/</url>
+      <content type="html"><![CDATA[<p>压缩文件可以减少文件大小，从而减少响应的时间。精简同样可以减少文件大小，但精简和压缩相比所带来的收益相比是有差距的。</p>
+<h2 id="精简"><a href="#精简" class="headerlink" title="精简"></a>精简</h2><p>精简是从代码中移除不必要的字符以减小其大小，进而改善加载时间的实践。在代码被精简后，所有的注释以及不必要的空白字符（空格、换行和制表符）都将被移除。</p>
+<h2 id="混淆"><a href="#混淆" class="headerlink" title="混淆"></a>混淆</h2><p>混淆是可以应用在源代码上的另外一种优化方式。和精简一样，它也会移除注释和空白，同时它还会改写代码。（比如：函数和变量的名字将被转换为更短的字符串，通常这样做是为了增加对代码进行反向工程的难度，同时对提高性能也有帮助，因为这笔精简更能减小代码的大小）。</p>
+<h3 id="混淆缺点"><a href="#混淆缺点" class="headerlink" title="混淆缺点"></a>混淆缺点</h3><ul>
+<li>缺陷：由于混淆更加复杂，混淆过程本身很有可能引入错误</li>
+<li>维护：由于混淆会改变 Javascript 符号，因此需要对任何不能改变的符号（如 API 函数）进行标记，防止混淆其修改它们</li>
+<li>调试： 混淆过的代码难以阅读，这使得在产品环境中调试问题更加困难</li>
+</ul>
+<p>注： 精简和混淆相比，建议使用精简。</p>
+<h2 id="节省"><a href="#节省" class="headerlink" title="节省"></a>节省</h2><p>在使用了 gzip 压缩之后，精简和混淆之间的差距将会减小。精简脚本可以降低响应时间，但不会带来混淆的风险。</p>
+<h2 id="内联脚本"><a href="#内联脚本" class="headerlink" title="内联脚本"></a>内联脚本</h2><p>内联的 Javascript 块也应该精简。 </p>
+<h2 id="压缩和精简"><a href="#压缩和精简" class="headerlink" title="压缩和精简"></a>压缩和精简</h2><p>使用 gzip 来完成压缩，这通常可以使大小减小 70%。gzip 压缩比精简更能减小文件的大小。<br>混淆并压缩的效率和精简并压缩几乎一样，且精简可以避免混淆带来的额外风险。</p>
+<h2 id="精简CSS"><a href="#精简CSS" class="headerlink" title="精简CSS"></a>精简CSS</h2><p>精简 CSS 能够带来的节省通常要小于精简 Javascript，因为通常 CSS 中的注释和空白比 Javascript 少。<br>最大的潜在节省来自于优化 CSS —— 合并相同的类、移除不适用的类等。CSS 依赖顺序的本质决定了这是一个复杂的问题。最佳的解决方案还是移除注释和空白，并进行一些直观的优化（比如使用缩写和移除不必要的字符串： ‘0’ 代替 ‘0px’）;</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p><img src="./rule10.1.png" alt="alt txt"></p>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[性能优化之九减少DNS查找]]></title>
+      <url>http://yoursite.com/2016/11/02/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%E4%B9%8B%E4%B9%9D%E5%87%8F%E5%B0%91DNS%E6%9F%A5%E6%89%BE/</url>
+      <content type="html"><![CDATA[<p>DNS 将主机名映射到 IP 地址上，当你在浏览器中输入 www.yahoo.com 时，连接到浏览器的 DNS 解析器会返回服务器的 IP 地址。<br>DNS 优点： 可以将多个 IP 地址关联到一个主机名，为网站提高冗余度。<br>DNS 缺点： DNS 解析需要花费时间，在 DNS 查找完成之前，浏览器不能从主机名那里下载任何东西。相应时间依赖于 DNS 解析器（通常由你的 ISP 提供）、它所承担的请求压力、你与他之间的距离和你的带宽速度。</p>
+<h2 id="DNS-缓存和-TTL"><a href="#DNS-缓存和-TTL" class="headerlink" title="DNS 缓存和 TTL"></a>DNS 缓存和 TTL</h2><p>DNS 查找可以被缓存起来以提高性能。这种缓存发生在你的 ISP 或局域网中的一台特殊的缓存服务器上，同时 DNS 信息会留在用户操作系统的 DNS 缓存中。<br>很多浏览器也拥有自己的缓存，和操作系统的缓存相分离，只要浏览器中保留了 DNS 记录，它就不会麻烦操作系统来请求这个记录。</p>
+<h3 id="什么是TTL？"><a href="#什么是TTL？" class="headerlink" title="什么是TTL？"></a>什么是TTL？</h3><p>TTL是 Time To Live的缩写，该字段指定IP包被路由器丢弃之前允许通过的最大网段数量。TTL是IPv4包头的一个8 bit字段。<br>TTL的作用是限制IP数据包在计算机网络中的存在的时间。TTL的最大值是255，TTL的一个推荐值是64。<br>TTL的主要作用是避免IP包在网络中的无限循环和收发，节省了网络资源，并能使IP包的发送者能收到告警消息。</p>
+<h3 id="什么是域名的TTL？"><a href="#什么是域名的TTL？" class="headerlink" title="什么是域名的TTL？"></a>什么是域名的TTL？</h3><p>TTL(Time- To-Live)，简单的说它表示一条域名解析记录在DNS服务器上缓存时间</p>
+<h2 id="影响-DNS-缓存的因素"><a href="#影响-DNS-缓存的因素" class="headerlink" title="影响 DNS 缓存的因素"></a>影响 DNS 缓存的因素</h2><p>服务器可以表明记录可以被缓存多久，查找返回的 DNS 记录包含了一个存活时间（Time-to-live, TTL）值。该值告诉客户端可以对该记录缓存多久。<br>影响 DNS 缓存存活多久的因素：</p>
+<ul>
+<li>尽管操作系统缓存会考虑 TTL 值，但浏览器通常忽略该值，并设置它自己的时间限制。</li>
+<li>HTTP 协议中的 Keep-Alive 特性可以同时覆盖 TTL 和浏览器的时间限制（只要浏览器和 Web 服务器愉快的通信着，并保持着 TCP连接打开的状态，就没有理由进行 DNS 查找，避免了重复的 DNS 查找）</li>
+<li>浏览器对缓存的 DNS 记录的数量也有限制，而不管缓存记录的时间。如果用户在短时间内访问了很多具有不同域名的网站，较早的 DNS 记录将被丢弃，必须重新查找该域名。</li>
+</ul>
+<h2 id="TTL-值"><a href="#TTL-值" class="headerlink" title="TTL 值"></a>TTL 值</h2><h3 id="增大TTL值，以节约域名解析时间"><a href="#增大TTL值，以节约域名解析时间" class="headerlink" title="增大TTL值，以节约域名解析时间"></a>增大TTL值，以节约域名解析时间</h3><p>通常情况下域名解析记录是很少更改的。我们可以通过增大域名记录的TTL值让记录在各地DNS服务器中缓存的时间加长，这样在更长的时间段内，我们访问这个网站时，本地ISP的DNS服务器就不需要向域名的NS服务器发出解析请求，而直接从本地缓存中返回域名解析记录。<br>TTL值是以秒为单位的，通常的默认值都是3600，也就是默认缓存1小时。我们可以根据实际需要把TTL值扩大，例如要缓存一天就设置成86400。</p>
+<h3 id="减小TTL值，减少更换空间时的不可访问时间"><a href="#减小TTL值，减少更换空间时的不可访问时间" class="headerlink" title="减小TTL值，减少更换空间时的不可访问时间"></a>减小TTL值，减少更换空间时的不可访问时间</h3><p>更换域名空间时会对DNS记录进行修改，因为DNS记录缓存的问题，新的域名记录在有的地方可能生效了，但在有的地方可能等上一两天甚至更久才生效，只就导致有部分用户在一段时间内无法不可访问网站了。<br>为了尽可能的减小这个各地的解析时间差，合理的做法是：<br>1.先查看域名当前的TTL值。<br>2.修改TTL值为可设定的最小值，建议为60秒。<br>3.等待一天，保证各地的DNS服务器缓存都过期并更新了记录。<br>4.设置修改DNS解析到新的记录，这个时候各地的DNS就能以最快的速度更新到新的记录。<br>5.确认各地的DNS已经更新完成后，再TTL值设置成常用的值(如: TTL=86400)。</p>
+<p>注意: 客户端收到的 DNS 记录的平均 TTL 值只有最大 TTL 值的一半。</p>
+<h2 id="浏览器的视角"><a href="#浏览器的视角" class="headerlink" title="浏览器的视角"></a>浏览器的视角</h2><p>大量独立的变量决定了一个特定的浏览器在请求一个主机名时是否会进行远程 DNS 请求。</p>
+<ul>
+<li>重新启动 windows 可以清空 DNS Client 服务缓存</li>
+<li>重新启动浏览器会清空浏览器缓存，但不会清空 DNS Client 服务缓存</li>
+</ul>
+<h3 id="IE"><a href="#IE" class="headerlink" title="IE"></a>IE</h3><p>IE 的 DNS 缓存由三个注册表设置控制。</p>
+<h3 id="Firefox"><a href="#Firefox" class="headerlink" title="Firefox"></a>Firefox</h3><h2 id="减少-DNS-查找"><a href="#减少-DNS-查找" class="headerlink" title="减少 DNS 查找"></a>减少 DNS 查找</h2><p>当客户端的 DNS 缓存为空（浏览器和操作系统都是）时，DNS 查找的数量与 Web 页面中唯一主机名的数量相等。这包括页面 URL、图片、脚本文件、样式表、Flash对象的主机名。<br>减少唯一主机名的数量就可以减少 DNS 查找的数量。<br>减少唯一主机名的数量的这种方式的<strong>缺点在于</strong>： 会潜在的减少页面中并行下载的数量。避免 DNS 查找降低了相应时间，但减少并行下载可能会增加响应时间。</p>
+<p>建议： 将这些组件分别放到至少2个，但不要超过4个主机名下。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p><img src="./rule9.1.png" alt="alt txt"></p>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[性能优化之八使用外部Javascript和css]]></title>
+      <url>http://yoursite.com/2016/11/02/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%E4%B9%8B%E5%85%AB%E4%BD%BF%E7%94%A8%E5%A4%96%E9%83%A8Javascript%E5%92%8Ccss/</url>
+      <content type="html"><![CDATA[<h2 id="内联-VS-外置"><a href="#内联-VS-外置" class="headerlink" title="内联 VS 外置"></a>内联 VS 外置</h2><p>只有一个页面，内联时，减少了 HTTP 请求的数量，导致内联快一些。<br>但是当外部文件 javascript 和 CSS 文件有机会被缓存起来时，外部文件会快些。</p>
+<p><strong>关键因素</strong>： 与 HTML 文档请求数量相关的、外部 JAVAscript 和 CSS 组件被缓存的频率。这个因素难以量化，但可以通过下面的手段进行衡量。</p>
+<h4 id="页面浏览量"><a href="#页面浏览量" class="headerlink" title="页面浏览量"></a>页面浏览量</h4><p>每个用户产生的页面浏览量越少，内联 Javascript 和 CSS 的论据越强势。另一方面，如果用户产生的页面浏览量很多，则将外部文件放在缓存中，外部文件带来的收益随着页面浏览量的增多而增多。</p>
+<h4 id="空缓存-VS-完整缓存"><a href="#空缓存-VS-完整缓存" class="headerlink" title="空缓存 VS 完整缓存"></a>空缓存 VS 完整缓存</h4><p>如果你的网站本质上能够为用户带来高完整缓存率，使用外部文件的收益就更大。如果不大可能产生完整缓存，则内联时更好的选择。</p>
+<h4 id="组件重用"><a href="#组件重用" class="headerlink" title="组件重用"></a>组件重用</h4><p>如果你的网站中的每个页面都使用了相同的 Javascript 和 CSS，使用外部文件可以提高这些组件的重用率。</p>
+<p>在典型情况下，页面之间 Javascript 和 CSS 的重用既不可能 100% 重叠，也不可能 100% 无关。在这种中间情形中可分为两个极端：</p>
+<ul>
+<li>为每个页面提供一组分离的外部文件  </li>
+<li>创建一个单独的、联合了所有 Javascript 的文件，再创建一个包含了所有 CSS 的文件。</li>
+</ul>
+<p>最好的方案： 折中，将页面划分为几种页面类型，然后为每种类型创建单独的脚本和样式表。如果可以找到一个平衡点，实现较高的重用度，则使用外部文件更好，反之使用内联。</p>
+<h2 id="典型的对比结果"><a href="#典型的对比结果" class="headerlink" title="典型的对比结果"></a>典型的对比结果</h2><p>对内联和使用外部文件进行对比分析时，关键点在于 HTML 文档请求数量相关的，外部 Javascript 和 CSS 组件被缓存的频率。可通过三种基准（页面浏览量、空缓存VS完整缓存和组件重用）来确定最好的选择。</p>
+<h2 id="主页"><a href="#主页" class="headerlink" title="主页"></a>主页</h2><p>使用内联方式的一个例外就是主页。主页是选择作为浏览器默认也得 URL。从三个基准来看主页： </p>
+<ul>
+<li>页面浏览量： 主页每月有很高的页面浏览量数量。但通常每个会话只产生一个页面浏览量。</li>
+<li>空缓存VS完整缓存： 出于安全的原因，很多用户选择在每次关闭浏览器时，清空缓存（不理解）</li>
+<li>组件重用： 很多主页是用户来到网站后访问的唯一一个页面，谈不上重用</li>
+</ul>
+<h2 id="两全其美"><a href="#两全其美" class="headerlink" title="两全其美"></a>两全其美</h2><p>要想既可以获得内联的优势，同时也能缓存外部文件，可参考下面的两种方法</p>
+<h3 id="加载后下载"><a href="#加载后下载" class="headerlink" title="加载后下载"></a>加载后下载</h3><p>对于主页，我们一般希望内联 Javascript 和 CSS，但又希望能为所有后续页面浏览量提供外部文件。可以通过在主页加载完成后动态下载外部组件来实现（通过 onload 事件）。这能够将外部文件放到浏览器的缓存中以便用户接下来访问其他页面。</p>
+<h3 id="动态内联"><a href="#动态内联" class="headerlink" title="动态内联"></a>动态内联</h3><p>如果主页服务器知道一个组件是否在浏览器的缓存中，它可以在内联或使用外部文件之间做出最佳的选择。尽管服务器不能查看浏览器缓存中有些什么，但可以用cookies 做指示器。cookie 不存在，内联 js和css,存在则不内联（可能组件已缓存在浏览器中，并使用了外部文件）</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p><img src="./rule8.1.png" alt="alt txt"></p>
+]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[性能优化之七避免CSS表达式]]></title>
       <url>http://yoursite.com/2016/10/27/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%E4%B9%8B%E4%B8%83%E9%81%BF%E5%85%8DCSS%E8%A1%A8%E8%BE%BE%E5%BC%8F/</url>
       <content type="html"><![CDATA[<p>CSS 表达式是动态设置 CSS 属性的一种强大（并且危险）的方式。IE5 和之后的版本支持,其他浏览器不支持。</p>

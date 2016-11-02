@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="读书笔记," />
 
 
 
@@ -84,15 +84,24 @@
 
 
 
-<meta name="description" content="喜欢折腾">
-<meta property="og:type" content="website">
-<meta property="og:title" content="谜砂的博客">
-<meta property="og:url" content="http://yoursite.com/categories/性能优化/index.html">
+<meta name="description" content="内联 VS 外置只有一个页面，内联时，减少了 HTTP 请求的数量，导致内联快一些。但是当外部文件 javascript 和 CSS 文件有机会被缓存起来时，外部文件会快些。
+关键因素： 与 HTML 文档请求数量相关的、外部 JAVAscript 和 CSS 组件被缓存的频率。这个因素难以量化，但可以通过下面的手段进行衡量。
+页面浏览量每个用户产生的页面浏览量越少，内联 Javascript 和">
+<meta property="og:type" content="article">
+<meta property="og:title" content="性能优化之八使用外部Javascript和css">
+<meta property="og:url" content="http://yoursite.com/2016/11/02/性能优化之八使用外部Javascript和css/index.html">
 <meta property="og:site_name" content="谜砂的博客">
-<meta property="og:description" content="喜欢折腾">
+<meta property="og:description" content="内联 VS 外置只有一个页面，内联时，减少了 HTTP 请求的数量，导致内联快一些。但是当外部文件 javascript 和 CSS 文件有机会被缓存起来时，外部文件会快些。
+关键因素： 与 HTML 文档请求数量相关的、外部 JAVAscript 和 CSS 组件被缓存的频率。这个因素难以量化，但可以通过下面的手段进行衡量。
+页面浏览量每个用户产生的页面浏览量越少，内联 Javascript 和">
+<meta property="og:image" content="http://yoursite.com/./rule8.1.png">
+<meta property="og:updated_time" content="2016-11-02T15:00:34.828Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="谜砂的博客">
-<meta name="twitter:description" content="喜欢折腾">
+<meta name="twitter:title" content="性能优化之八使用外部Javascript和css">
+<meta name="twitter:description" content="内联 VS 外置只有一个页面，内联时，减少了 HTTP 请求的数量，导致内联快一些。但是当外部文件 javascript 和 CSS 文件有机会被缓存起来时，外部文件会快些。
+关键因素： 与 HTML 文档请求数量相关的、外部 JAVAscript 和 CSS 组件被缓存的频率。这个因素难以量化，但可以通过下面的手段进行衡量。
+页面浏览量每个用户产生的页面浏览量越少，内联 Javascript 和">
+<meta name="twitter:image" content="http://yoursite.com/./rule8.1.png">
 
 
 
@@ -113,10 +122,10 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/categories/性能优化/"/>
+  <link rel="canonical" href="http://yoursite.com/2016/11/02/性能优化之八使用外部Javascript和css/"/>
 
 
-  <title> 分类: 性能优化 | 谜砂的博客 </title>
+  <title> 性能优化之八使用外部Javascript和css | 谜砂的博客 </title>
 </head>
 
 <body itemscope itemtype="//schema.org/WebPage" lang="zh-Hans">
@@ -137,7 +146,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left  ">
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="//schema.org/WPHeader">
@@ -248,303 +257,182 @@
           <div id="content" class="content">
             
 
-  <section id="posts" class="posts-collapse">
-    <div class="collection-title">
-      <h2 >
-        性能优化
-        <small>分类</small>
-      </h2>
-    </div>
-
+  <div id="posts" class="posts-expand">
     
-      
-
-  <article class="post post-type-normal" itemscope itemtype="//schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/11/02/性能优化之十四使Ajax可缓存/" itemprop="url">
-              
-                <span itemprop="name">性能优化之十四使Ajax可缓存</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-11-02T23:08:02+08:00"
-              content="2016-11-02" >
-          11-02
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-    
-      
-
-  <article class="post post-type-normal" itemscope itemtype="//schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/11/02/性能优化之十三配置ETag/" itemprop="url">
-              
-                <span itemprop="name">性能优化之十三配置ETag</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-11-02T23:06:39+08:00"
-              content="2016-11-02" >
-          11-02
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-    
-      
-
-  <article class="post post-type-normal" itemscope itemtype="//schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/11/02/性能优化十二之删除重复脚本/" itemprop="url">
-              
-                <span itemprop="name">性能优化十二之删除重复脚本</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-11-02T23:05:43+08:00"
-              content="2016-11-02" >
-          11-02
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-    
-      
-
-  <article class="post post-type-normal" itemscope itemtype="//schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/11/02/性能优化之十一避免重定向/" itemprop="url">
-              
-                <span itemprop="name">性能优化之十一避免重定向</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-11-02T23:04:14+08:00"
-              content="2016-11-02" >
-          11-02
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-    
-      
-
-  <article class="post post-type-normal" itemscope itemtype="//schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/11/02/性能优化之十精简Javascript/" itemprop="url">
-              
-                <span itemprop="name">性能优化之十精简Javascript</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-11-02T23:03:09+08:00"
-              content="2016-11-02" >
-          11-02
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-    
-      
-
-  <article class="post post-type-normal" itemscope itemtype="//schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/11/02/性能优化之九减少DNS查找/" itemprop="url">
-              
-                <span itemprop="name">性能优化之九减少DNS查找</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-11-02T23:01:43+08:00"
-              content="2016-11-02" >
-          11-02
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-    
-      
-
-  <article class="post post-type-normal" itemscope itemtype="//schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/11/02/性能优化之八使用外部Javascript和css/" itemprop="url">
-              
-                <span itemprop="name">性能优化之八使用外部Javascript和css</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-11-02T22:59:28+08:00"
-              content="2016-11-02" >
-          11-02
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-    
-      
-
-  <article class="post post-type-normal" itemscope itemtype="//schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/10/27/性能优化之七避免CSS表达式/" itemprop="url">
-              
-                <span itemprop="name">性能优化之七避免CSS表达式</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-10-27T22:26:33+08:00"
-              content="2016-10-27" >
-          10-27
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-    
-      
-
-  <article class="post post-type-normal" itemscope itemtype="//schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/10/27/性能优化之六将脚本放在底部/" itemprop="url">
-              
-                <span itemprop="name">性能优化之六将脚本放在底部</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-10-27T22:24:46+08:00"
-              content="2016-10-27" >
-          10-27
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-    
-      
-
-  <article class="post post-type-normal" itemscope itemtype="//schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/10/27/性能优化之五将样式表放在顶部/" itemprop="url">
-              
-                <span itemprop="name">性能优化之五将样式表放在顶部</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-10-27T22:21:18+08:00"
-              content="2016-10-27" >
-          10-27
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-    
-  </section>
 
   
-  <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/categories/性能优化/page/2/">2</a><a class="extend next" rel="next" href="/categories/性能优化/page/2/"><i class="fa fa-angle-right"></i></a>
-  </nav>
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                性能优化之八使用外部Javascript和css
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-11-02T22:59:28+08:00" content="2016-11-02">
+              2016-11-02
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/性能优化/" itemprop="url" rel="index">
+                    <span itemprop="name">性能优化</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/11/02/性能优化之八使用外部Javascript和css/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/02/性能优化之八使用外部Javascript和css/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/11/02/性能优化之八使用外部Javascript和css/" class="leancloud_visitors" data-flag-title="性能优化之八使用外部Javascript和css">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
 
 
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="内联-VS-外置"><a href="#内联-VS-外置" class="headerlink" title="内联 VS 外置"></a>内联 VS 外置</h2><p>只有一个页面，内联时，减少了 HTTP 请求的数量，导致内联快一些。<br>但是当外部文件 javascript 和 CSS 文件有机会被缓存起来时，外部文件会快些。</p>
+<p><strong>关键因素</strong>： 与 HTML 文档请求数量相关的、外部 JAVAscript 和 CSS 组件被缓存的频率。这个因素难以量化，但可以通过下面的手段进行衡量。</p>
+<h4 id="页面浏览量"><a href="#页面浏览量" class="headerlink" title="页面浏览量"></a>页面浏览量</h4><p>每个用户产生的页面浏览量越少，内联 Javascript 和 CSS 的论据越强势。另一方面，如果用户产生的页面浏览量很多，则将外部文件放在缓存中，外部文件带来的收益随着页面浏览量的增多而增多。</p>
+<h4 id="空缓存-VS-完整缓存"><a href="#空缓存-VS-完整缓存" class="headerlink" title="空缓存 VS 完整缓存"></a>空缓存 VS 完整缓存</h4><p>如果你的网站本质上能够为用户带来高完整缓存率，使用外部文件的收益就更大。如果不大可能产生完整缓存，则内联时更好的选择。</p>
+<h4 id="组件重用"><a href="#组件重用" class="headerlink" title="组件重用"></a>组件重用</h4><p>如果你的网站中的每个页面都使用了相同的 Javascript 和 CSS，使用外部文件可以提高这些组件的重用率。</p>
+<p>在典型情况下，页面之间 Javascript 和 CSS 的重用既不可能 100% 重叠，也不可能 100% 无关。在这种中间情形中可分为两个极端：</p>
+<ul>
+<li>为每个页面提供一组分离的外部文件  </li>
+<li>创建一个单独的、联合了所有 Javascript 的文件，再创建一个包含了所有 CSS 的文件。</li>
+</ul>
+<p>最好的方案： 折中，将页面划分为几种页面类型，然后为每种类型创建单独的脚本和样式表。如果可以找到一个平衡点，实现较高的重用度，则使用外部文件更好，反之使用内联。</p>
+<h2 id="典型的对比结果"><a href="#典型的对比结果" class="headerlink" title="典型的对比结果"></a>典型的对比结果</h2><p>对内联和使用外部文件进行对比分析时，关键点在于 HTML 文档请求数量相关的，外部 Javascript 和 CSS 组件被缓存的频率。可通过三种基准（页面浏览量、空缓存VS完整缓存和组件重用）来确定最好的选择。</p>
+<h2 id="主页"><a href="#主页" class="headerlink" title="主页"></a>主页</h2><p>使用内联方式的一个例外就是主页。主页是选择作为浏览器默认也得 URL。从三个基准来看主页： </p>
+<ul>
+<li>页面浏览量： 主页每月有很高的页面浏览量数量。但通常每个会话只产生一个页面浏览量。</li>
+<li>空缓存VS完整缓存： 出于安全的原因，很多用户选择在每次关闭浏览器时，清空缓存（不理解）</li>
+<li>组件重用： 很多主页是用户来到网站后访问的唯一一个页面，谈不上重用</li>
+</ul>
+<h2 id="两全其美"><a href="#两全其美" class="headerlink" title="两全其美"></a>两全其美</h2><p>要想既可以获得内联的优势，同时也能缓存外部文件，可参考下面的两种方法</p>
+<h3 id="加载后下载"><a href="#加载后下载" class="headerlink" title="加载后下载"></a>加载后下载</h3><p>对于主页，我们一般希望内联 Javascript 和 CSS，但又希望能为所有后续页面浏览量提供外部文件。可以通过在主页加载完成后动态下载外部组件来实现（通过 onload 事件）。这能够将外部文件放到浏览器的缓存中以便用户接下来访问其他页面。</p>
+<h3 id="动态内联"><a href="#动态内联" class="headerlink" title="动态内联"></a>动态内联</h3><p>如果主页服务器知道一个组件是否在浏览器的缓存中，它可以在内联或使用外部文件之间做出最佳的选择。尽管服务器不能查看浏览器缓存中有些什么，但可以用cookies 做指示器。cookie 不存在，内联 js和css,存在则不内联（可能组件已缓存在浏览器中，并使用了外部文件）</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p><img src="./rule8.1.png" alt="alt txt"></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/读书笔记/" rel="tag">#读书笔记</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/10/27/性能优化之七避免CSS表达式/" rel="next" title="性能优化之七避免CSS表达式">
+                <i class="fa fa-chevron-left"></i> 性能优化之七避免CSS表达式
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/11/02/性能优化之九减少DNS查找/" rel="prev" title="性能优化之九减少DNS查找">
+                性能优化之九减少DNS查找 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -552,6 +440,14 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/11/02/性能优化之八使用外部Javascript和css/"
+           data-title="性能优化之八使用外部Javascript和css" data-url="http://yoursite.com/2016/11/02/性能优化之八使用外部Javascript和css/">
+      </div>
+    
+  </div>
+
 
         </div>
         
@@ -571,8 +467,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+      <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="//schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/uploads/avatar.png"
@@ -622,6 +527,17 @@
 
       </section>
 
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#内联-VS-外置"><span class="nav-number">1.</span> <span class="nav-text">内联 VS 外置</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#页面浏览量"><span class="nav-number">1.0.1.</span> <span class="nav-text">页面浏览量</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#空缓存-VS-完整缓存"><span class="nav-number">1.0.2.</span> <span class="nav-text">空缓存 VS 完整缓存</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#组件重用"><span class="nav-number">1.0.3.</span> <span class="nav-text">组件重用</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#典型的对比结果"><span class="nav-number">2.</span> <span class="nav-text">典型的对比结果</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#主页"><span class="nav-number">3.</span> <span class="nav-text">主页</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#两全其美"><span class="nav-number">4.</span> <span class="nav-text">两全其美</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#加载后下载"><span class="nav-number">4.1.</span> <span class="nav-text">加载后下载</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#动态内联"><span class="nav-number">4.2.</span> <span class="nav-text">动态内联</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">5.</span> <span class="nav-text">总结</span></a></li></ol></div>
+            
+          </div>
+        </section>
       
 
     </div>
@@ -725,6 +641,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.2"></script>
+
+
 
   
 
