@@ -5,7 +5,7 @@
     
     <entry>
       <title><![CDATA[性能优化之十四使Ajax可缓存]]></title>
-      <url>http://yoursite.com/2016/11/02/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%E4%B9%8B%E5%8D%81%E5%9B%9B%E4%BD%BFAjax%E5%8F%AF%E7%BC%93%E5%AD%98/</url>
+      <url>https://womenbudon.github.io/2016/11/02/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%E4%B9%8B%E5%8D%81%E5%9B%9B%E4%BD%BFAjax%E5%8F%AF%E7%BC%93%E5%AD%98/</url>
       <content type="html"><![CDATA[<p>Ajax 是 DHTML 中使用的一项技术，客户端可以获取和显示用户请求的新信息而无需重新加载页面。</p>
 <h2 id="Ajax"><a href="#Ajax" class="headerlink" title="Ajax"></a>Ajax</h2><p>Ajax 不是一个单独的、需要许可证的技术，而是一组技术，包括 Javascript、 CSS、 DOM 和异步数据获取。 Ajax 的目的是为了突破 Web 本质的开始-停止交互方式。它将 Web 体验从 “浏览页面” 转变为 “与应用程序进行交互”。</p>
 <h2 id="异步与即时"><a href="#异步与即时" class="headerlink" title="异步与即时"></a>异步与即时</h2><p>用户是否需要等待的关键因素在于 Ajax 请求时被动的还是主动的。<br>被动请求： 是为了将来使用而预先发起的。<br>主动请求： 是基于用户当前的操作而发起的。<br>Ajax优点： </p>
@@ -31,7 +31,7 @@
     
     <entry>
       <title><![CDATA[性能优化之十三配置ETag]]></title>
-      <url>http://yoursite.com/2016/11/02/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%E4%B9%8B%E5%8D%81%E4%B8%89%E9%85%8D%E7%BD%AEETag/</url>
+      <url>https://womenbudon.github.io/2016/11/02/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%E4%B9%8B%E5%8D%81%E4%B8%89%E9%85%8D%E7%BD%AEETag/</url>
       <content type="html"><![CDATA[<p>减少呈现页面时所必需的 HTTP 请求数量是加速用户体验的最佳方式。 可以通过最大化浏览器缓存组件的能力来实现这一目标，但当网站被宿主存在多于一台服务器上时， ETag 头可能会阻碍缓存。</p>
 <h2 id="ETag-是什么？"><a href="#ETag-是什么？" class="headerlink" title="ETag 是什么？"></a>ETag 是什么？</h2><p>实体标签是 Web 服务器和浏览器用于确认缓存组件有效性的一种机制。</p>
 <h3 id="Expires-头"><a href="#Expires-头" class="headerlink" title="Expires 头"></a>Expires 头</h3><p>Web 服务器使用 Expires 头来告诉 Web 客户端它可以使用一个组件的当前副本，直到指定的时间为止。<br>注意： Expires 头指定缓存是否有效，用的是时间标识的。</p>
@@ -56,7 +56,7 @@
     
     <entry>
       <title><![CDATA[性能优化十二之删除重复脚本]]></title>
-      <url>http://yoursite.com/2016/11/02/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%E5%8D%81%E4%BA%8C%E4%B9%8B%E5%88%A0%E9%99%A4%E9%87%8D%E5%A4%8D%E8%84%9A%E6%9C%AC/</url>
+      <url>https://womenbudon.github.io/2016/11/02/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%E5%8D%81%E4%BA%8C%E4%B9%8B%E5%88%A0%E9%99%A4%E9%87%8D%E5%A4%8D%E8%84%9A%E6%9C%AC/</url>
       <content type="html"><![CDATA[<p>在一个页面中两次包含同一个 Javascript 文件会损伤性能。</p>
 <h2 id="重复脚本"><a href="#重复脚本" class="headerlink" title="重复脚本"></a>重复脚本</h2><p>导致一个脚本重复又两个主要因素——团队大小和脚本数量。</p>
 <h2 id="重复脚本损伤性能"><a href="#重复脚本损伤性能" class="headerlink" title="重复脚本损伤性能"></a>重复脚本损伤性能</h2><p>重复脚本损伤性能的方式有两种： </p>
@@ -76,7 +76,7 @@
     
     <entry>
       <title><![CDATA[性能优化之十一避免重定向]]></title>
-      <url>http://yoursite.com/2016/11/02/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%E4%B9%8B%E5%8D%81%E4%B8%80%E9%81%BF%E5%85%8D%E9%87%8D%E5%AE%9A%E5%90%91/</url>
+      <url>https://womenbudon.github.io/2016/11/02/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%E4%B9%8B%E5%8D%81%E4%B8%80%E9%81%BF%E5%85%8D%E9%87%8D%E5%AE%9A%E5%90%91/</url>
       <content type="html"><![CDATA[<p>重定向: 用于将用户从一个 URL 重新路由到另一个 URL。<br>实现重定向有很多原因：</p>
 <ul>
 <li>网站重新设计</li>
@@ -128,7 +128,7 @@
     
     <entry>
       <title><![CDATA[性能优化之十精简Javascript]]></title>
-      <url>http://yoursite.com/2016/11/02/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%E4%B9%8B%E5%8D%81%E7%B2%BE%E7%AE%80Javascript/</url>
+      <url>https://womenbudon.github.io/2016/11/02/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%E4%B9%8B%E5%8D%81%E7%B2%BE%E7%AE%80Javascript/</url>
       <content type="html"><![CDATA[<p>压缩文件可以减少文件大小，从而减少响应的时间。精简同样可以减少文件大小，但精简和压缩相比所带来的收益相比是有差距的。</p>
 <h2 id="精简"><a href="#精简" class="headerlink" title="精简"></a>精简</h2><p>精简是从代码中移除不必要的字符以减小其大小，进而改善加载时间的实践。在代码被精简后，所有的注释以及不必要的空白字符（空格、换行和制表符）都将被移除。</p>
 <h2 id="混淆"><a href="#混淆" class="headerlink" title="混淆"></a>混淆</h2><p>混淆是可以应用在源代码上的另外一种优化方式。和精简一样，它也会移除注释和空白，同时它还会改写代码。（比如：函数和变量的名字将被转换为更短的字符串，通常这样做是为了增加对代码进行反向工程的难度，同时对提高性能也有帮助，因为这笔精简更能减小代码的大小）。</p>
@@ -148,7 +148,7 @@
     
     <entry>
       <title><![CDATA[性能优化之九减少DNS查找]]></title>
-      <url>http://yoursite.com/2016/11/02/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%E4%B9%8B%E4%B9%9D%E5%87%8F%E5%B0%91DNS%E6%9F%A5%E6%89%BE/</url>
+      <url>https://womenbudon.github.io/2016/11/02/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%E4%B9%8B%E4%B9%9D%E5%87%8F%E5%B0%91DNS%E6%9F%A5%E6%89%BE/</url>
       <content type="html"><![CDATA[<p>DNS 将主机名映射到 IP 地址上，当你在浏览器中输入 www.yahoo.com 时，连接到浏览器的 DNS 解析器会返回服务器的 IP 地址。<br>DNS 优点： 可以将多个 IP 地址关联到一个主机名，为网站提高冗余度。<br>DNS 缺点： DNS 解析需要花费时间，在 DNS 查找完成之前，浏览器不能从主机名那里下载任何东西。相应时间依赖于 DNS 解析器（通常由你的 ISP 提供）、它所承担的请求压力、你与他之间的距离和你的带宽速度。</p>
 <h2 id="DNS-缓存和-TTL"><a href="#DNS-缓存和-TTL" class="headerlink" title="DNS 缓存和 TTL"></a>DNS 缓存和 TTL</h2><p>DNS 查找可以被缓存起来以提高性能。这种缓存发生在你的 ISP 或局域网中的一台特殊的缓存服务器上，同时 DNS 信息会留在用户操作系统的 DNS 缓存中。<br>很多浏览器也拥有自己的缓存，和操作系统的缓存相分离，只要浏览器中保留了 DNS 记录，它就不会麻烦操作系统来请求这个记录。</p>
 <h3 id="什么是TTL？"><a href="#什么是TTL？" class="headerlink" title="什么是TTL？"></a>什么是TTL？</h3><p>TTL是 Time To Live的缩写，该字段指定IP包被路由器丢弃之前允许通过的最大网段数量。TTL是IPv4包头的一个8 bit字段。<br>TTL的作用是限制IP数据包在计算机网络中的存在的时间。TTL的最大值是255，TTL的一个推荐值是64。<br>TTL的主要作用是避免IP包在网络中的无限循环和收发，节省了网络资源，并能使IP包的发送者能收到告警消息。</p>
@@ -176,7 +176,7 @@
     
     <entry>
       <title><![CDATA[性能优化之八使用外部Javascript和css]]></title>
-      <url>http://yoursite.com/2016/11/02/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%E4%B9%8B%E5%85%AB%E4%BD%BF%E7%94%A8%E5%A4%96%E9%83%A8Javascript%E5%92%8Ccss/</url>
+      <url>https://womenbudon.github.io/2016/11/02/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%E4%B9%8B%E5%85%AB%E4%BD%BF%E7%94%A8%E5%A4%96%E9%83%A8Javascript%E5%92%8Ccss/</url>
       <content type="html"><![CDATA[<h2 id="内联-VS-外置"><a href="#内联-VS-外置" class="headerlink" title="内联 VS 外置"></a>内联 VS 外置</h2><p>只有一个页面，内联时，减少了 HTTP 请求的数量，导致内联快一些。<br>但是当外部文件 javascript 和 CSS 文件有机会被缓存起来时，外部文件会快些。</p>
 <p><strong>关键因素</strong>： 与 HTML 文档请求数量相关的、外部 JAVAscript 和 CSS 组件被缓存的频率。这个因素难以量化，但可以通过下面的手段进行衡量。</p>
 <h4 id="页面浏览量"><a href="#页面浏览量" class="headerlink" title="页面浏览量"></a>页面浏览量</h4><p>每个用户产生的页面浏览量越少，内联 Javascript 和 CSS 的论据越强势。另一方面，如果用户产生的页面浏览量很多，则将外部文件放在缓存中，外部文件带来的收益随着页面浏览量的增多而增多。</p>
@@ -204,7 +204,7 @@
     
     <entry>
       <title><![CDATA[性能优化之七避免CSS表达式]]></title>
-      <url>http://yoursite.com/2016/10/27/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%E4%B9%8B%E4%B8%83%E9%81%BF%E5%85%8DCSS%E8%A1%A8%E8%BE%BE%E5%BC%8F/</url>
+      <url>https://womenbudon.github.io/2016/10/27/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%E4%B9%8B%E4%B8%83%E9%81%BF%E5%85%8DCSS%E8%A1%A8%E8%BE%BE%E5%BC%8F/</url>
       <content type="html"><![CDATA[<p>CSS 表达式是动态设置 CSS 属性的一种强大（并且危险）的方式。IE5 和之后的版本支持,其他浏览器不支持。</p>
 <h2 id="更新表达式"><a href="#更新表达式" class="headerlink" title="更新表达式"></a>更新表达式</h2><p>表达式的问题在于对其进行求值的频率比人们期望的要高。它们不只在页面呈现和大小改变时求值，当页面滚动、甚至用户鼠标在页面上拖拽时都要求值。</p>
 <h2 id="避开问题"><a href="#避开问题" class="headerlink" title="避开问题"></a>避开问题</h2><p>两种技术避免 CSS 表达式求值频率过高：</p>
@@ -218,7 +218,7 @@
     
     <entry>
       <title><![CDATA[性能优化之六将脚本放在底部]]></title>
-      <url>http://yoursite.com/2016/10/27/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%E4%B9%8B%E5%85%AD%E5%B0%86%E8%84%9A%E6%9C%AC%E6%94%BE%E5%9C%A8%E5%BA%95%E9%83%A8/</url>
+      <url>https://womenbudon.github.io/2016/10/27/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%E4%B9%8B%E5%85%AD%E5%B0%86%E8%84%9A%E6%9C%AC%E6%94%BE%E5%9C%A8%E5%BA%95%E9%83%A8/</url>
       <content type="html"><![CDATA[<h2 id="脚本带来的问题"><a href="#脚本带来的问题" class="headerlink" title="脚本带来的问题"></a>脚本带来的问题</h2><p>使用脚本时，对于所有位于脚本以下的内容，逐步呈现都被阻塞了。将脚本放在页面越靠下的地方，意味着越多的内容能够逐步地呈现。</p>
 <h2 id="并行下载"><a href="#并行下载" class="headerlink" title="并行下载"></a>并行下载</h2><p>HTTP1.1 规范建议浏览器从每个主机名并行地下载两个组件。（可通过浏览器设置并行下载数量）<br>前端工程师与其依赖用户来修改浏览器设置，不如简单地使用 CNAME (DNS 别名) 来将组件分别放到多个主机名中。增加并行下载数量也是有开销的，其优劣取决于你的带宽和CPU速度，过多反而会降低性能。</p>
 <blockquote>
@@ -246,7 +246,7 @@
     
     <entry>
       <title><![CDATA[性能优化之五将样式表放在顶部]]></title>
-      <url>http://yoursite.com/2016/10/27/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%E4%B9%8B%E4%BA%94%E5%B0%86%E6%A0%B7%E5%BC%8F%E8%A1%A8%E6%94%BE%E5%9C%A8%E9%A1%B6%E9%83%A8/</url>
+      <url>https://womenbudon.github.io/2016/10/27/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%E4%B9%8B%E4%BA%94%E5%B0%86%E6%A0%B7%E5%BC%8F%E8%A1%A8%E6%94%BE%E5%9C%A8%E9%A1%B6%E9%83%A8/</url>
       <content type="html"><![CDATA[<h2 id="逐步呈现"><a href="#逐步呈现" class="headerlink" title="逐步呈现"></a>逐步呈现</h2><p>我们都希望浏览器能够尽快显示内容，为用户提供可视化回馈！</p>
 <blockquote>
 <p>进度指示器有三个优势——它们让用户知道系统没有崩溃，只是正在为他或她解决问题；它们指出了用户大概还需要等多久，以便用户能够在漫长的等待中做些其他事情；最后它们能给用户提供一些可以看的东西，使得等待不再是那么无聊。最后推荐使用图形进度条而不是仅仅以数字形式显示预期的剩余时间。<br> ——可用性工程师先驱</p>
@@ -290,7 +290,7 @@
     
     <entry>
       <title><![CDATA[性能优化之四压缩]]></title>
-      <url>http://yoursite.com/2016/10/26/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%E4%B9%8B%E5%9B%9B%E5%8E%8B%E7%BC%A9/</url>
+      <url>https://womenbudon.github.io/2016/10/26/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%E4%B9%8B%E5%9B%9B%E5%8E%8B%E7%BC%A9/</url>
       <content type="html"><![CDATA[<p>对 Web 服务器配置进行简单的修改，压缩尽可能多的组件，就能显著改善页面的反应速度</p>
 <h2 id="压缩是如何工作的"><a href="#压缩是如何工作的" class="headerlink" title="压缩是如何工作的"></a>压缩是如何工作的</h2><p>Web 客户端可以通过 HTTP 请求中的 Accept-Encoding 头来表示对压缩的支持；如果 Web 服务器看到这个请求中有这个头，就会使用客户端列出来的方法中的一种来压缩响应，Web服务器通过响应中的 Contenet-Encoding 头来通知 Web 客户端。<br>gzip是目前最流行和最有效的压缩方法</p>
 <h2 id="压缩什么"><a href="#压缩什么" class="headerlink" title="压缩什么"></a>压缩什么</h2><h3 id="压缩的内容"><a href="#压缩的内容" class="headerlink" title="压缩的内容"></a>压缩的内容</h3><p>包括： XML 和 JSON 在内的任何文本响应！</p>
@@ -342,7 +342,7 @@
     
     <entry>
       <title><![CDATA[性能优化之三添加Expires头]]></title>
-      <url>http://yoursite.com/2016/10/25/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%E4%B9%8B%E4%B8%89%E6%B7%BB%E5%8A%A0Expires%E5%A4%B4/</url>
+      <url>https://womenbudon.github.io/2016/10/25/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%E4%B9%8B%E4%B8%89%E6%B7%BB%E5%8A%A0Expires%E5%A4%B4/</url>
       <content type="html"><![CDATA[<p>页面往往包含了大量的组件（脚本、样式表、flash），通过expires头可以使这些组件被缓存,这在后续的页面浏览中避免不必要的HTTP请求。</p>
 <h2 id="Expires头"><a href="#Expires头" class="headerlink" title="Expires头"></a>Expires头</h2><p>Web服务器使用Expires头来告诉Web客户端它可以使用一个组件的当前副本，直到指定的时间为止。</p>
 <pre><code>Expires: Fri, 30 Oct 2017 14:19:41 GMT
@@ -368,7 +368,7 @@ ExpiresDefault &quot;access plus 10 years&quot;
     
     <entry>
       <title><![CDATA[性能优化之二使用内容分发网络]]></title>
-      <url>http://yoursite.com/2016/10/21/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%E4%B9%8B%E4%BA%8C%E4%BD%BF%E7%94%A8%E5%86%85%E5%AE%B9%E5%88%86%E5%8F%91%E7%BD%91%E7%BB%9C/</url>
+      <url>https://womenbudon.github.io/2016/10/21/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%E4%B9%8B%E4%BA%8C%E4%BD%BF%E7%94%A8%E5%86%85%E5%AE%B9%E5%88%86%E5%8F%91%E7%BD%91%E7%BB%9C/</url>
       <content type="html"><![CDATA[<p>如果应用程序Web服务器离用户更近，则一个HTTP请求的响应时间将缩短。另一方面，如果组件Web服务器离用户更近，则多个HTTP请求的响应时间将缩短。重新设计应用程序以便将应用程序Web服务器分散开，这样做的难度大。不如将组件Web服务器分散开，这不仅能达到响应时间大幅减少的目的，而且还很容易实现。</p>
 <h2 id="内容分布网络"><a href="#内容分布网络" class="headerlink" title="内容分布网络"></a>内容分布网络</h2><p>内容发布网络（CDN）是一组分布在多个不同地理位置的Web服务器，用于更加有效地向用户发布内容。<br>CDN用于发布静态内容，如图片、脚本、样式表和Flash</p>
 <h3 id="CDN优点"><a href="#CDN优点" class="headerlink" title="CDN优点"></a>CDN优点</h3><ul>
@@ -384,7 +384,7 @@ ExpiresDefault &quot;access plus 10 years&quot;
     
     <entry>
       <title><![CDATA[性能优化之一减少HTTP请求]]></title>
-      <url>http://yoursite.com/2016/10/21/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%E4%B9%8B%E4%B8%80%E5%87%8F%E5%B0%91HTTP%E8%AF%B7%E6%B1%82/</url>
+      <url>https://womenbudon.github.io/2016/10/21/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%E4%B9%8B%E4%B8%80%E5%87%8F%E5%B0%91HTTP%E8%AF%B7%E6%B1%82/</url>
       <content type="html"><![CDATA[<p><strong>性能优化黄金法则</strong>： 只有10%~20%的最终用户响应时间花在了下载HTML文档上，其余的80%~90%时间花在了下载页面中的所有组件上（脚本、CSS样式表、图片、Flash）。换我自己的话说，就是改动前端的收益大</p>
 <p>关注前端的相对优势:</p>
 <ul>
@@ -419,7 +419,7 @@ ExpiresDefault &quot;access plus 10 years&quot;
     
     <entry>
       <title><![CDATA[HTML面试题]]></title>
-      <url>http://yoursite.com/2016/10/08/HTML%E9%9D%A2%E8%AF%95%E9%A2%98/</url>
+      <url>https://womenbudon.github.io/2016/10/08/HTML%E9%9D%A2%E8%AF%95%E9%A2%98/</url>
       <content type="html"><![CDATA[<h3 id="doctype-文档类型-的作用是什么？"><a href="#doctype-文档类型-的作用是什么？" class="headerlink" title="doctype(文档类型) 的作用是什么？"></a>doctype(文档类型) 的作用是什么？</h3><p>声明文档的解析类型(document.compatMode)，避免浏览器的怪异模式。有以下两个值：</p>
 <ul>
 <li>怪异模式，浏览器使用自己的怪异模式解析渲染页面。</li>
@@ -524,7 +524,7 @@ ExpiresDefault &quot;access plus 10 years&quot;
     
     <entry>
       <title><![CDATA[JS面试题]]></title>
-      <url>http://yoursite.com/2016/10/08/JS%E9%9D%A2%E8%AF%95%E9%A2%98/</url>
+      <url>https://womenbudon.github.io/2016/10/08/JS%E9%9D%A2%E8%AF%95%E9%A2%98/</url>
       <content type="html"><![CDATA[<h3 id="请解释事件代理-event-delegation-。"><a href="#请解释事件代理-event-delegation-。" class="headerlink" title="请解释事件代理 (event delegation)。"></a>请解释事件代理 (event delegation)。</h3><p>事件委托技术能让你避免对特定的每个节点添加事件监听器；相反，事件监听器是被添加到它们的父元素上。事件监听器会分析从子元素冒泡上来的事件，找到是哪个子元素的事件。</p>
 <p><strong>优点：</strong></p>
 <ul>
@@ -745,7 +745,7 @@ boundFunc(); // 3
     
     <entry>
       <title><![CDATA[CSS面试题]]></title>
-      <url>http://yoursite.com/2016/09/28/CSS%E9%9D%A2%E8%AF%95%E9%A2%98-1/</url>
+      <url>https://womenbudon.github.io/2016/09/28/CSS%E9%9D%A2%E8%AF%95%E9%A2%98-1/</url>
       <content type="html"><![CDATA[<h3 id="CSS-中类-classes-和-ID-的区别。"><a href="#CSS-中类-classes-和-ID-的区别。" class="headerlink" title="CSS 中类 (classes) 和 ID 的区别。"></a>CSS 中类 (classes) 和 ID 的区别。</h3><ul>
 <li>书写上的差别：class名用“.”号开头来定义，id名用“#”号开头来定义；   </li>
 <li>优先级不同（权重不同）  </li>
