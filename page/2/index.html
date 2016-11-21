@@ -5,10 +5,10 @@
   
 
 
-<html class="theme-next pisces use-motion">
+<html class="theme-next muse use-motion" lang="zh-Hans">
 <head>
   <meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
 
@@ -29,7 +29,7 @@
 
   
   
-  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
 
 
 
@@ -63,9 +63,9 @@
 
 
 
-<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
 
-<link href="/css/main.css?v=5.0.2" rel="stylesheet" type="text/css" />
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
   <meta name="keywords" content="Hexo, NexT" />
@@ -77,7 +77,7 @@
 
 
 
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.2" />
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
 
 
 
@@ -96,30 +96,40 @@
 
 
 
-<script type="text/javascript" id="hexo.configuration">
+<script type="text/javascript" id="hexo.configurations">
   var NexT = window.NexT || {};
   var CONFIG = {
-    scheme: 'Pisces',
+    root: '/',
+    scheme: 'Muse',
     sidebar: {"position":"left","display":"post"},
     fancybox: true,
     motion: true,
     duoshuo: {
       userId: '0',
       author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
     }
   };
 </script>
 
 
 
-
   <link rel="canonical" href="https://womenbudon.github.io/page/2/"/>
+
+
+
 
 
   <title> 米傻的博客 </title>
 </head>
 
-<body itemscope itemtype="//schema.org/WebPage" lang="zh-Hans">
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
   
 
@@ -142,7 +152,7 @@
  ">
     <div class="headband"></div>
 
-    <header id="header" class="header" itemscope itemtype="//schema.org/WPHeader">
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-meta ">
   
 
@@ -177,16 +187,6 @@
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
             首页
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-categories">
-          <a href="/categories" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
-            
-            分类
           </a>
         </li>
       
@@ -241,6 +241,8 @@
   
 </nav>
 
+
+
  </div>
     </header>
 
@@ -254,13 +256,26 @@
       
 
   
-  
 
   
   
   
 
-  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="https://womenbudon.github.io/2016/11/02/性能优化之九减少DNS查找/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="米傻">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/uploads/avatar.png">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="米傻的博客">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="米傻的博客" src="">
+    </span>
+  </span>
 
     
       <header class="post-header">
@@ -282,24 +297,30 @@
 
         <div class="post-meta">
           <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-11-02T23:01:43+08:00" content="2016-11-02">
-              2016-11-02
-            </time>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-11-02T23:01:43+08:00">
+                2016-11-02
+              </time>
+            
+
+            
+
+            
           </span>
 
           
             <span class="post-category" >
-              &nbsp; | &nbsp;
+              <span class="post-meta-divider">|</span>
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
               <span class="post-meta-item-text">分类于</span>
               
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/性能优化/" itemprop="url" rel="index">
                     <span itemprop="name">性能优化</span>
                   </a>
@@ -307,7 +328,6 @@
 
                 
                 
-
               
             </span>
           
@@ -315,9 +335,9 @@
           
             
               <span class="post-comments-count">
-                &nbsp; | &nbsp;
+                <span class="post-meta-divider">|</span>
                 <a href="/2016/11/02/性能优化之九减少DNS查找/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/02/性能优化之九减少DNS查找/" itemprop="commentsCount"></span>
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/02/性能优化之九减少DNS查找/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -327,17 +347,11 @@
 
           
           
-             <span id="/2016/11/02/性能优化之九减少DNS查找/" class="leancloud_visitors" data-flag-title="性能优化之九减少DNS查找">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
+
           
 
           
+
         </div>
       </header>
     
@@ -351,15 +365,30 @@
       
         
           
-          DNS 将主机名映射到 IP 地址上，当你在浏览器中输入 www.yahoo.com 时，连接到浏览器的 DNS 解析器会返回服务器的 IP 地址。DNS 优点： 可以将多个 IP 地址关联到一个主机名，为网站提高冗余度。DNS 缺点： DNS 解析需要花费时间，在 DNS 查找完成之前，浏览器不能从主机名那里下载任何东西。相应时间依赖于 DNS 解析器（通常由你的 ISP 提供）、它所承担的请求压力、你与他之间的距离和你的带宽速度。
-DNS 缓存和 TTLDNS 查找可以被缓存起来以提高性能。这种缓存发生在你的 ISP 或局域网中的一台特殊的缓存服务器上，同时 DNS 信息会留在用户操作系统
-          ...
+            <p>DNS 将主机名映射到 IP 地址上，当你在浏览器中输入 www.yahoo.com 时，连接到浏览器的 DNS 解析器会返回服务器的 IP 地址。<br>DNS 优点： 可以将多个 IP 地址关联到一个主机名，为网站提高冗余度。<br>DNS 缺点： DNS 解析需要花费时间，在 DNS 查找完成之前，浏览器不能从主机名那里下载任何东西。相应时间依赖于 DNS 解析器（通常由你的 ISP 提供）、它所承担的请求压力、你与他之间的距离和你的带宽速度。</p>
+<h2 id="DNS-缓存和-TTL"><a href="#DNS-缓存和-TTL" class="headerlink" title="DNS 缓存和 TTL"></a>DNS 缓存和 TTL</h2><p>DNS 查找可以被缓存起来以提高性能。这种缓存发生在你的 ISP 或局域网中的一台特殊的缓存服务器上，同时 DNS 信息会留在用户操作系统的 DNS 缓存中。<br>很多浏览器也拥有自己的缓存，和操作系统的缓存相分离，只要浏览器中保留了 DNS 记录，它就不会麻烦操作系统来请求这个记录。</p>
+<h3 id="什么是TTL？"><a href="#什么是TTL？" class="headerlink" title="什么是TTL？"></a>什么是TTL？</h3><p>TTL是 Time To Live的缩写，该字段指定IP包被路由器丢弃之前允许通过的最大网段数量。TTL是IPv4包头的一个8 bit字段。<br>TTL的作用是限制IP数据包在计算机网络中的存在的时间。TTL的最大值是255，TTL的一个推荐值是64。<br>TTL的主要作用是避免IP包在网络中的无限循环和收发，节省了网络资源，并能使IP包的发送者能收到告警消息。</p>
+<h3 id="什么是域名的TTL？"><a href="#什么是域名的TTL？" class="headerlink" title="什么是域名的TTL？"></a>什么是域名的TTL？</h3><p>TTL(Time- To-Live)，简单的说它表示一条域名解析记录在DNS服务器上缓存时间</p>
+<h2 id="影响-DNS-缓存的因素"><a href="#影响-DNS-缓存的因素" class="headerlink" title="影响 DNS 缓存的因素"></a>影响 DNS 缓存的因素</h2><p>服务器可以表明记录可以被缓存多久，查找返回的 DNS 记录包含了一个存活时间（Time-to-live, TTL）值。该值告诉客户端可以对该记录缓存多久。<br>影响 DNS 缓存存活多久的因素：</p>
+<ul>
+<li>尽管操作系统缓存会考虑 TTL 值，但浏览器通常忽略该值，并设置它自己的时间限制。</li>
+<li>HTTP 协议中的 Keep-Alive 特性可以同时覆盖 TTL 和浏览器的时间限制（只要浏览器和 Web 服务器愉快的通信着，并保持着 TCP连接打开的状态，就没有理由进行 DNS 查找，避免了重复的 DNS 查找）</li>
+<li>浏览器对缓存的 DNS 记录的数量也有限制，而不管缓存记录的时间。如果用户在短时间内访问了很多具有不同域名的网站，较早的 DNS 记录将被丢弃，必须重新查找该域名。</li>
+</ul>
+<h2 id="TTL-值"><a href="#TTL-值" class="headerlink" title="TTL 值"></a>TTL 值</h2><h3 id="增大TTL值，以节约域名解析时间"><a href="#增大TTL值，以节约域名解析时间" class="headerlink" title="增大TTL值，以节约域名解析时间"></a>增大TTL值，以节约域名解析时间</h3><p>通常情况下域名解析记录是很少更改的。我们可以通过增大域名记录的TTL值让记录在各地DNS服务器中缓存的时间加长，这样在更长的时间段内，我们访问这个网站时，本地ISP的DNS服务器就不需要向域名的NS服务器发出解析请求，而直接从本地缓存中返回域名解析记录。<br>TTL值是以秒为单位的，通常的默认值都是3600，也就是默认缓存1小时。我们可以根据实际需要把TTL值扩大，例如要缓存一天就设置成86400。</p>
+<h3 id="减小TTL值，减少更换空间时的不可访问时间"><a href="#减小TTL值，减少更换空间时的不可访问时间" class="headerlink" title="减小TTL值，减少更换空间时的不可访问时间"></a>减小TTL值，减少更换空间时的不可访问时间</h3><p>更换域名空间时会对DNS记录进行修改，因为DNS记录缓存的问题，新的域名记录在有的地方可能生效了，但在有的地方可能等上一两天甚至更久才生效，只就导致有部分用户在一段时间内无法不可访问网站了。<br>为了尽可能的减小这个各地的解析时间差，合理的做法是：<br>1.先查看域名当前的TTL值。<br>2.修改TTL值为可设定的最小值，建议为60秒。<br>3.等待一天，保证各地的DNS服务器缓存都过期并更新了记录。<br>4.设置修改DNS解析到新的记录，这个时候各地的DNS就能以最快的速度更新到新的记录。<br>5.确认各地的DNS已经更新完成后，再TTL值设置成常用的值(如: TTL=86400)。</p>
+<p>注意: 客户端收到的 DNS 记录的平均 TTL 值只有最大 TTL 值的一半。</p>
+<h2 id="浏览器的视角"><a href="#浏览器的视角" class="headerlink" title="浏览器的视角"></a>浏览器的视角</h2><p>大量独立的变量决定了一个特定的浏览器在请求一个主机名时是否会进行远程 DNS 请求。</p>
+<ul>
+<li>重新启动 windows 可以清空 DNS Client 服务缓存</li>
+<li>重新启动浏览器会清空浏览器缓存，但不会清空 DNS Client 服务缓存</li>
+</ul>
+<h3 id="IE"><a href="#IE" class="headerlink" title="IE"></a>IE</h3><p>IE 的 DNS 缓存由三个注册表设置控制。</p>
+<h3 id="Firefox"><a href="#Firefox" class="headerlink" title="Firefox"></a>Firefox</h3><h2 id="减少-DNS-查找"><a href="#减少-DNS-查找" class="headerlink" title="减少 DNS 查找"></a>减少 DNS 查找</h2><p>当客户端的 DNS 缓存为空（浏览器和操作系统都是）时，DNS 查找的数量与 Web 页面中唯一主机名的数量相等。这包括页面 URL、图片、脚本文件、样式表、Flash对象的主机名。<br>减少唯一主机名的数量就可以减少 DNS 查找的数量。<br>减少唯一主机名的数量的这种方式的<strong>缺点在于</strong>： 会潜在的减少页面中并行下载的数量。避免 DNS 查找降低了相应时间，但减少并行下载可能会增加响应时间。</p>
+<p>建议： 将这些组件分别放到至少2个，但不要超过4个主机名下。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p><img src="./rule9.1.png" alt="alt txt"></p>
 
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/11/02/性能优化之九减少DNS查找/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
+          
         
       
     </div>
@@ -371,6 +400,7 @@ DNS 缓存和 TTLDNS 查找可以被缓存起来以提高性能。这种缓存�
     <div>
       
     </div>
+
 
     <footer class="post-footer">
       
@@ -389,13 +419,26 @@ DNS 缓存和 TTLDNS 查找可以被缓存起来以提高性能。这种缓存�
       
 
   
-  
 
   
   
   
 
-  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="https://womenbudon.github.io/2016/11/02/性能优化之八使用外部Javascript和css/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="米傻">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/uploads/avatar.png">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="米傻的博客">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="米傻的博客" src="">
+    </span>
+  </span>
 
     
       <header class="post-header">
@@ -417,24 +460,30 @@ DNS 缓存和 TTLDNS 查找可以被缓存起来以提高性能。这种缓存�
 
         <div class="post-meta">
           <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-11-02T22:59:28+08:00" content="2016-11-02">
-              2016-11-02
-            </time>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-11-02T22:59:28+08:00">
+                2016-11-02
+              </time>
+            
+
+            
+
+            
           </span>
 
           
             <span class="post-category" >
-              &nbsp; | &nbsp;
+              <span class="post-meta-divider">|</span>
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
               <span class="post-meta-item-text">分类于</span>
               
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/性能优化/" itemprop="url" rel="index">
                     <span itemprop="name">性能优化</span>
                   </a>
@@ -442,7 +491,6 @@ DNS 缓存和 TTLDNS 查找可以被缓存起来以提高性能。这种缓存�
 
                 
                 
-
               
             </span>
           
@@ -450,9 +498,9 @@ DNS 缓存和 TTLDNS 查找可以被缓存起来以提高性能。这种缓存�
           
             
               <span class="post-comments-count">
-                &nbsp; | &nbsp;
+                <span class="post-meta-divider">|</span>
                 <a href="/2016/11/02/性能优化之八使用外部Javascript和css/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/02/性能优化之八使用外部Javascript和css/" itemprop="commentsCount"></span>
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/02/性能优化之八使用外部Javascript和css/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -462,17 +510,11 @@ DNS 缓存和 TTLDNS 查找可以被缓存起来以提高性能。这种缓存�
 
           
           
-             <span id="/2016/11/02/性能优化之八使用外部Javascript和css/" class="leancloud_visitors" data-flag-title="性能优化之八使用外部Javascript和css">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
+
           
 
           
+
         </div>
       </header>
     
@@ -486,17 +528,30 @@ DNS 缓存和 TTLDNS 查找可以被缓存起来以提高性能。这种缓存�
       
         
           
-          内联 VS 外置只有一个页面，内联时，减少了 HTTP 请求的数量，导致内联快一些。但是当外部文件 javascript 和 CSS 文件有机会被缓存起来时，外部文件会快些。
-关键因素： 与 HTML 文档请求数量相关的、外部 JAVAscript 和 CSS 组件被缓存的频率。这个因素难以量化，但可以通过下面的手段进行衡量。
-页面浏览量每个用户产生的页面浏览量越少，内联 Javascript 和 CSS 的论据越强势。另一方面，如果用户产生的页面浏览量很多，则将外部文件放在缓存中，外部文件带来的收益随着页面浏览量的增多而增多。
-空缓存 VS 完整缓存如果你的网站本质上能够为用户带来高完整缓存
-          ...
+            <h2 id="内联-VS-外置"><a href="#内联-VS-外置" class="headerlink" title="内联 VS 外置"></a>内联 VS 外置</h2><p>只有一个页面，内联时，减少了 HTTP 请求的数量，导致内联快一些。<br>但是当外部文件 javascript 和 CSS 文件有机会被缓存起来时，外部文件会快些。</p>
+<p><strong>关键因素</strong>： 与 HTML 文档请求数量相关的、外部 JAVAscript 和 CSS 组件被缓存的频率。这个因素难以量化，但可以通过下面的手段进行衡量。</p>
+<h4 id="页面浏览量"><a href="#页面浏览量" class="headerlink" title="页面浏览量"></a>页面浏览量</h4><p>每个用户产生的页面浏览量越少，内联 Javascript 和 CSS 的论据越强势。另一方面，如果用户产生的页面浏览量很多，则将外部文件放在缓存中，外部文件带来的收益随着页面浏览量的增多而增多。</p>
+<h4 id="空缓存-VS-完整缓存"><a href="#空缓存-VS-完整缓存" class="headerlink" title="空缓存 VS 完整缓存"></a>空缓存 VS 完整缓存</h4><p>如果你的网站本质上能够为用户带来高完整缓存率，使用外部文件的收益就更大。如果不大可能产生完整缓存，则内联时更好的选择。</p>
+<h4 id="组件重用"><a href="#组件重用" class="headerlink" title="组件重用"></a>组件重用</h4><p>如果你的网站中的每个页面都使用了相同的 Javascript 和 CSS，使用外部文件可以提高这些组件的重用率。</p>
+<p>在典型情况下，页面之间 Javascript 和 CSS 的重用既不可能 100% 重叠，也不可能 100% 无关。在这种中间情形中可分为两个极端：</p>
+<ul>
+<li>为每个页面提供一组分离的外部文件  </li>
+<li>创建一个单独的、联合了所有 Javascript 的文件，再创建一个包含了所有 CSS 的文件。</li>
+</ul>
+<p>最好的方案： 折中，将页面划分为几种页面类型，然后为每种类型创建单独的脚本和样式表。如果可以找到一个平衡点，实现较高的重用度，则使用外部文件更好，反之使用内联。</p>
+<h2 id="典型的对比结果"><a href="#典型的对比结果" class="headerlink" title="典型的对比结果"></a>典型的对比结果</h2><p>对内联和使用外部文件进行对比分析时，关键点在于 HTML 文档请求数量相关的，外部 Javascript 和 CSS 组件被缓存的频率。可通过三种基准（页面浏览量、空缓存VS完整缓存和组件重用）来确定最好的选择。</p>
+<h2 id="主页"><a href="#主页" class="headerlink" title="主页"></a>主页</h2><p>使用内联方式的一个例外就是主页。主页是选择作为浏览器默认也得 URL。从三个基准来看主页： </p>
+<ul>
+<li>页面浏览量： 主页每月有很高的页面浏览量数量。但通常每个会话只产生一个页面浏览量。</li>
+<li>空缓存VS完整缓存： 出于安全的原因，很多用户选择在每次关闭浏览器时，清空缓存（不理解）</li>
+<li>组件重用： 很多主页是用户来到网站后访问的唯一一个页面，谈不上重用</li>
+</ul>
+<h2 id="两全其美"><a href="#两全其美" class="headerlink" title="两全其美"></a>两全其美</h2><p>要想既可以获得内联的优势，同时也能缓存外部文件，可参考下面的两种方法</p>
+<h3 id="加载后下载"><a href="#加载后下载" class="headerlink" title="加载后下载"></a>加载后下载</h3><p>对于主页，我们一般希望内联 Javascript 和 CSS，但又希望能为所有后续页面浏览量提供外部文件。可以通过在主页加载完成后动态下载外部组件来实现（通过 onload 事件）。这能够将外部文件放到浏览器的缓存中以便用户接下来访问其他页面。</p>
+<h3 id="动态内联"><a href="#动态内联" class="headerlink" title="动态内联"></a>动态内联</h3><p>如果主页服务器知道一个组件是否在浏览器的缓存中，它可以在内联或使用外部文件之间做出最佳的选择。尽管服务器不能查看浏览器缓存中有些什么，但可以用cookies 做指示器。cookie 不存在，内联 js和css,存在则不内联（可能组件已缓存在浏览器中，并使用了外部文件）</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p><img src="./rule8.1.png" alt="alt txt"></p>
 
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/11/02/性能优化之八使用外部Javascript和css/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
+          
         
       
     </div>
@@ -508,6 +563,7 @@ DNS 缓存和 TTLDNS 查找可以被缓存起来以提高性能。这种缓存�
     <div>
       
     </div>
+
 
     <footer class="post-footer">
       
@@ -526,13 +582,26 @@ DNS 缓存和 TTLDNS 查找可以被缓存起来以提高性能。这种缓存�
       
 
   
-  
 
   
   
   
 
-  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="https://womenbudon.github.io/2016/10/27/性能优化之七避免CSS表达式/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="米傻">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/uploads/avatar.png">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="米傻的博客">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="米傻的博客" src="">
+    </span>
+  </span>
 
     
       <header class="post-header">
@@ -554,24 +623,30 @@ DNS 缓存和 TTLDNS 查找可以被缓存起来以提高性能。这种缓存�
 
         <div class="post-meta">
           <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-10-27T22:26:33+08:00" content="2016-10-27">
-              2016-10-27
-            </time>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-10-27T22:26:33+08:00">
+                2016-10-27
+              </time>
+            
+
+            
+
+            
           </span>
 
           
             <span class="post-category" >
-              &nbsp; | &nbsp;
+              <span class="post-meta-divider">|</span>
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
               <span class="post-meta-item-text">分类于</span>
               
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/性能优化/" itemprop="url" rel="index">
                     <span itemprop="name">性能优化</span>
                   </a>
@@ -579,7 +654,6 @@ DNS 缓存和 TTLDNS 查找可以被缓存起来以提高性能。这种缓存�
 
                 
                 
-
               
             </span>
           
@@ -587,9 +661,9 @@ DNS 缓存和 TTLDNS 查找可以被缓存起来以提高性能。这种缓存�
           
             
               <span class="post-comments-count">
-                &nbsp; | &nbsp;
+                <span class="post-meta-divider">|</span>
                 <a href="/2016/10/27/性能优化之七避免CSS表达式/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/27/性能优化之七避免CSS表达式/" itemprop="commentsCount"></span>
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/27/性能优化之七避免CSS表达式/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -599,17 +673,11 @@ DNS 缓存和 TTLDNS 查找可以被缓存起来以提高性能。这种缓存�
 
           
           
-             <span id="/2016/10/27/性能优化之七避免CSS表达式/" class="leancloud_visitors" data-flag-title="性能优化之七避免CSS表达式">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
+
           
 
           
+
         </div>
       </header>
     
@@ -623,22 +691,16 @@ DNS 缓存和 TTLDNS 查找可以被缓存起来以提高性能。这种缓存�
       
         
           
-          CSS 表达式是动态设置 CSS 属性的一种强大（并且危险）的方式。IE5 和之后的版本支持,其他浏览器不支持。
-更新表达式表达式的问题在于对其进行求值的频率比人们期望的要高。它们不只在页面呈现和大小改变时求值，当页面滚动、甚至用户鼠标在页面上拖拽时都要求值。
-避开问题两种技术避免 CSS 表达式求值频率过高：
-
-创建一次性表达式
-事件处理器
-
-总结在没有深入了解底层影响的情况下使用 CSS 表达式是很危险的。
+            <p>CSS 表达式是动态设置 CSS 属性的一种强大（并且危险）的方式。IE5 和之后的版本支持,其他浏览器不支持。</p>
+<h2 id="更新表达式"><a href="#更新表达式" class="headerlink" title="更新表达式"></a>更新表达式</h2><p>表达式的问题在于对其进行求值的频率比人们期望的要高。它们不只在页面呈现和大小改变时求值，当页面滚动、甚至用户鼠标在页面上拖拽时都要求值。</p>
+<h2 id="避开问题"><a href="#避开问题" class="headerlink" title="避开问题"></a>避开问题</h2><p>两种技术避免 CSS 表达式求值频率过高：</p>
+<ul>
+<li>创建一次性表达式</li>
+<li>事件处理器</li>
+</ul>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>在没有深入了解底层影响的情况下使用 CSS 表达式是很危险的。</p>
 
           
-
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/10/27/性能优化之七避免CSS表达式/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
         
       
     </div>
@@ -650,6 +712,7 @@ DNS 缓存和 TTLDNS 查找可以被缓存起来以提高性能。这种缓存�
     <div>
       
     </div>
+
 
     <footer class="post-footer">
       
@@ -668,13 +731,26 @@ DNS 缓存和 TTLDNS 查找可以被缓存起来以提高性能。这种缓存�
       
 
   
-  
 
   
   
   
 
-  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="https://womenbudon.github.io/2016/10/27/性能优化之六将脚本放在底部/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="米傻">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/uploads/avatar.png">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="米傻的博客">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="米傻的博客" src="">
+    </span>
+  </span>
 
     
       <header class="post-header">
@@ -696,24 +772,30 @@ DNS 缓存和 TTLDNS 查找可以被缓存起来以提高性能。这种缓存�
 
         <div class="post-meta">
           <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-10-27T22:24:46+08:00" content="2016-10-27">
-              2016-10-27
-            </time>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-10-27T22:24:46+08:00">
+                2016-10-27
+              </time>
+            
+
+            
+
+            
           </span>
 
           
             <span class="post-category" >
-              &nbsp; | &nbsp;
+              <span class="post-meta-divider">|</span>
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
               <span class="post-meta-item-text">分类于</span>
               
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/性能优化/" itemprop="url" rel="index">
                     <span itemprop="name">性能优化</span>
                   </a>
@@ -721,7 +803,6 @@ DNS 缓存和 TTLDNS 查找可以被缓存起来以提高性能。这种缓存�
 
                 
                 
-
               
             </span>
           
@@ -729,9 +810,9 @@ DNS 缓存和 TTLDNS 查找可以被缓存起来以提高性能。这种缓存�
           
             
               <span class="post-comments-count">
-                &nbsp; | &nbsp;
+                <span class="post-meta-divider">|</span>
                 <a href="/2016/10/27/性能优化之六将脚本放在底部/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/27/性能优化之六将脚本放在底部/" itemprop="commentsCount"></span>
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/27/性能优化之六将脚本放在底部/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -741,17 +822,11 @@ DNS 缓存和 TTLDNS 查找可以被缓存起来以提高性能。这种缓存�
 
           
           
-             <span id="/2016/10/27/性能优化之六将脚本放在底部/" class="leancloud_visitors" data-flag-title="性能优化之六将脚本放在底部">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
+
           
 
           
+
         </div>
       </header>
     
@@ -765,19 +840,30 @@ DNS 缓存和 TTLDNS 查找可以被缓存起来以提高性能。这种缓存�
       
         
           
-          脚本带来的问题使用脚本时，对于所有位于脚本以下的内容，逐步呈现都被阻塞了。将脚本放在页面越靠下的地方，意味着越多的内容能够逐步地呈现。
-并行下载HTTP1.1 规范建议浏览器从每个主机名并行地下载两个组件。（可通过浏览器设置并行下载数量）前端工程师与其依赖用户来修改浏览器设置，不如简单地使用 CNAME (DNS 别名) 来将组件分别放到多个主机名中。增加并行下载数量也是有开销的，其优劣取决于你的带宽和CPU速度，过多反而会降低性能。
+            <h2 id="脚本带来的问题"><a href="#脚本带来的问题" class="headerlink" title="脚本带来的问题"></a>脚本带来的问题</h2><p>使用脚本时，对于所有位于脚本以下的内容，逐步呈现都被阻塞了。将脚本放在页面越靠下的地方，意味着越多的内容能够逐步地呈现。</p>
+<h2 id="并行下载"><a href="#并行下载" class="headerlink" title="并行下载"></a>并行下载</h2><p>HTTP1.1 规范建议浏览器从每个主机名并行地下载两个组件。（可通过浏览器设置并行下载数量）<br>前端工程师与其依赖用户来修改浏览器设置，不如简单地使用 CNAME (DNS 别名) 来将组件分别放到多个主机名中。增加并行下载数量也是有开销的，其优劣取决于你的带宽和CPU速度，过多反而会降低性能。</p>
+<blockquote>
+<p>Yahoo! 的研究表明，使用两个主机名比使用 1、4 或 10 个主机名能带来更好的性能</p>
+</blockquote>
+<h2 id="脚本阻塞下载"><a href="#脚本阻塞下载" class="headerlink" title="脚本阻塞下载"></a>脚本阻塞下载</h2><p>在下载脚本时，并行下载实际上是被禁用的——即使使用了不同的主机名，浏览器也不会启动其他的下载。<br>原因如下：</p>
+<ul>
+<li>脚本可能使用 document.write 来修改页面的内容，因此浏览器会等待，以确保页面能够恰当的布局</li>
+<li>为了保证脚本能够按照正确的顺序执行</li>
+</ul>
+<h2 id="最差情况：将脚本放在顶部"><a href="#最差情况：将脚本放在顶部" class="headerlink" title="最差情况：将脚本放在顶部"></a>最差情况：将脚本放在顶部</h2><p>脚本对 Web 页面的影响就清楚了：</p>
+<ul>
+<li>脚本会阻塞对其后面内容的呈现（导致白屏）</li>
+<li>脚本会阻塞对其后面组件的下载</li>
+</ul>
+<h2 id="最佳情况：将脚本放在底部"><a href="#最佳情况：将脚本放在底部" class="headerlink" title="最佳情况：将脚本放在底部"></a>最佳情况：将脚本放在底部</h2><p>将脚本放置在底部，不会阻止页面内容的呈现，而且页面中的可视组件可以尽早下载</p>
+<h2 id="正确地放置脚本"><a href="#正确地放置脚本" class="headerlink" title="正确地放置脚本"></a>正确地放置脚本</h2><p>正确的放置脚本</p>
+<ul>
+<li>将脚本移到页面的底部</li>
+<li>使用延迟 （Defferred）脚本。 Defferred 属性表明脚本不包含 document.write ,浏览器得到这一线索就可继续进行呈现。（在 Firefox 中，即便是延迟脚本也会阻塞呈现和并行下载），如果一个脚本可以延迟，那么它一定就可以移到页面的底部。</li>
+</ul>
+<h2 id="本节总结"><a href="#本节总结" class="headerlink" title="本节总结"></a>本节总结</h2><p><img src="./rule6.1.png" alt="alt text"></p>
 
-Yahoo! 的研究表明，使用两个主机名比使用 1、4 或 10 个主机名能带来更好的性能
-
-脚本阻塞下载在下载脚本时，并行下载实际上是被禁用的——即使使用了
-          ...
-
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/10/27/性能优化之六将脚本放在底部/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
+          
         
       
     </div>
@@ -789,6 +875,7 @@ Yahoo! 的研究表明，使用两个主机名比使用 1、4 或 10 个主机�
     <div>
       
     </div>
+
 
     <footer class="post-footer">
       
@@ -807,13 +894,26 @@ Yahoo! 的研究表明，使用两个主机名比使用 1、4 或 10 个主机�
       
 
   
-  
 
   
   
   
 
-  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="https://womenbudon.github.io/2016/10/27/性能优化之五将样式表放在顶部/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="米傻">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/uploads/avatar.png">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="米傻的博客">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="米傻的博客" src="">
+    </span>
+  </span>
 
     
       <header class="post-header">
@@ -835,24 +935,30 @@ Yahoo! 的研究表明，使用两个主机名比使用 1、4 或 10 个主机�
 
         <div class="post-meta">
           <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-10-27T22:21:18+08:00" content="2016-10-27">
-              2016-10-27
-            </time>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-10-27T22:21:18+08:00">
+                2016-10-27
+              </time>
+            
+
+            
+
+            
           </span>
 
           
             <span class="post-category" >
-              &nbsp; | &nbsp;
+              <span class="post-meta-divider">|</span>
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
               <span class="post-meta-item-text">分类于</span>
               
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/性能优化/" itemprop="url" rel="index">
                     <span itemprop="name">性能优化</span>
                   </a>
@@ -860,7 +966,6 @@ Yahoo! 的研究表明，使用两个主机名比使用 1、4 或 10 个主机�
 
                 
                 
-
               
             </span>
           
@@ -868,9 +973,9 @@ Yahoo! 的研究表明，使用两个主机名比使用 1、4 或 10 个主机�
           
             
               <span class="post-comments-count">
-                &nbsp; | &nbsp;
+                <span class="post-meta-divider">|</span>
                 <a href="/2016/10/27/性能优化之五将样式表放在顶部/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/27/性能优化之五将样式表放在顶部/" itemprop="commentsCount"></span>
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/27/性能优化之五将样式表放在顶部/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -880,17 +985,11 @@ Yahoo! 的研究表明，使用两个主机名比使用 1、4 或 10 个主机�
 
           
           
-             <span id="/2016/10/27/性能优化之五将样式表放在顶部/" class="leancloud_visitors" data-flag-title="性能优化之五将样式表放在顶部">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
+
           
 
           
+
         </div>
       </header>
     
@@ -904,18 +1003,46 @@ Yahoo! 的研究表明，使用两个主机名比使用 1、4 或 10 个主机�
       
         
           
-          逐步呈现我们都希望浏览器能够尽快显示内容，为用户提供可视化回馈！
+            <h2 id="逐步呈现"><a href="#逐步呈现" class="headerlink" title="逐步呈现"></a>逐步呈现</h2><p>我们都希望浏览器能够尽快显示内容，为用户提供可视化回馈！</p>
+<blockquote>
+<p>进度指示器有三个优势——它们让用户知道系统没有崩溃，只是正在为他或她解决问题；它们指出了用户大概还需要等多久，以便用户能够在漫长的等待中做些其他事情；最后它们能给用户提供一些可以看的东西，使得等待不再是那么无聊。最后推荐使用图形进度条而不是仅仅以数字形式显示预期的剩余时间。<br> ——可用性工程师先驱</p>
+</blockquote>
+<p>在这里，HTML页面就是进度指示器，当浏览器逐步地加载页面时，页头、导航栏、顶端logo等，所有这些都会为等待页面的用户提供视觉反馈。可改善整体用户体验。<br>将样式表放在文档底部会导致在浏览器中阻止内容逐步呈现。为避免当样式变化时重绘页面中的元素，浏览器会阻塞内容逐步呈现。</p>
+<h2 id="将-CSS-放在底部"><a href="#将-CSS-放在底部" class="headerlink" title="将 CSS 放在底部"></a>将 CSS 放在底部</h2><p>逐步呈现被禁止了，这是一种不好的用户体验，因为没法向用户确保他的请求正在被正确地处理，用户会因为不知道发生了什么而离开。<br>在IE中样式表放在文档底部会导致白屏问题的情形有以下几种：  </p>
+<ul>
+<li>在新窗口中打开时</li>
+<li>重新加载时</li>
+<li>作为主页</li>
+</ul>
+<h2 id="将-CSS-放在顶部"><a href="#将-CSS-放在顶部" class="headerlink" title="将 CSS 放在顶部"></a>将 CSS 放在顶部</h2><p>为避免白屏，将 CSS 放在顶部，不管页面时如何加载的页面都是逐步呈现的。<br>将样式表包含在文档中有两种方式“</p>
+<ul>
+<li>使用 LINK 标签</li>
+<li>@import 规则</li>
+</ul>
+<p>@import 规则的缺点：</p>
+<ul>
+<li>使用 @import 规则会导致组件下载时的无序性</li>
+<li>@import 规则有可能会导致白屏现象，即便把 @import 规则放在文档的 HEAD 标签中也是如此</li>
+<li>@import 规则必须放在所有其他规则之前</li>
+</ul>
+<p>最优的方式：使用 LINK 标签将样式表放在文档的 HEAD 中</p>
+<h2 id="白屏"><a href="#白屏" class="headerlink" title="白屏"></a>白屏</h2><p>在浏览器和用户等待位于底部的样式表时，浏览器会延迟显示任何可视化组件，这一现象称之为白屏。<br>将样式表放在文档底部出现白屏现象只出现在IE浏览器中。白屏现象源自于浏览器的行为。</p>
+<h2 id="无样式内容闪烁"><a href="#无样式内容闪烁" class="headerlink" title="无样式内容闪烁"></a>无样式内容闪烁</h2><p>无样式内容的闪烁(FOUC)： 文档为样式表使用了一个 CSS 规则，但样式表被（不正确地）放在了底部。当页面逐步加载时，文字首先显示，然后是图片。最后，在样式表正确地下载并解析之后，已经呈现的文字和图片要用新的样式重绘了。 </p>
+<h2 id="对于白屏和无样式内容闪烁，我们该怎么办？"><a href="#对于白屏和无样式内容闪烁，我们该怎么办？" class="headerlink" title="对于白屏和无样式内容闪烁，我们该怎么办？"></a>对于白屏和无样式内容闪烁，我们该怎么办？</h2><p>对于两种浏览器在不同的情况下的总结</p>
+<h3 id="Firefox"><a href="#Firefox" class="headerlink" title="Firefox"></a>Firefox</h3><p>样式表位于顶部：页面内容逐步呈现<br>样式表位于底部：  </p>
+<ul>
+<li>与页面呈现内容无关：页面内容逐步</li>
+<li>呈现与页面呈现内容有关：出现无样式内容闪烁</li>
+</ul>
+<h3 id="IE"><a href="#IE" class="headerlink" title="IE"></a>IE</h3><p>样式表位于顶部：逐步加载<br>样式表位于底部：  </p>
+<ul>
+<li>出现白屏：当重新加载页面、将页面设置为默认首页并打开、在新窗口中打开页面时出现  </li>
+<li>出现FOUC：点击链接、键入URL、使用书签 打开页面时</li>
+</ul>
+<p>解决两种的<strong>最佳方案</strong>： 使用 LINK 标签将样式表放在文档 HEAD 中</p>
+<h2 id="附上本节总结"><a href="#附上本节总结" class="headerlink" title="附上本节总结"></a>附上本节总结</h2><p><img src="./rule5.1.png" alt="alt txt"></p>
 
-进度指示器有三个优势——它们让用户知道系统没有崩溃，只是正在为他或她解决问题；它们指出了用户大概还需要等多久，以便用户能够在漫长的等待中做些其他事情；最后它们能给用户提供一些可以看的东西，使得等待不再是那么无聊。最后推荐使用图形进度条而不是仅仅以数字形式显示预期的剩余时间。 ——可用性工程师先驱
-
-在这里，HTML页面就是进度指示器，当浏览器逐步地加载页面时，页头、导航栏、顶端logo等，所有这些都会为等待页面的用户提供视觉反馈。可改善整体用户体验。将样式表放在文档底部会导致在浏览器中阻止内容逐步呈现。为避免当样式变化时重绘页
-          ...
-
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/10/27/性能优化之五将样式表放在顶部/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
+          
         
       
     </div>
@@ -927,6 +1054,7 @@ Yahoo! 的研究表明，使用两个主机名比使用 1、4 或 10 个主机�
     <div>
       
     </div>
+
 
     <footer class="post-footer">
       
@@ -976,8 +1104,8 @@ Yahoo! 的研究表明，使用两个主机名比使用 1、4 或 10 个主机�
 
       
 
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="//schema.org/Person">
+      <section class="site-overview sidebar-panel sidebar-panel-active">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/uploads/avatar.png"
                alt="米傻" />
@@ -994,10 +1122,10 @@ Yahoo! 的研究表明，使用两个主机名比使用 1、4 或 10 个主机�
 
           
             <div class="site-state-item site-state-categories">
-              <a href="/categories">
+              
                 <span class="site-state-item-count">4</span>
                 <span class="site-state-item-name">分类</span>
-              </a>
+              
             </div>
           
 
@@ -1024,6 +1152,9 @@ Yahoo! 的研究表明，使用两个主机名比使用 1、4 或 10 个主机�
         
         
 
+        
+
+
       </section>
 
       
@@ -1048,6 +1179,7 @@ Yahoo! 的研究表明，使用两个主机名比使用 1、4 或 10 个主机�
   <span class="author" itemprop="copyrightHolder">米傻</span>
 </div>
 
+
 <div class="powered-by">
   由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
 </div>
@@ -1055,9 +1187,10 @@ Yahoo! 的研究表明，使用两个主机名比使用 1、4 或 10 个主机�
 <div class="theme-info">
   主题 -
   <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT.Pisces
+    NexT.Muse
   </a>
 </div>
+
 
         
 
@@ -1091,49 +1224,42 @@ Yahoo! 的研究表明，使用两个主机名比使用 1、4 或 10 个主机�
 
 
   
-  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
 
   
-  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
 
   
-  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
 
   
-  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
 
   
-  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
 
   
-  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
-
-
-  
-
-
-  <script type="text/javascript" src="/js/src/utils.js?v=5.0.2"></script>
-
-  <script type="text/javascript" src="/js/src/motion.js?v=5.0.2"></script>
-
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
 
 
   
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
   
-
-
-  <script type="text/javascript" src="/js/src/affix.js?v=5.0.2"></script>
-
-  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.2"></script>
-
-
+  
 
   
 
   
 
 
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.2"></script>
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
 
 
 
@@ -1158,9 +1284,12 @@ Yahoo! 的研究表明，使用两个主机名比使用 1、4 或 10 个主机�
 
   
     
-    <script src="/vendors/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
     <script src="/js/src/hook-duoshuo.js"></script>
   
+
+
 
 
 
@@ -1175,7 +1304,7 @@ Yahoo! 的研究表明，使用两个主机名比使用 1、4 或 10 个主机�
     // Search DB path;
     var search_path = "search.xml";
     if (search_path.length == 0) {
-       search_path = "search.xml";
+      search_path = "search.xml";
     }
     var path = "/" + search_path;
     // monitor main search box;
@@ -1183,96 +1312,95 @@ Yahoo! 的研究表明，使用两个主机名比使用 1、4 或 10 个主机�
     function proceedsearch() {
       $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
       $('.popup').toggle();
-
     }
     // search function;
     var searchFunc = function(path, search_id, content_id) {
-    'use strict';
-    $.ajax({
+      'use strict';
+      $.ajax({
         url: path,
         dataType: "xml",
         async: true,
         success: function( xmlResponse ) {
-            // get the contents from search data
-            isfetched = true;
-            $('.popup').detach().appendTo('.header-inner');
-            var datas = $( "entry", xmlResponse ).map(function() {
-                return {
-                    title: $( "title", this ).text(),
-                    content: $("content",this).text(),
-                    url: $( "url" , this).text()
-                };
-            }).get();
-            var $input = document.getElementById(search_id);
-            var $resultContent = document.getElementById(content_id);
-            $input.addEventListener('input', function(){
-                var matchcounts = 0;
-                var str='<ul class=\"search-result-list\">';
-                var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
-                $resultContent.innerHTML = "";
-                if (this.value.trim().length > 1) {
-                // perform local searching
-                datas.forEach(function(data) {
-                    var isMatch = false;
-                    var content_index = [];
-                    var data_title = data.title.trim().toLowerCase();
-                    var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
-                    var data_url = data.url;
-                    var index_title = -1;
-                    var index_content = -1;
-                    var first_occur = -1;
-                    // only match artiles with not empty titles and contents
-                    if(data_title != '') {
-                        keywords.forEach(function(keyword, i) {
-                            index_title = data_title.indexOf(keyword);
-                            index_content = data_content.indexOf(keyword);
-                            if( index_title >= 0 || index_content >= 0 ){
-                                isMatch = true;
-								if (i == 0) {
-                                    first_occur = index_content;
-                                }
-                            } 
-							
-                        });
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = $( "entry", xmlResponse ).map(function() {
+            return {
+              title: $( "title", this ).text(),
+              content: $("content",this).text(),
+              url: $( "url" , this).text()
+            };
+          }).get();
+          var $input = document.getElementById(search_id);
+          var $resultContent = document.getElementById(content_id);
+          $input.addEventListener('input', function(){
+            var matchcounts = 0;
+            var str='<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length > 1) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var content_index = [];
+                var data_title = data.title.trim().toLowerCase();
+                var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                var data_url = decodeURIComponent(data.url);
+                var index_title = -1;
+                var index_content = -1;
+                var first_occur = -1;
+                // only match artiles with not empty titles and contents
+                if(data_title != '') {
+                  keywords.forEach(function(keyword, i) {
+                    index_title = data_title.indexOf(keyword);
+                    index_content = data_content.indexOf(keyword);
+                    if( index_title >= 0 || index_content >= 0 ){
+                      isMatch = true;
+                      if (i == 0) {
+                        first_occur = index_content;
+                      }
                     }
-                    // show search results
-                    if (isMatch) {
-                        matchcounts += 1;
-                        str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
-                        var content = data.content.trim().replace(/<[^>]+>/g,"");
-                        if (first_occur >= 0) {
-                            // cut out 100 characters
-                            var start = first_occur - 20;
-                            var end = first_occur + 80;
-                            if(start < 0){
-                                start = 0;
-                            }
-                            if(start == 0){
-                                end = 50;
-                            }
-                            if(end > content.length){
-                                end = content.length;
-                            }
-                            var match_content = content.substring(start, end);
-                            // highlight all keywords
-                            keywords.forEach(function(keyword){
-                                var regS = new RegExp(keyword, "gi");
-                                match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
-                            });
 
-                            str += "<p class=\"search-result\">" + match_content +"...</p>"
-                        }
-                        str += "</li>";
+                  });
+                }
+                // show search results
+                if (isMatch) {
+                  matchcounts += 1;
+                  str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                  var content = data.content.trim().replace(/<[^>]+>/g,"");
+                  if (first_occur >= 0) {
+                    // cut out 100 characters
+                    var start = first_occur - 20;
+                    var end = first_occur + 80;
+                    if(start < 0){
+                      start = 0;
                     }
-                })};
-                str += "</ul>";
-                if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
-                if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
-                $resultContent.innerHTML = str;
-            });
-            proceedsearch();
+                    if(start == 0){
+                      end = 50;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    var match_content = content.substring(start, end);
+                    // highlight all keywords
+                    keywords.forEach(function(keyword){
+                      var regS = new RegExp(keyword, "gi");
+                      match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                    });
+
+                    str += "<p class=\"search-result\">" + match_content +"...</p>"
+                  }
+                  str += "</li>";
+                }
+              })};
+            str += "</ul>";
+            if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+            if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+            $resultContent.innerHTML = str;
+          });
+          proceedsearch();
         }
-    });}
+      });}
 
     // handle and trigger popup window;
     $('.popup-trigger').click(function(e) {
@@ -1282,7 +1410,6 @@ Yahoo! 的研究表明，使用两个主机名比使用 1、4 或 10 个主机�
       } else {
         proceedsearch();
       };
-
     });
 
     $('.popup-btn-close').click(function(e){
@@ -1301,113 +1428,9 @@ Yahoo! 的研究表明，使用两个主机名比使用 1、4 或 10 个主机�
   
 
   
-  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
-  <script>AV.initialize("88OEbQSUP6y7YIOOfX3GNdeW-gzGzoHsz", "kpOIhHn0MeWYN2Nfjuf24OFy");</script>
-  <script>
-    function showTime(Counter) {
-      var query = new AV.Query(Counter);
-      var entries = [];
-      var $visitors = $(".leancloud_visitors");
-
-      $visitors.each(function () {
-        entries.push( $(this).attr("id").trim() );
-      });
-
-      query.containedIn('url', entries);
-      query.find()
-        .done(function (results) {
-          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
-
-          if (results.length === 0) {
-            $visitors.find(COUNT_CONTAINER_REF).text(0);
-            return;
-          }
-
-          for (var i = 0; i < results.length; i++) {
-            var item = results[i];
-            var url = item.get('url');
-            var time = item.get('time');
-            var element = document.getElementById(url);
-
-            $(element).find(COUNT_CONTAINER_REF).text(time);
-          }
-          for(var i = 0; i < entries.length; i++) {
-            var url = entries[i];
-            var element = document.getElementById(url);
-            var countSpan = $(element).find(COUNT_CONTAINER_REF);
-            if( countSpan.text() == '') {
-              countSpan.text(0);
-            }
-          }
-        })
-        .fail(function (object, error) {
-          console.log("Error: " + error.code + " " + error.message);
-        });
-    }
-
-    function addCount(Counter) {
-      var $visitors = $(".leancloud_visitors");
-      var url = $visitors.attr('id').trim();
-      var title = $visitors.attr('data-flag-title').trim();
-      var query = new AV.Query(Counter);
-
-      query.equalTo("url", url);
-      query.find({
-        success: function(results) {
-          if (results.length > 0) {
-            var counter = results[0];
-            counter.fetchWhenSave(true);
-            counter.increment("time");
-            counter.save(null, {
-              success: function(counter) {
-                var $element = $(document.getElementById(url));
-                $element.find('.leancloud-visitors-count').text(counter.get('time'));
-              },
-              error: function(counter, error) {
-                console.log('Failed to save Visitor num, with error message: ' + error.message);
-              }
-            });
-          } else {
-            var newcounter = new Counter();
-            /* Set ACL */
-            var acl = new AV.ACL();
-            acl.setPublicReadAccess(true);
-            acl.setPublicWriteAccess(true);
-            newcounter.setACL(acl);
-            /* End Set ACL */
-            newcounter.set("title", title);
-            newcounter.set("url", url);
-            newcounter.set("time", 1);
-            newcounter.save(null, {
-              success: function(newcounter) {
-                var $element = $(document.getElementById(url));
-                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
-              },
-              error: function(newcounter, error) {
-                console.log('Failed to create');
-              }
-            });
-          }
-        },
-        error: function(error) {
-          console.log('Error:' + error.code + " " + error.message);
-        }
-      });
-    }
-
-    $(function() {
-      var Counter = AV.Object.extend("Counter");
-      if ($('.leancloud_visitors').length == 1) {
-        addCount(Counter);
-      } else if ($('.post-title-link').length > 1) {
-        showTime(Counter);
-      }
-    });
-  </script>
-
-
 
   
+
 
 </body>
 </html>

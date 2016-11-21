@@ -5,10 +5,10 @@
   
 
 
-<html class="theme-next pisces use-motion">
+<html class="theme-next muse use-motion" lang="zh-Hans">
 <head>
   <meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
 
@@ -29,7 +29,7 @@
 
   
   
-  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
 
 
 
@@ -63,9 +63,9 @@
 
 
 
-<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
 
-<link href="/css/main.css?v=5.0.2" rel="stylesheet" type="text/css" />
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
   <meta name="keywords" content="JS面试题," />
@@ -77,7 +77,7 @@
 
 
 
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.2" />
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
 
 
 
@@ -115,30 +115,40 @@
 
 
 
-<script type="text/javascript" id="hexo.configuration">
+<script type="text/javascript" id="hexo.configurations">
   var NexT = window.NexT || {};
   var CONFIG = {
-    scheme: 'Pisces',
+    root: '/',
+    scheme: 'Muse',
     sidebar: {"position":"left","display":"post"},
     fancybox: true,
     motion: true,
     duoshuo: {
       userId: '0',
       author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
     }
   };
 </script>
 
 
 
-
   <link rel="canonical" href="https://womenbudon.github.io/2016/10/08/JS面试题/"/>
+
+
+
 
 
   <title> JS面试题 | 米傻的博客 </title>
 </head>
 
-<body itemscope itemtype="//schema.org/WebPage" lang="zh-Hans">
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
   
 
@@ -159,7 +169,7 @@
   <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
-    <header id="header" class="header" itemscope itemtype="//schema.org/WPHeader">
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-meta ">
   
 
@@ -194,16 +204,6 @@
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
             首页
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-categories">
-          <a href="/categories" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
-            
-            分类
           </a>
         </li>
       
@@ -258,6 +258,8 @@
   
 </nav>
 
+
+
  </div>
     </header>
 
@@ -271,13 +273,26 @@
     
 
   
-  
 
   
   
   
 
-  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="https://womenbudon.github.io/2016/10/08/JS面试题/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="米傻">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/uploads/avatar.png">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="米傻的博客">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="米傻的博客" src="">
+    </span>
+  </span>
 
     
       <header class="post-header">
@@ -296,24 +311,30 @@
 
         <div class="post-meta">
           <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-10-08T23:22:50+08:00" content="2016-10-08">
-              2016-10-08
-            </time>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-10-08T23:22:50+08:00">
+                2016-10-08
+              </time>
+            
+
+            
+
+            
           </span>
 
           
             <span class="post-category" >
-              &nbsp; | &nbsp;
+              <span class="post-meta-divider">|</span>
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
               <span class="post-meta-item-text">分类于</span>
               
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/JS/" itemprop="url" rel="index">
                     <span itemprop="name">JS</span>
                   </a>
@@ -321,7 +342,6 @@
 
                 
                 
-
               
             </span>
           
@@ -329,9 +349,9 @@
           
             
               <span class="post-comments-count">
-                &nbsp; | &nbsp;
+                <span class="post-meta-divider">|</span>
                 <a href="/2016/10/08/JS面试题/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/08/JS面试题/" itemprop="commentsCount"></span>
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/08/JS面试题/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -341,17 +361,11 @@
 
           
           
-             <span id="/2016/10/08/JS面试题/" class="leancloud_visitors" data-flag-title="JS面试题">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
+
           
 
           
+
         </div>
       </header>
     
@@ -596,11 +610,12 @@ boundFunc(); // 3
       
     </div>
 
+
     <footer class="post-footer">
       
         <div class="post-tags">
           
-            <a href="/tags/JS面试题/" rel="tag">#JS面试题</a>
+            <a href="/tags/JS面试题/" rel="tag"># JS面试题</a>
           
         </div>
       
@@ -614,6 +629,8 @@ boundFunc(); // 3
               </a>
             
           </div>
+
+          <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
             
@@ -680,8 +697,8 @@ boundFunc(); // 3
         </ul>
       
 
-      <section class="site-overview sidebar-panel ">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="//schema.org/Person">
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/uploads/avatar.png"
                alt="米傻" />
@@ -698,10 +715,10 @@ boundFunc(); // 3
 
           
             <div class="site-state-item site-state-categories">
-              <a href="/categories">
+              
                 <span class="site-state-item-count">4</span>
                 <span class="site-state-item-name">分类</span>
-              </a>
+              
             </div>
           
 
@@ -728,19 +745,27 @@ boundFunc(); // 3
         
         
 
+        
+
+
       </section>
 
       
+      <!--noindex-->
         <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
           <div class="post-toc">
+
             
               
             
+
             
               <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#请解释事件代理-event-delegation-。"><span class="nav-number">1.</span> <span class="nav-text">请解释事件代理 (event delegation)。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#请解释-JavaScript-中-this-是如何工作的。"><span class="nav-number">2.</span> <span class="nav-text">请解释 JavaScript 中 this 是如何工作的。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#请解释原型继承-prototypal-inheritance-的原理？"><span class="nav-number">3.</span> <span class="nav-text">请解释原型继承 (prototypal inheritance) 的原理？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#你怎么看-AMD-vs-CommonJS？"><span class="nav-number">4.</span> <span class="nav-text">你怎么看 AMD vs. CommonJS？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#请解释为什么接下来这段代码不是-IIFE-立即调用的函数表达式-：function-foo-要做哪些改动使它变成-IIFE"><span class="nav-number">5.</span> <span class="nav-text">请解释为什么接下来这段代码不是 IIFE (立即调用的函数表达式)：function foo(){ }();要做哪些改动使它变成 IIFE?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#描述以下变量的区别：null，undefined-或-undeclared？-该如何检测它们？"><span class="nav-number">6.</span> <span class="nav-text">描述以下变量的区别：null，undefined 或 undeclared？ 该如何检测它们？</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">6.1.</span> <span class="nav-text">undefined</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#underclared"><span class="nav-number">6.2.</span> <span class="nav-text">underclared</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#null"><span class="nav-number">6.3.</span> <span class="nav-text">null</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#区别"><span class="nav-number">6.4.</span> <span class="nav-text">区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#该如何检测它们？"><span class="nav-number">6.5.</span> <span class="nav-text">该如何检测它们？</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是闭包-closure-，如何使用它，为什么要使用它？"><span class="nav-number">7.</span> <span class="nav-text">什么是闭包 (closure)，如何使用它，为什么要使用它？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#请举出一个匿名函数的典型用例？"><span class="nav-number">8.</span> <span class="nav-text">请举出一个匿名函数的典型用例？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#你是如何组织自己的代码？是使用模块模式，还是使用经典继承的方法？"><span class="nav-number">9.</span> <span class="nav-text">你是如何组织自己的代码？是使用模块模式，还是使用经典继承的方法？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#请指出-JavaScript-宿主对象-host-objects-和原生对象-native-objects-的区别？"><span class="nav-number">10.</span> <span class="nav-text">请指出 JavaScript 宿主对象 (host objects) 和原生对象 (native objects) 的区别？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#请指出以下代码的区别：function-Person-、var-person-Person-、var-person-new-Person-？"><span class="nav-number">11.</span> <span class="nav-text">请指出以下代码的区别：function Person(){}、var person = Person()、var person = new Person()？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#call-和-apply-的区别是什么？"><span class="nav-number">12.</span> <span class="nav-text">.call 和 .apply 的区别是什么？</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#区别-1"><span class="nav-number">12.1.</span> <span class="nav-text">区别</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#请解释-Function-prototype-bind？"><span class="nav-number">13.</span> <span class="nav-text">请解释 Function.prototype.bind？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#在什么时候你会使用-document-write-？"><span class="nav-number">14.</span> <span class="nav-text">在什么时候你会使用 document.write()？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#请指出浏览器特性检测，特性推断和浏览器-UA-字符串嗅探的区别？"><span class="nav-number">15.</span> <span class="nav-text">请指出浏览器特性检测，特性推断和浏览器 UA 字符串嗅探的区别？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#请尽可能详尽的解释-Ajax-的工作原理？"><span class="nav-number">16.</span> <span class="nav-text">请尽可能详尽的解释 Ajax 的工作原理？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用-Ajax-都有哪些优劣？"><span class="nav-number">17.</span> <span class="nav-text">使用 Ajax 都有哪些优劣？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#请解释-JSONP-的工作原理，以及它为什么不是真正的-Ajax。"><span class="nav-number">18.</span> <span class="nav-text">请解释 JSONP 的工作原理，以及它为什么不是真正的 Ajax。</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#工作原理"><span class="nav-number">18.1.</span> <span class="nav-text">工作原理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#优点"><span class="nav-number">18.2.</span> <span class="nav-text">优点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#缺点"><span class="nav-number">18.3.</span> <span class="nav-text">缺点</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#请解释变量声明提升-hoisting-。、"><span class="nav-number">19.</span> <span class="nav-text">请解释变量声明提升 (hoisting)。、</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#请描述事件冒泡机制-event-bubbling-。"><span class="nav-number">20.</span> <span class="nav-text">请描述事件冒泡机制 (event bubbling)。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#“attribute”-和-“property”-的区别是什么？"><span class="nav-number">21.</span> <span class="nav-text">“attribute” 和 “property” 的区别是什么？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#为什么扩展-JavaScript-内置对象不是好的做法？"><span class="nav-number">22.</span> <span class="nav-text">为什么扩展 JavaScript 内置对象不是好的做法？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#请指出-document-load-和-document-DOMContentLoaded-两个事件的区别。"><span class="nav-number">23.</span> <span class="nav-text">请指出 document load 和 document DOMContentLoaded 两个事件的区别。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#和-有什么不同？"><span class="nav-number">24.</span> <span class="nav-text">== 和 === 有什么不同？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#请解释-JavaScript-的同源策略-same-origin-policy-。"><span class="nav-number">25.</span> <span class="nav-text">请解释 JavaScript 的同源策略 (same-origin policy)。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如何实现下列代码：-1-2-3-4-5-duplicator-1-2-3-4-5-1-2-3-4-5"><span class="nav-number">26.</span> <span class="nav-text">如何实现下列代码：[1,2,3,4,5].duplicator(); // [1,2,3,4,5,1,2,3,4,5]</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是三元表达式-Ternary-expression-？“三元-Ternary-”-表示什么意思？"><span class="nav-number">27.</span> <span class="nav-text">什么是三元表达式 (Ternary expression)？“三元 (Ternary)” 表示什么意思？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是-“use-strict”-使用它的好处和坏处分别是什么？"><span class="nav-number">28.</span> <span class="nav-text">什么是 “use strict”; ? 使用它的好处和坏处分别是什么？</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#好处"><span class="nav-number">28.1.</span> <span class="nav-text">好处</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#好处具体体现"><span class="nav-number">28.2.</span> <span class="nav-text">好处具体体现</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#坏处"><span class="nav-number">28.3.</span> <span class="nav-text">坏处</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#总结"><span class="nav-number">28.4.</span> <span class="nav-text">总结</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#参考"><span class="nav-number">28.5.</span> <span class="nav-text">参考</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#请实现一个遍历至-100-的-for-loop-循环，在能被-3-整除时输出-“fizz”，在能被-5-整除时输出-“buzz”，在能同时被-3-和-5-整除时输出-“fizzbuzz”。"><span class="nav-number">29.</span> <span class="nav-text">请实现一个遍历至 100 的 for loop 循环，在能被 3 整除时输出 “fizz”，在能被 5 整除时输出 “buzz”，在能同时被 3 和 5 整除时输出 “fizzbuzz”。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#为何通常会认为保留网站现有的全局作用域-global-scope-不去改变它，是较好的选择？"><span class="nav-number">30.</span> <span class="nav-text">为何通常会认为保留网站现有的全局作用域 (global scope) 不去改变它，是较好的选择？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#为何你会使用-load-之类的事件-event-？此事件有缺点吗？你是否知道其他替代品，以及为何使用它们？"><span class="nav-number">31.</span> <span class="nav-text">为何你会使用 load 之类的事件 (event)？此事件有缺点吗？你是否知道其他替代品，以及为何使用它们？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#请解释什么是单页应用-single-page-app-以及如何使其对搜索引擎友好-SEO-friendly-。"><span class="nav-number">32.</span> <span class="nav-text">请解释什么是单页应用 (single page app), 以及如何使其对搜索引擎友好 (SEO-friendly)。</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#优点-1"><span class="nav-number">32.1.</span> <span class="nav-text">优点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#缺点-1"><span class="nav-number">32.2.</span> <span class="nav-text">缺点</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用-Promises-而非回调-callbacks-优缺点是什么？"><span class="nav-number">33.</span> <span class="nav-text">使用 Promises 而非回调 (callbacks) 优缺点是什么？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用一种可以编译成-JavaScript-的语言来写-JavaScript-代码有哪些优缺点？"><span class="nav-number">34.</span> <span class="nav-text">使用一种可以编译成 JavaScript 的语言来写 JavaScript 代码有哪些优缺点？</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#优点："><span class="nav-number">34.1.</span> <span class="nav-text">优点：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#缺点："><span class="nav-number">34.2.</span> <span class="nav-text">缺点：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#你使用哪些工具和技术来调试-JavaScript-代码？"><span class="nav-number">35.</span> <span class="nav-text">你使用哪些工具和技术来调试 JavaScript 代码？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#请解释可变-mutable-和不变-immutable-对象的区别？"><span class="nav-number">36.</span> <span class="nav-text">请解释可变 (mutable) 和不变 (immutable) 对象的区别？</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#区别-2"><span class="nav-number">36.1.</span> <span class="nav-text">区别</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#不变性-immutability-有哪些优缺点？"><span class="nav-number">37.</span> <span class="nav-text">不变性 (immutability) 有哪些优缺点？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如何用你自己的代码来实现不变性-immutability-？"><span class="nav-number">38.</span> <span class="nav-text">如何用你自己的代码来实现不变性 (immutability)？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#你会使用怎样的语言结构来遍历对象属性-object-properties-和数组内容？"><span class="nav-number">39.</span> <span class="nav-text">你会使用怎样的语言结构来遍历对象属性 (object properties) 和数组内容？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#请解释同步-synchronous-和异步-asynchronous-函数的区别。"><span class="nav-number">40.</span> <span class="nav-text">请解释同步 (synchronous) 和异步 (asynchronous) 函数的区别。</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#同步式"><span class="nav-number">40.1.</span> <span class="nav-text">同步式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#异步式"><span class="nav-number">40.2.</span> <span class="nav-text">异步式</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是事件循环-event-loop-？"><span class="nav-number">41.</span> <span class="nav-text">什么是事件循环 (event loop)？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#请问调用栈-call-stack-和任务队列-task-queue-的区别是什么？"><span class="nav-number">42.</span> <span class="nav-text">请问调用栈 (call stack) 和任务队列 (task queue) 的区别是什么？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解释-function-foo-与-var-foo-function-用法的区别？"><span class="nav-number">43.</span> <span class="nav-text">解释 function foo() {} 与 var foo = function() {} 用法的区别？</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JS面试题"><span class="nav-number"></span> <span class="nav-text">JS面试题</span></a></div>
             
+
           </div>
         </section>
+      <!--/noindex-->
       
 
     </div>
@@ -763,6 +788,7 @@ boundFunc(); // 3
   <span class="author" itemprop="copyrightHolder">米傻</span>
 </div>
 
+
 <div class="powered-by">
   由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
 </div>
@@ -770,9 +796,10 @@ boundFunc(); // 3
 <div class="theme-info">
   主题 -
   <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT.Pisces
+    NexT.Muse
   </a>
 </div>
+
 
         
 
@@ -806,53 +833,46 @@ boundFunc(); // 3
 
 
   
-  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
 
   
-  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
 
   
-  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
 
   
-  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
 
   
-  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
 
   
-  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
-
-
-  
-
-
-  <script type="text/javascript" src="/js/src/utils.js?v=5.0.2"></script>
-
-  <script type="text/javascript" src="/js/src/motion.js?v=5.0.2"></script>
-
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
 
 
   
-  
 
 
-  <script type="text/javascript" src="/js/src/affix.js?v=5.0.2"></script>
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
 
-  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.2"></script>
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
 
 
 
   
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.2"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.0.2"></script>
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
 
 
 
   
 
 
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.2"></script>
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
 
 
 
@@ -877,9 +897,12 @@ boundFunc(); // 3
 
   
     
-    <script src="/vendors/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
     <script src="/js/src/hook-duoshuo.js"></script>
   
+
+
 
 
 
@@ -894,7 +917,7 @@ boundFunc(); // 3
     // Search DB path;
     var search_path = "search.xml";
     if (search_path.length == 0) {
-       search_path = "search.xml";
+      search_path = "search.xml";
     }
     var path = "/" + search_path;
     // monitor main search box;
@@ -902,96 +925,95 @@ boundFunc(); // 3
     function proceedsearch() {
       $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
       $('.popup').toggle();
-
     }
     // search function;
     var searchFunc = function(path, search_id, content_id) {
-    'use strict';
-    $.ajax({
+      'use strict';
+      $.ajax({
         url: path,
         dataType: "xml",
         async: true,
         success: function( xmlResponse ) {
-            // get the contents from search data
-            isfetched = true;
-            $('.popup').detach().appendTo('.header-inner');
-            var datas = $( "entry", xmlResponse ).map(function() {
-                return {
-                    title: $( "title", this ).text(),
-                    content: $("content",this).text(),
-                    url: $( "url" , this).text()
-                };
-            }).get();
-            var $input = document.getElementById(search_id);
-            var $resultContent = document.getElementById(content_id);
-            $input.addEventListener('input', function(){
-                var matchcounts = 0;
-                var str='<ul class=\"search-result-list\">';
-                var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
-                $resultContent.innerHTML = "";
-                if (this.value.trim().length > 1) {
-                // perform local searching
-                datas.forEach(function(data) {
-                    var isMatch = false;
-                    var content_index = [];
-                    var data_title = data.title.trim().toLowerCase();
-                    var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
-                    var data_url = data.url;
-                    var index_title = -1;
-                    var index_content = -1;
-                    var first_occur = -1;
-                    // only match artiles with not empty titles and contents
-                    if(data_title != '') {
-                        keywords.forEach(function(keyword, i) {
-                            index_title = data_title.indexOf(keyword);
-                            index_content = data_content.indexOf(keyword);
-                            if( index_title >= 0 || index_content >= 0 ){
-                                isMatch = true;
-								if (i == 0) {
-                                    first_occur = index_content;
-                                }
-                            } 
-							
-                        });
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = $( "entry", xmlResponse ).map(function() {
+            return {
+              title: $( "title", this ).text(),
+              content: $("content",this).text(),
+              url: $( "url" , this).text()
+            };
+          }).get();
+          var $input = document.getElementById(search_id);
+          var $resultContent = document.getElementById(content_id);
+          $input.addEventListener('input', function(){
+            var matchcounts = 0;
+            var str='<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length > 1) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var content_index = [];
+                var data_title = data.title.trim().toLowerCase();
+                var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                var data_url = decodeURIComponent(data.url);
+                var index_title = -1;
+                var index_content = -1;
+                var first_occur = -1;
+                // only match artiles with not empty titles and contents
+                if(data_title != '') {
+                  keywords.forEach(function(keyword, i) {
+                    index_title = data_title.indexOf(keyword);
+                    index_content = data_content.indexOf(keyword);
+                    if( index_title >= 0 || index_content >= 0 ){
+                      isMatch = true;
+                      if (i == 0) {
+                        first_occur = index_content;
+                      }
                     }
-                    // show search results
-                    if (isMatch) {
-                        matchcounts += 1;
-                        str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
-                        var content = data.content.trim().replace(/<[^>]+>/g,"");
-                        if (first_occur >= 0) {
-                            // cut out 100 characters
-                            var start = first_occur - 20;
-                            var end = first_occur + 80;
-                            if(start < 0){
-                                start = 0;
-                            }
-                            if(start == 0){
-                                end = 50;
-                            }
-                            if(end > content.length){
-                                end = content.length;
-                            }
-                            var match_content = content.substring(start, end);
-                            // highlight all keywords
-                            keywords.forEach(function(keyword){
-                                var regS = new RegExp(keyword, "gi");
-                                match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
-                            });
 
-                            str += "<p class=\"search-result\">" + match_content +"...</p>"
-                        }
-                        str += "</li>";
+                  });
+                }
+                // show search results
+                if (isMatch) {
+                  matchcounts += 1;
+                  str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                  var content = data.content.trim().replace(/<[^>]+>/g,"");
+                  if (first_occur >= 0) {
+                    // cut out 100 characters
+                    var start = first_occur - 20;
+                    var end = first_occur + 80;
+                    if(start < 0){
+                      start = 0;
                     }
-                })};
-                str += "</ul>";
-                if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
-                if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
-                $resultContent.innerHTML = str;
-            });
-            proceedsearch();
+                    if(start == 0){
+                      end = 50;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    var match_content = content.substring(start, end);
+                    // highlight all keywords
+                    keywords.forEach(function(keyword){
+                      var regS = new RegExp(keyword, "gi");
+                      match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                    });
+
+                    str += "<p class=\"search-result\">" + match_content +"...</p>"
+                  }
+                  str += "</li>";
+                }
+              })};
+            str += "</ul>";
+            if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+            if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+            $resultContent.innerHTML = str;
+          });
+          proceedsearch();
         }
-    });}
+      });}
 
     // handle and trigger popup window;
     $('.popup-trigger').click(function(e) {
@@ -1001,7 +1023,6 @@ boundFunc(); // 3
       } else {
         proceedsearch();
       };
-
     });
 
     $('.popup-btn-close').click(function(e){
@@ -1020,113 +1041,9 @@ boundFunc(); // 3
   
 
   
-  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
-  <script>AV.initialize("88OEbQSUP6y7YIOOfX3GNdeW-gzGzoHsz", "kpOIhHn0MeWYN2Nfjuf24OFy");</script>
-  <script>
-    function showTime(Counter) {
-      var query = new AV.Query(Counter);
-      var entries = [];
-      var $visitors = $(".leancloud_visitors");
-
-      $visitors.each(function () {
-        entries.push( $(this).attr("id").trim() );
-      });
-
-      query.containedIn('url', entries);
-      query.find()
-        .done(function (results) {
-          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
-
-          if (results.length === 0) {
-            $visitors.find(COUNT_CONTAINER_REF).text(0);
-            return;
-          }
-
-          for (var i = 0; i < results.length; i++) {
-            var item = results[i];
-            var url = item.get('url');
-            var time = item.get('time');
-            var element = document.getElementById(url);
-
-            $(element).find(COUNT_CONTAINER_REF).text(time);
-          }
-          for(var i = 0; i < entries.length; i++) {
-            var url = entries[i];
-            var element = document.getElementById(url);
-            var countSpan = $(element).find(COUNT_CONTAINER_REF);
-            if( countSpan.text() == '') {
-              countSpan.text(0);
-            }
-          }
-        })
-        .fail(function (object, error) {
-          console.log("Error: " + error.code + " " + error.message);
-        });
-    }
-
-    function addCount(Counter) {
-      var $visitors = $(".leancloud_visitors");
-      var url = $visitors.attr('id').trim();
-      var title = $visitors.attr('data-flag-title').trim();
-      var query = new AV.Query(Counter);
-
-      query.equalTo("url", url);
-      query.find({
-        success: function(results) {
-          if (results.length > 0) {
-            var counter = results[0];
-            counter.fetchWhenSave(true);
-            counter.increment("time");
-            counter.save(null, {
-              success: function(counter) {
-                var $element = $(document.getElementById(url));
-                $element.find('.leancloud-visitors-count').text(counter.get('time'));
-              },
-              error: function(counter, error) {
-                console.log('Failed to save Visitor num, with error message: ' + error.message);
-              }
-            });
-          } else {
-            var newcounter = new Counter();
-            /* Set ACL */
-            var acl = new AV.ACL();
-            acl.setPublicReadAccess(true);
-            acl.setPublicWriteAccess(true);
-            newcounter.setACL(acl);
-            /* End Set ACL */
-            newcounter.set("title", title);
-            newcounter.set("url", url);
-            newcounter.set("time", 1);
-            newcounter.save(null, {
-              success: function(newcounter) {
-                var $element = $(document.getElementById(url));
-                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
-              },
-              error: function(newcounter, error) {
-                console.log('Failed to create');
-              }
-            });
-          }
-        },
-        error: function(error) {
-          console.log('Error:' + error.code + " " + error.message);
-        }
-      });
-    }
-
-    $(function() {
-      var Counter = AV.Object.extend("Counter");
-      if ($('.leancloud_visitors').length == 1) {
-        addCount(Counter);
-      } else if ($('.post-title-link').length > 1) {
-        showTime(Counter);
-      }
-    });
-  </script>
-
-
 
   
+
 
 </body>
 </html>
